@@ -12,6 +12,9 @@
 .km-nova .km-content {
   color: #32364c;
   background-color: #fff;
+  background-image: url('../images/bg.PNG');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 /* Shim */
 .km-nova .km-popup,

@@ -322,7 +322,24 @@
     margin-bottom: 0.5em;
 }
 
+ .HomepageHeader-hgroup {
+   height:100px;
+   background-image:"images/incubator.png"
+}
 
+@media  (orientation: landscape) {
+   .HomepageHeader-hgroup{
+       display:none;
+      
+   }
+    #video-display{
+        height:100px;
+        background-color: #000;
+    }
+    .km-header{
+        display:none;
+    }
+}
 /* START_CUSTOM_CODE_kendoUiMobileApp */
 
 

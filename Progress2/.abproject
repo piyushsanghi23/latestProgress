@@ -3,7 +3,7 @@
   "ProjectGuid": "33fd3aeb-1519-49a1-b5fd-8e8b70c10648",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.Progress2",
-  "DisplayName": "Progress2",
+  "DisplayName": "Progress",
   "Author": "",
   "Description": "Progress2",
   "BundleVersion": "1.0",
@@ -14,9 +14,21 @@
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "4.0.0",
+  "FrameworkVersion": "5.0.0",
   "AndroidPermissions": [
-    "android.permission.INTERNET"
+    "android.permission.ACCESS_CHECKIN_PROPERTIES",
+    "android.permission.ACCESS_COARSE_LOCATION",
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS",
+    "android.permission.ACCESS_MOCK_LOCATION",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.ACCESS_SURFACE_FLINGER",
+    "android.permission.ACCESS_WIFI_STATE",
+    "android.permission.BIND_WALLPAPER",
+    "android.permission.BLUETOOTH",
+    "android.permission.BLUETOOTH_ADMIN",
+    "android.permission.INTERNET",
+    "android.permission.LOCATION_HARDWARE"
   ],
   "DeviceOrientations": [
     "Portrait",

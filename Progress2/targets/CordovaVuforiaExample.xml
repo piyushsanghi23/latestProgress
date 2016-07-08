@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="halfPattern" size="50.000000 42.462421">
+      <VirtualButton name="b1" rectangle="-28.0 0.0 -15.0 10.0" enabled="true" />
+      <VirtualButton name="b2" rectangle="-14.0 0.0 -1.0 10.0" enabled="true" />
+      <VirtualButton name="b3" rectangle="0.0 0.0 13.0 10.0" enabled="true" />
+      <VirtualButton name="b4" rectangle="14.0 0.0 27.0 10.0" enabled="true" />
+    </ImageTarget>
+    <ImageTarget name="stones_hires" size="50.000000 35.000000" />
+  </Tracking>
+</QCARConfig>

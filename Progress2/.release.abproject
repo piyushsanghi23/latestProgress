@@ -1,5 +1,7 @@
 {
   "CorePlugins": [
+    "com.chariotsolutions.nfc.plugin@0.6.6",
+    "com.phonegap.plugins.barcodescanner@5.0.1",
     "cordova-plugin-battery-status",
     "cordova-plugin-camera",
     "cordova-plugin-contacts",
@@ -18,6 +20,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "net.yoik.cordova.plugins.screenorientation@1.4.0"
   ]
 }

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-vuforia"
+        version="2.1.0">
+    <name>VuforiaPlugin</name>
+    <description>Cordova Vuforia Buttons Plugin</description>
+    
+    <keywords>cordova,vuforia,image,recognition,augmented,reality</keywords>
+    
+
+    <js-module src="www/VuforiaPlugin.js" name="VuforiaPlugin">
+        <clobbers target="navigator.VuforiaPlugin" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <!-- Plugin Config -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VuforiaPlugin" >
+                <param name="android-package" value="com.mattrayner.vuforia.VuforiaPlugin"/>
+            </feature>
+        </config-file>
+
+        <!-- Add our permissions to the Android Manifest -->
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-feature android:glEsVersion="0x00020000" />
+            <!-- uses-feature android:name="android.hardware.camera" / -->
+
+            <uses-permission android:name="android.permission.CAMERA" />
+
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        </config-file>
+
+        <!-- Add our activities to the Android Manifest -->
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            
+            <activity
+                android:name="com.vuforia.samples.VuforiaSamples.app.VirtualButtons.VirtualButtons"
+                android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+                android:theme="@style/SampleAppsTheme"
+                android:launchMode="singleTask"
+                >
+            </activity>
+            
+            
+        </config-file>
+
+        <!-- Add our required strings -->
+
+        <config-file target="res/values/strings.xml" parent="/*">
+            <string name="launcher_name">@string/app_name</string>
+            <string name="activity_name">@string/launcher_name</string>
+
+            <string name="button_OK">OK</string>
+            <string name="button_start">Start</string>
+
+            <string name="INIT_ERROR">Error</string>
+            <string name="INIT_ERROR_DEVICE_NOT_SUPPORTED">Failed to initialize Vuforia. This device is not supported.</string>
+            <string name="INIT_ERROR_NO_CAMERA_ACCESS">Failed to initialize Vuforia. Camera not accessible</string>
+            <string name="INIT_LICENSE_ERROR_MISMATCH_KEY">Vuforia App key is not valid for this product. Please get a valid key, by logging into your account at developer.vuforia.com and choosing the right product type during project creation.</string>
+            <string name="INIT_LICENSE_ERROR_MISSING_KEY">Vuforia App key is missing. Please get a valid key, by logging into your account at developer.vuforia.com and creating a new project.</string>
+            <string name="INIT_LICENSE_ERROR_INVALID_KEY">Invalid Key used. Please make sure you are using a valid Vuforia App Key.</string>
+            <string name="INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT">Unable to contact server. Please try again later.</string>
+            <string name="INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT">No network available. Please make sure you are connected to the Internet.</string>
+            <string name="INIT_LICENSE_ERROR_CANCELED_KEY">This app license key has been canceled and may no longer be used. Please get a new license key.</string>
+            <string name="INIT_LICENSE_ERROR_PRODUCT_TYPE_MISMATCH">Vuforia App key is not valid for this product. Please get a valid key, by logging into your account at developer.vuforia.com and choosing the right product type during project creation.</string>
+            <string name="INIT_LICENSE_ERROR_UNKNOWN_ERROR">Failed to initialize Vuforia.</string>
+            <string name="menu_back">About</string>
+            <string name="menu_extended_tracking">Extended Tracking</string>
+            <string name="menu_flash">Flash</string>
+            <string name="menu_flash_error_on">Unable to turn on flash</string>
+            <string name="menu_flash_error_off">Unable to turn off flash</string>
+            <string name="menu_contAutofocus">Autofocus</string>
+            <string name="menu_contAutofocus_error_on">Unable to activate Continuous Auto-Focus</string>
+            <string name="menu_contAutofocus_error_off">Unable to deactivate Continuous Auto-Focus</string>
+            <string name="menu_playFullscreenVideo">Play Fullscreen</string>
+            <string name="menu_camera">CAMERA</string>
+            <string name="menu_camera_front">Front</string>
+            <string name="menu_camera_back">Rear</string>
+
+            <string name="splash_screen_description">Vuforia Splash</string>
+        </config-file>
+
+        <!-- Plugin Source -->
+        <source-file src="src/android/VuforiaPlugin.java" target-dir="src/com/mattrayner/vuforia" />
+
+        <!-- Libraries -->
+        <source-file src="src/vuforia/jniLibs/armeabi/libVuforia.so" target-dir="libs/armeabi-v7a" />
+        <source-file src="src/vuforia/Vuforia.jar" target-dir="libs" />
+
+        <!-- Assets -->
+        <resource-file src="src/android/res/drawable/icon.png" target="res/drawable/icon.png" />
+          <resource-file src="src/android/res/drawable/logo.png" target="res/drawable/logo.png" />
+          <resource-file src="src/android/res/drawable/vuforia_splash.png" target="res/drawable/vuforia_splash.png" />
+          <!-- resource-file src="src/android/res/drawable-hdpi/icon.png" target="res/drawable-hdpi/icon.png" />
+          <resource-file src="src/android/res/drawable-hdpi/logo.png" target="res/drawable-hdpi/logo.png" />
+          <resource-file src="src/android/res/drawable-ldpi/icon.png" target="res/drawable-ldpi/icon.png" />
+          <resource-file src="src/android/res/drawable-ldpi/logo.png" target="res/drawable-ldpi/logo.png" />
+          <resource-file src="src/android/res/drawable-mdpi/icon.png" target="res/drawable-mdpi/icon.png" />
+          <resource-file src="src/android/res/drawable-mdpi/logo.png" target="res/drawable-mdpi/logo.png" />
+          <resource-file src="src/android/res/drawable-xhdpi/icon.png" target="res/drawable-xhdpi/icon.png" />
+          <resource-file src="src/android/res/drawable-xhdpi/logo.png" target="res/drawable-xhdpi/logo.png" />
+          <resource-file src="src/android/res/drawable-xxhdpi/icon.png" target="res/drawable-xxhdpi/icon.png" />
+          <resource-file src="src/android/res/drawable-xxhdpi/logo.png" target="res/drawable-xxhdpi/logo.png" / -->
+           <resource-file src="src/android/res/layout/about_screen.xml" target="res/layout/about_screen.xml" />
+          <resource-file src="src/android/res/layout/camera_overlay.xml" target="res/layout/camera_overlay.xml" />
+          <resource-file src="src/android/res/layout/fullscreen_layout.xml" target="res/layout/fullscreen_layout.xml" />
+          <resource-file src="src/android/res/layout/sample_app_menu_group.xml" target="res/layout/sample_app_menu_group.xml" />
+          <resource-file src="src/android/res/layout/sample_app_menu_group_divider.xml" target="res/layout/sample_app_menu_group_divider.xml" />
+          <resource-file src="src/android/res/layout/sample_app_menu_group_radio_button.xml" target="res/layout/sample_app_menu_group_radio_button.xml" />
+          <resource-file src="src/android/res/layout/sample_app_menu_layer.xml" target="res/layout/sample_app_menu_layer.xml" />
+          <resource-file src="src/android/res/layout/splash_screen.xml" target="res/layout/splash_screen.xml" />
+                  <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml" />
+                  <resource-file src="src/android/res/values/dimens.xml" target="res/values/dimens.xml" />
+                  <!-- resource-file src="src/android/res/values/strings.xml" target="res/values/strings.xml" / -->
+                  <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml" />      
+        
+                  <!--resource-file src="src/android/res/values-hdpi/dimens.xml" target="res/values-hdpi/dimens.xml" />
+                  <resource-file src="src/android/res/values-ldpi/dimens.xml" target="res/values-ldpi/dimens.xml" />
+
+                  <resource-file src="src/android/res/values-mdpi/dimens.xml" target="res/values-mdpi/dimens.xml" />
+                  <resource-file src="src/android/res/values-xhdpi/dimens.xml" target="res/values-xhdpi/dimens.xml" />
+                  <resource-file src="src/android/res/values-xxhdpi/dimens.xml" target="res/values-xxhdpi/dimens.xml" / -->
+                  <resource-file src="src/android/res/values-v13/styles.xml" target="res/values-v13/styles.xml" />
+
+        
+        <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video/KeyFrameShaders.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video" />
+        <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video/FullscreenPlayback.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video" />
+        <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video/VideoDrawer.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video/VideoPlaybackShaders.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video/VideoPlayerHelper.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/video" />
+
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/AgendaDrawer.java"
+                     target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/KeyFrameShaders.java"
+            target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/TextureDrawer.java"
+            target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/VirtualButtonRenderer.java"
+            target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons" />
+         <source-file src="src/android/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons/VirtualButtons.java"
+            target-dir="src/java/com/vuforia/samples/VuforiaSamples/app/VirtualButtons" />
+         
+
+
+        <source-file src="src/android/java/com/vuforia/samples/SampleApplication/SampleApplicationControl.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication" />
+        <source-file src="src/android/java/com/vuforia/samples/SampleApplication//SampleApplicationException.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/" />
+        <source-file src="src/android/java/com/vuforia/samples/SampleApplication/SampleApplicationSession.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/" />
+        
+        
+        <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/CubeObject.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+        <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/CubeShaders.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/LineShaders.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/LoadingDialogHandler.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/MeshObject.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/SampleApplication3DModel.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/SampleApplicationGLView.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/SampleMath.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/SampleUtils.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/Teapot.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+         <source-file src="src/android/java/com/vuforia/samples/SampleApplication/utils/Texture.java"
+                     target-dir="src/java/com/vuforia/samples/SampleApplication/utils" />
+        
+
+        <!-- Include our resources -->
+        <resource-file src="targets/PluginTest.dat"
+                       target="assets/PluginTest.dat" />
+        <resource-file src="targets/PluginTest.xml"
+                       target="assets/PluginTest.xml" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <hook type="after_plugin_install" src="hooks/AfterPluginInstall.js" />
+        <hook type="before_plugin_uninstall" src="hooks/BeforePluginUninstall.js" />
+
+        <!-- config file -->
+        <config-file target="config.xml" parent="/*">
+            <feature name="VuforiaPlugin">
+                <param name="ios-package" value="VuforiaPlugin" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/VuforiaPlugin.h" />
+        <source-file src="src/ios/VuforiaPlugin.m" />
+        <header-file src="src/ios/ViewController.h" />
+        <source-file src="src/ios/ViewController.mm" />
+
+        <framework src="AVFoundation.framework" weak="true" />
+        <framework src="CoreGraphics.framework" weak="true" />
+        <framework src="CoreMedia.framework" weak="true" />
+        <framework src="CoreMotion.framework" weak="true" />
+        <framework src="CoreVideo.framework" weak="true" />
+        <framework src="Foundation.framework" weak="true" />
+        <framework src="OpenGLES.framework" weak="true" />
+        <framework src="QuartzCore.framework" weak="true" />
+        <framework src="Security.framework" weak="true" />
+        <framework src="SystemConfiguration.framework" weak="true" />
+        <framework src="UIKit.framework" weak="true" />
+
+        <source-file src="src/vuforia/lib/arm/libVuforia.a" target-dir="libs" framework="true" />
+
+
+        <header-file src="src/ios/ImageTargets/ImageTargetsEAGLView.h" />
+        <source-file src="src/ios/ImageTargets/ImageTargetsEAGLView.mm" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/ImageTargets/ImageTargetsViewController.h" />
+        <source-file src="src/ios/ImageTargets/ImageTargetsViewController.mm" compiler-flags="-fno-objc-arc"/>
+
+
+        <source-file src="src/ios/Utils/ApplicationSession.h" />
+        <source-file src="src/ios/Utils/ApplicationSession.mm" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/Utils/GLResourceHandler.h" />
+
+
+        <resource-file src="src/ios/VuforiaPlugin.bundle" />
+        <resource-file src="src/ios/Utils/shaders/Line.fragsh" target-dir="com.mattrayner.vuforia/shader" />
+        <resource-file src="src/ios/Utils/shaders/Line.vertsh" target-dir="com.mattrayner.vuforia/shader" />
+        <resource-file src="src/ios/Utils/shaders/Simple.fragsh" target-dir="com.mattrayner.vuforia" />
+        <resource-file src="src/ios/Utils/shaders/Simple.vertsh" target-dir="com.mattrayner.vuforia" />
+
+
+        <resource-file src="targets/PluginTest.dat" target-dir="com.mattrayner.vuforia" />
+        <resource-file src="targets/PluginTest.xml" target-dir="com.mattrayner.vuforia" />
+
+        <resource-file src="src/ios/Assets/ImageTargets/close-button.png" target-dir="Resources" />
+        <resource-file src="src/ios/Assets/ImageTargets/iOSDevices.png" target-dir="Resources" />
+    </platform>
+</plugin>

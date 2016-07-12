@@ -224,8 +224,9 @@ public class TextureDrawer {
         float[] targetPositionOffsets = getTargetPositionOffsets(target);
 
         if(target>1){
-            if ((intersection.getData()[0] >= ( targetPositionOffsets[0] - 12 ))
-                    && (intersection.getData()[0] <= ( targetPositionOffsets[0] + 12))){
+            if ((intersection.getData()[0] >= (  - 12 ))
+                    && (intersection.getData()[0] <= ( 12))
+					&& (intersection.getData()[1] <= 0)){
                 VirtualButtonRenderer.currentTarget = target + 4;
                 Log.d(LOGTAG, "Target hit :: " + target);
                 Log.d(LOGTAG, "Current Target updated to :: " + VirtualButtonRenderer.currentTarget);
@@ -234,10 +235,10 @@ public class TextureDrawer {
                 return false;
         }
 
-        if ((intersection.getData()[0] >= ( targetPositionOffsets[0] - 12 ))
-                && (intersection.getData()[0] <= ( targetPositionOffsets[0] + 12))
-                && (intersection.getData()[1] >= (targetPositionOffsets[1] - 12))
-                && (intersection.getData()[1] <= (targetPositionOffsets[1] + 12))){
+        if ((intersection.getData()[0] >= ( - 12 ))
+                && (intersection.getData()[0] <= ( 12))
+                && (intersection.getData()[1] >= (- 12))
+                && (intersection.getData()[1] <= (12))){
 
             VirtualButtonRenderer.currentTarget = target + 4;
             Log.d(LOGTAG, "Target hit :: " + target);

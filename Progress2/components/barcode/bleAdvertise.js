@@ -1,59 +1,98 @@
+var deviceArray = [];
+var rssiArray = [];
 var i = 1;
+var bytes, encodedString,x;
 
+var val = "xyx";
+//var profile_id1=bluetoothle.encodedStringToBytes(profile_id)
+//var profile_id1=stringToBytes(profile_id);
 function myfun2() {
-    alert(8);
-    /*navigator.notification.confirm("my fun2",function(){});
-    pushNotification.registerDevice(
-        function (token) {
-            alert(JSON.stringify(token));
+    ble.isEnabled(
+        function () {
+            ble.startScan([], function (device) {
+                    deviceArray.push(device.id);
+                    rssiArray.push(device.rssi);
+                    document.getElementById("bleButton").style.display = "none";
+                    // alert("for test" + JSON.stringify(device));
+                    var deviceList = document.getElementById("deviceList");
+                    var listItem = document.createElement('li');
+                    listItem.setAttribute("id", "beacon");
+                    var html = '<b> Beacon id:</b><br/>' + device.id + '&nbsp;|&nbsp;Name: ' + device.name + '&nbsp;|&nbsp;RSSI: ' + device.rssi;
+                    //listItem.dataset.deviceId = device.id;
+                    listItem.innerHTML = html;
+                    deviceList.appendChild(listItem);
+                },
+                function (error) {
+                    alert("error");
+                });
+            setTimeout(function () {
+                ble.stopScan(
+                    function () {
+                        alert("Scan complete");
+                    },
+                    function () {
+                        alert("stopScan failed");
+                    }
+                );
+            }, 15000);
+
+
         },
-        function (status) {
-            alert("failed to register: " + status);
+        function () {
+            alert("Bluetooth is *not* enabled");
         }
-    );*/
+    );
+}
+
+function advertise() {
     bluetoothle.initialize(function (result) {
-        alert("initialze" + JSON.stringify(result));
+        //alert("initialze" + JSON.stringify(result));
+        bytes = bluetoothle.stringToBytes(profile_id);
+        encodedString = bluetoothle.bytesToEncodedString(bytes);
+        alert(bytes+"   "+encodedString)
     }, {
         request: true,
         statusReceiver: false
     });
-    bluetoothle.startScan(function (data) {
-        //alert(JSON.stringify(data));
-    }, function (err) {
-        //alert(JSON.stringify(err));
-    }, {
-        "services": [],
-    });
-    /*setTimeout(nfc.addNdefListener(
-        function (nfcEvent) {
-            var tag = nfcEvent.tag,
-                ndefMessage = tag.ndefMessage;
-            alert(JSON.stringify(ndefMessage));
 
-            alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
-        },
-        function () {
-            alert("Waiting for NDEF tag");
-        },
-        function (error) {
-            alert("Error adding NDEF listener " + JSON.stringify(error));
-        }
-    ),5);*/
     bluetoothle.initializePeripheral(function (result) {
-        alert("initialze" + JSON.stringify(result));
+        //alert("initialze" + JSON.stringify(result));
     }, {
         request: true,
         statusReceiver: false
     });
     bluetoothle.addService(function (result) {
-        alert("success advertising" + JSON.stringify(result) + "data is ");
+        //alert("success service" + JSON.stringify(result));
     }, function (error) {
-        alert(JSON.stringify(error));
+        //alert(JSON.stringify(error));
     }, {
         service: "1234",
         characteristics: [
             {
-                uuid: "2f234454-cf6d-4a0f-adf2-f4911ba9ffa9",
+                uuid: "1234",
+                permissions: {
+                    read: true,
+                    write: true,
+                    //readEncryptionRequired: true,
+                    //writeEncryptionRequired: true,
+                },
+                properties: {
+                    read: true,
+                    writeWithoutResponse: true,
+                    write: true,
+                    notify: true,
+                    indicate: true,
+                    //authenticatedSignedWrites: true,
+                    //notifyEncryptionRequired: true,
+                    //indicateEncryptionRequired: true,
+                }
+    					}
+  							]
+    }, {
+        service: "1235",
+        characteristics: [
+            {
+                uuid: "1235",
                 permissions: {
                     read: true,
                     write: true,
@@ -73,123 +112,47 @@ function myfun2() {
     					}
   							]
     });
-
+    // alert( " " + profile_id1);
     bluetoothle.startAdvertising(function (result) {
-        alert("success advertising" + JSON.stringify(result) + "data is " + bluetoothle.stringToBytes("1234"));
+        alert(bytes+"   "+encodedString);
+        alert("success advertising" + JSON.stringify(result));
     }, function (error) {
-        alert(JSON.stringify(error));
+        alert("error" + JSON.stringify(error));
     }, {
-        services: ["1234"],
-        service: "1234",
-        name: "Hello World",
+        services: ["1235"],
+        service: "1235",
         mode: "lowLatency",
-        connectable: true,
         timeout: 500,
-        powerLevel: "high",
-
+        powerLevel: "low",
+        manufacturerId: 0x004C,
+       //manufacturerSpecificData:  bluetoothle.bytesToEncodedString(profile_id),
+       //manufacturerSpecificData: 'OTg0MTEyMzQ1'
+       manufacturerSpecificData: encodedString,
 
     });
-    
-    /*  ble.isEnabled(
-
-          function () {
-              ble.startScan([], function (device) {
-                      //alert(JSON.stringify(device));
-                      //
-                      if (i == 1) {
-
-                          //ID.sensor_id = device.id; 
-                          sensor_id = device.id;
-                      }
-                      i = i + 1;
-                      //alert("inside");
-
-                      document.getElementById("bleButton").style.display = "none";
-                      //alert("for test" + JSON.stringify(device));
-                      var deviceList = document.getElementById("deviceList");
-                      var listItem = document.createElement('li');
-                      listItem.setAttribute("id", "beacon");
-                      var html = '<b> Beacon id:</b><br/><label id="beacon" >' + device.id + '</label>&nbsp;|&nbsp;RSSI: ' + device.rssi;
-                      listItem.dataset.deviceId = device.id; // TODO
-                      listItem.innerHTML = html;
-                      deviceList.appendChild(listItem);
-
-
-
-                      ble.stopScan(
-
-                          function () {
-                              //alert("Scan complete");
-                          },
-                          function () {
-                              alert("stopScan failed");
-                          }
-                      );
-
-
-
-                  },
-                  function (error) {
-                      alert("error");
-                  });
-
-
-          },
-          function () {
-              alert("Bluetooth is *not* enabled");
-          }
-
-
-
-      );*/
-
-
-
-    //alert(sensor_id);
-
-
 }
 
 function myfun3() {
-    /*setTimeout(bluetoothle.connect(function (res) {
-        alert(JSON.stringify(res));
-    }, function (err) {
-        alert(JSON.stringify(err));
-        bluetoothle.disconnect(function (res) {
-            alert(JSON.stringify(res));
-        }, function (err) {
-            alert(JSON.stringify(err));
-        }, {
-            "address": sensor_id
-        });
-         bluetoothle.reconnect(function (res) {
-                        alert(JSON.stringify(res));
-                    }, function (err) {
-                        alert(JSON.stringify(err));
-                    }, {
-                        "address": sensor_id
-                    });
-    }, {
-        "address": sensor_id
-    }), 5000);*/
-    /*  bluetoothle.requestLocation(function (res) {
-          alert(JSON.stringify(res));
-      }, function (err) {
-          alert(JSON.stringify(err));
-      });*/
+    var max = indexOfMax(rssiArray);
 
-    /* ble.connect(sensor_id, function (res) {
-         alert("hello connect");
-         alert("connected" + JSON.strinigify(res) + sensor_id.service_uuid);
+    sensor_id = deviceArray[max];
+    alert(sensor_id);
+}
 
-         ble.read(sensor_id, service_uuid, characteristic_uuid, function (res) {
-             alert(JSON.stringify(res));
-         }, function (err) {
-             alert("error in read" + JSON.stringify(err));
-         });
-     }, function (err) {
-         alert("eror" + JSON.stringify(err));
-     });*/
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
 
+    var max = arr[0];
+    var maxIndex = 0;
 
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+
+    return maxIndex;
 }

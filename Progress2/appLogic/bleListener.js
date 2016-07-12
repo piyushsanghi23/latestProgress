@@ -6,16 +6,8 @@ app.startScanForBeacons = function () {
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function (pluginResult) {
-
         
         //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
-
-
-        //window.on("components/barcode/view.html",'_self');
-        //VideoPlayer.close();
-
-
-        
 
     }
 
@@ -57,15 +49,6 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
 
     if (0 == pluginResult.beacons.length) {
         close();
-
-
-        // $('#video-display source').attr('src', 'videos/first.mp4');
-        //   $('#video-display').load();
-        // $('#video-display').play();
-        //$('#video-display').hide();
-        //$('#player').hide();
-        //window.location = "components/homeView/view.html"
-        //document.getElementById('player').style.display = 'none'
         return
     }
 
@@ -88,15 +71,10 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
         // $("#appendSection").append(x1);
         var x1 = currentBeacon == pluginResult.beacons[0].uuid;
         if (!x1) {
-            stopVuforia();
+            //stopVuforia();
             counter=0;
             currentBeacon = pluginResult.beacons[0].uuid;
-            //$("#appendSection").append("currentBeacon value 1" + currentBeacon);
-            //currentBeacon = appState.uuid;
-            //$("#appendSection").append("currentBeacon" + currentBeacon);
-            
-
-            if (currentBeacon == "f7028248-68b4-4f65-8087-d5d5cb3a1cbd") {
+            if (currentBeacon == "f7028248-68b4-4f65-8087-d5d5cb3a1cb") {
 
                 //window.location = "components/homeView/view.html"
                 $('#place').html("you are at beacon 1");
@@ -197,7 +175,7 @@ function close() {
                 $('#player').hide();
                 $('#video-display')[0].pause();
                 if(counter==0){
-                 startVuforia();
+                 //startVuforia();
                     counter++;
                 }
             }

@@ -16,12 +16,19 @@
     };
 
     if (window.cordova) {
-         
+
         document.addEventListener('deviceready', function () {
-           
+
             //$('#player').hide();
-           /* document.addEventListener("backbutton", function(){
-            navigator.app.exitApp();
+          /*  document.addEventListener("backbutton", function () {
+                
+                if ($.mobile.activePage.is('#homepage')) {
+                    //window.location = "#exitDialog";
+                   
+                    navigator.app.exitApp();
+                } else {
+                    history.back();
+                };
             }, false);*/
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
@@ -45,11 +52,10 @@
             }
 
             bootstrap();
+            //startVuforia();
 
-            //alert("hello" + JSON.stringify(window.locationManager));
-            startVuforia();
-            
             app.startScanForBeacons()
+            advertise();
 
         }, false);
 

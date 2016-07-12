@@ -20,7 +20,8 @@ app.beaconRegions = [
         minor: 1
     }
     ]
-var profile_id, sensor_id, beacon_proximity, page_id, b, flag = 0;
+var sensor_id, beacon_proximity, page_id, b, flag = 0;
+var profile_id="984112345";
 var currentBeacon="";
 var appState = [{
     uuid: '',

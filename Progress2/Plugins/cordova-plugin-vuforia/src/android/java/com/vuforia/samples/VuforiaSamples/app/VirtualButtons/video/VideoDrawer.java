@@ -543,9 +543,9 @@ public class VideoDrawer {
 
             // The pose delivers the center of the target, thus the dimensions
             // go from -width/2 to width/2, same for height
-            //temp[0] = targetPositiveDimensions[currentTarget].getData()[0] ;
-            //temp[1] = targetPositiveDimensions[currentTarget].getData()[1] / 1.5f;
-            //targetPositiveDimensions[currentTarget].setData(temp);
+            temp[0] = targetPositiveDimensions[currentTarget].getData()[0] / 2.0f;
+            temp[1] = targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
+            targetPositiveDimensions[currentTarget].setData(temp);
 
             // If the movie is ready to start playing or it has reached the end
             // of playback we render the keyframe
@@ -642,7 +642,7 @@ public class VideoDrawer {
                 GLES20.glVertexAttribPointer(videoPlaybackNormalHandle, 3,
                         GLES20.GL_FLOAT, false, 0, quadNormals);
 
-                if (imageTarget.getName().compareTo("FPJpg") == 0)
+                if (imageTarget.getName().compareTo("halfPattern") == 0)
                     GLES20.glVertexAttribPointer(videoPlaybackTexCoordHandle,
                             2, GLES20.GL_FLOAT, false, 0,
                             fillBuffer(videoQuadTextureCoordsTransformedStones));

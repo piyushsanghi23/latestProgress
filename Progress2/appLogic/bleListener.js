@@ -1,21 +1,21 @@
 'use strict';
 var counter = 0;
-app.startScanForBeacons = function () {
-    // alert('startScanForBeacons')
+app.startScanForBeacons = function() {
+    //alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
-    delegate.didDetermineStateForRegion = function (pluginResult) {
-        
+    delegate.didDetermineStateForRegion = function(pluginResult) {
+
         //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
-    delegate.didStartMonitoringForRegion = function (pluginResult) {
+    delegate.didStartMonitoringForRegion = function(pluginResult) {
         // alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
     }
 
-    delegate.didRangeBeaconsInRegion = function (pluginResult) {
+    delegate.didRangeBeaconsInRegion = function(pluginResult) {
         //alert('didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult))
         app.didRangeBeaconsInRegion(pluginResult)
     }
@@ -44,7 +44,7 @@ app.startScanForBeacons = function () {
 var m = -60;
 var time = '';
 // Display pages depending of which beacon is close.
-app.didRangeBeaconsInRegion = function (pluginResult) {
+app.didRangeBeaconsInRegion = function(pluginResult) {
     // There must be a beacon within range.
 
     if (0 == pluginResult.beacons.length) {
@@ -66,41 +66,38 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
     if ((pluginResult.beacons[0].proximity == 'ProximityImmediate' ||
             pluginResult.beacons[0].proximity == 'ProximityNear')) {
         //{
-        
+
         time = new Date();
         // $("#appendSection").append(x1);
         var x1 = currentBeacon == pluginResult.beacons[0].uuid;
         if (!x1) {
             //stopVuforia();
-            counter=0;
+            // alert("p");
+            //document.getElementById('link').click();
+            //alert("0"):
+            counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
-            if (currentBeacon == "f7028248-68b4-4f65-8087-d5d5cb3a1cb") {
+            if (currentBeacon == "f7028248-68b4-4f65-8087-d5d5cb3a1cbd") {
 
                 //window.location = "components/homeView/view.html"
                 $('#place').html("you are at beacon 1");
                 $('#placeDescription').html("welcome to canteen");
-
                 vibrate();
                 //screen.lockOrientation('landscape');
-                 $('#image').hide();
+                $('#image').hide();
                 $('#player').show();
                 $('#video-display ').show();
+                //
                 //$("#appendSection").html("video" + currentBeacon);
                 //
-               $('#video-display  source').attr('src', 'videos/incubator_x264.mp4');
-                 //$('#iframe-display').attr('src', 'https://www.youtube.com/watch?v=H-PWeICLvDw');
-               // document.getElementById('iframe-display').src
+                $('#video-display  source').attr('src', 'videos/incubator_x264.mp4');
+
+                //$('#iframe-display').attr('src', 'https://www.youtube.com/watch?v=H-PWeICLvDw');
+                // document.getElementById('iframe-display').src
                 autoplay();
 
-                //var vid = document.getElementById('video-display');
-                //$('#video-display')[0].onended=function(){
-                //alert("complete");}
-                /* if(vid.ended){
-                     alert("I'm done!");
-                 }
-                 else
-                     alert("I'm done44!");*/
-                //screen.unlockOrientation();
+
+
 
             }
             if (currentBeacon == "2f234454-cf6d-4a0f-adf2-f4911ba9ffa9") {
@@ -111,11 +108,11 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
 
                 //$('player').show();
                 //$("#appendSection").html("video" + currentBeacon);
-                
+
                 $('#video-display').hide();
                 $('#video-display')[0].pause();
                 $('#player').show();
-                
+
                 $('#image').show();
                 //autoplay();
             }
@@ -147,10 +144,10 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
 }
 
 function vibrate() {
-    var myVar = setInterval(function () {
+    var myVar = setInterval(function() {
         navigator.vibrate(500);
     }, 2000);
-    setTimeout(function () {
+    setTimeout(function() {
         clearTimeout(myVar)
     }, 7500);
 }
@@ -171,11 +168,11 @@ function close() {
             // $("#appendSection").append(Seconds_from_T1_to_T2 + '<br>');
             if (Seconds_from_T1_to_T2 >= 8) {
                 currentBeacon = '';
-				//$("#appendSection").append(Seconds_from_T1_to_T2 + '<br>');
+                //$("#appendSection").append(Seconds_from_T1_to_T2 + '<br>');
                 $('#player').hide();
                 $('#video-display')[0].pause();
-                if(counter==0){
-                 //startVuforia();
+                if (counter == 0) {
+                    //startVuforia();
                     counter++;
                 }
             }

@@ -12,13 +12,12 @@
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
     <script src="appLogic/bleListener.js"></script>
-    <script src="appLogic/appActions.js"></script>
+    <script src="components/check/index.js"></script>
     <script src="globalVariables.js"></script>
     <script src="components/barcode/bleAdvertise.js"></script>
-    <script src="components/barcode/qrScan.js"></script>
+    <script src="components/homeView/index.js"></script>
     <script src="components/culture/index.js"></script>
-   
-     <script src="components/ARVideo/view.js"></script>
+    <script src="components/ARVideo/view.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
@@ -28,12 +27,12 @@
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
-                
+
                 <img src="images/icon.png" data-align="center">
-                <span  data-role="view-title"></span>
+                <span data-role="view-title"></span>
                 <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-                <a data-role="button" data-align="right" onclick="startVuforia()" >AR</a>
-                
+                <a data-role="button" data-align="right" onclick="startVuforia()">AR</a>
+
             </div>
         </header>
     </div>
@@ -44,7 +43,7 @@
             </div>
         </header>
     </div>
-   <div id="appDrawer" data-role="drawer" data-title="Progress">
+    <div id="appDrawer" data-role="drawer" data-title="Progress">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
@@ -57,7 +56,7 @@
             <li><a href="components/culture/explore.html" data-icon="about">Explore@Progress</a></li>
             <li><a href="components/feedback/feedback.html" data-icon="about">Feedback</a></li>
             <li><a href="components/contact/contact.html" data-icon="about">Contact Us</a></li>
-            <li><a href="components/check/check.html" >Test</a></li>
+            <li><a href="components/check/check.html">Test</a></li>
         </ul>
     </div>
     <!-- START_CUSTOM_CODE_kendoUiMobileApp -->

@@ -17,7 +17,6 @@
   "FrameworkVersion": "5.0.0",
   "AndroidPermissions": [
     "android.permission.ACCESS_CHECKIN_PROPERTIES",
-    "android.permission.ACCESS_COARSE_LOCATION",
     "android.permission.ACCESS_FINE_LOCATION",
     "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS",
     "android.permission.ACCESS_MOCK_LOCATION",

@@ -20,8 +20,15 @@ app.beaconRegions = [
         minor: 1
     }
     ]
+var sessionId,selectquery;
+var url_login="https://www.rollbase.com/rest/api/login?loginName=" + "sakkinen" + "&password=" + "Susmitha@2712" + "&output=json";
+var url_email="https://www.rollbase.com/rest/api/selectQuery?sessionId=";
+var url_details1="https://www.rollbase.com/rest/api/getRecord?objName=" + "Profile2" + "&sessionId=";
+var url_details2="&fieldList=" + "City,Email,CandidateGender,CandidateStartDate,CandidateName,CandidatePhoneNumber,CandidatePhoto";
 var sensor_id, beacon_proximity, page_id, b, flag = 0;
-var profile_id="984112345";
+var candidateName,candidateEmail,candidateGender,candidateCity,candidateInterviewDate,candidatePhoto;
+var log=0;
+var profile_id;
 var currentBeacon="";
 var appState = [{
     uuid: '',

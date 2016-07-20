@@ -1,16 +1,82 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
 
-</style>
+<head>
+    <script src="app.js"></script>
+    <script src="appLogic/bleListener.js"></script>
+    <script src="appLogic/appActions.js"></script>
+    <script src="globalVariables.js"></script>
+    <script src="components/barcode/bleAdvertise.js"></script>
+    <script src="components/ARVideo/view.js"></script>
+    <script src="components/homeView/index.js"></script>
+    <srcript src='components/check/index.js'></srcript>
+</head>
 
 <body style="background-color:grey;" id='homepage'>
-    <div data-role="view" data-title="Progress" data-layout="main" data-model="app.settingsView" data-show="app.settingsView.onShow" data-after-show="app.settingsView.afterShow">
-        <div id='appendSection'>
+    <div data-role="view" data-title="Progress" data-layout="main">
+
+        <div id='user_profile' style="display:none">
+            <button align='center' onclick='logout()'>
+                log out
+            </button>
+            <h2>
+                Name:<br>
+            </h2>
+            <h3 id='display_name'>
+                
+            </h3>
+            <h2>
+                Email:<br>
+            </h2>
+            <h3 id='display_email'>
+                
+            </h3>
+            <h2>
+                Gender:<br>
+            </h2>
+            <h3 id='display_gender'>
+                
+            </h3>
+            <h2>
+                City:<br>
+            </h2>
+            <h3 id='display_city'>
+                
+            </h3>
+            <!--h2>
+                Interview Date:<br>
+            </h2>
+            <h3 id='display_interviewDate'>
+                
+            </h3-->
+            <h2>
+                Photo:<br>
+            </h2>
+            <div id='profile2'>
+            </div>
         </div>
-        <div id="home" class="HomepageHeader-hgroup" style="background-image:'images/icon.png'">
-            <!--<h1 id="place" styel="padding-left:80px; !important">Welcome to Progress</h1>-->
-            <!--<h2 id="placeDescription" styel="padding-left:20px; !important">Progress Hyderabad</h2-->
+        <div id="login">
+            Email:<br>
+            <input type="email" id="email"><br>
+            <input type='submit' id='submit' onclick="authenticate()">
+            <div id="result">
+                <button id="scanButton" onclick="scan()">
+            QRcode Scan
+        </button>
+            </div>
+            <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
+        </div>
+        <div id='profile' style="display:none">
+            <a data-role='button' href='components/profile_page.html' onclick='profileDisplay()' >profile</a>
+            <a data-role='button' href='components/schedule_page.html'>Schedule</a>
+            <a data-role='button' href='components/contact_page.html'>contact</a>
+            <!--a  data-role='button' href='components/homeView/view.html' onclick="logout()" >logout</a-->
+            <button onclick='profileDisplay2()'>
+                profile
+            </button>
+            <button onclick='logout()'>
+                log out
+            </button>
         </div>
         <div id='player' style='display:none'>
             <video id="video-display" style="width:100%;height:355px;" controls autoplay="autoplay">
@@ -19,7 +85,7 @@
   </video>
             <!--iframe id="iframe-display" width="420" height="315" src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
 </iframe-->
-            <img src='images/SampleIdeaCafe1.PNG' style='width:100%;height:100%;display:none' id='image'></img>
+            <img src='images/SampleIdeaCafe1.PNG' style='width:100%;height:100%;' id='image'></img>
         </div>
         <!-- END_CUSTOM_CODE_homeView -->
     </div>

@@ -1,15 +1,15 @@
 var deviceArray = [];
 var rssiArray = [];
 var i = 1;
-var bytes, encodedString,x;
+var bytes, encodedString, x;
 
 var val = "xyx";
 //var profile_id1=bluetoothle.encodedStringToBytes(profile_id)
 //var profile_id1=stringToBytes(profile_id);
 function myfun2() {
     ble.isEnabled(
-        function () {
-            ble.startScan([], function (device) {
+        function() {
+            ble.startScan([], function(device) {
                     deviceArray.push(device.id);
                     rssiArray.push(device.rssi);
                     document.getElementById("bleButton").style.display = "none";
@@ -22,15 +22,15 @@ function myfun2() {
                     listItem.innerHTML = html;
                     deviceList.appendChild(listItem);
                 },
-                function (error) {
+                function(error) {
                     alert("error");
                 });
-            setTimeout(function () {
+            setTimeout(function() {
                 ble.stopScan(
-                    function () {
+                    function() {
                         alert("Scan complete");
                     },
-                    function () {
+                    function() {
                         alert("stopScan failed");
                     }
                 );
@@ -38,85 +38,81 @@ function myfun2() {
 
 
         },
-        function () {
+        function() {
             alert("Bluetooth is *not* enabled");
         }
     );
 }
 
 function advertise() {
-    bluetoothle.initialize(function (result) {
+    bluetoothle.initialize(function(result) {
         //alert("initialze" + JSON.stringify(result));
         bytes = bluetoothle.stringToBytes(profile_id);
         encodedString = bluetoothle.bytesToEncodedString(bytes);
-        alert(bytes+"   "+encodedString)
+        alert(bytes + "   " + encodedString)
     }, {
         request: true,
         statusReceiver: false
     });
 
-    bluetoothle.initializePeripheral(function (result) {
+    bluetoothle.initializePeripheral(function(result) {
         //alert("initialze" + JSON.stringify(result));
     }, {
         request: true,
         statusReceiver: false
     });
-    bluetoothle.addService(function (result) {
+    bluetoothle.addService(function(result) {
         //alert("success service" + JSON.stringify(result));
-    }, function (error) {
+    }, function(error) {
         //alert(JSON.stringify(error));
     }, {
         service: "1234",
-        characteristics: [
-            {
-                uuid: "1234",
-                permissions: {
-                    read: true,
-                    write: true,
-                    //readEncryptionRequired: true,
-                    //writeEncryptionRequired: true,
-                },
-                properties: {
-                    read: true,
-                    writeWithoutResponse: true,
-                    write: true,
-                    notify: true,
-                    indicate: true,
-                    //authenticatedSignedWrites: true,
-                    //notifyEncryptionRequired: true,
-                    //indicateEncryptionRequired: true,
-                }
-    					}
-  							]
+        characteristics: [{
+            uuid: "1234",
+            permissions: {
+                read: true,
+                write: true,
+                //readEncryptionRequired: true,
+                //writeEncryptionRequired: true,
+            },
+            properties: {
+                read: true,
+                writeWithoutResponse: true,
+                write: true,
+                notify: true,
+                indicate: true,
+                //authenticatedSignedWrites: true,
+                //notifyEncryptionRequired: true,
+                //indicateEncryptionRequired: true,
+            }
+        }]
     }, {
         service: "1235",
-        characteristics: [
-            {
-                uuid: "1235",
-                permissions: {
-                    read: true,
-                    write: true,
-                    //readEncryptionRequired: true,
-                    //writeEncryptionRequired: true,
-                },
-                properties: {
-                    read: true,
-                    writeWithoutResponse: true,
-                    write: true,
-                    notify: true,
-                    indicate: true,
-                    //authenticatedSignedWrites: true,
-                    //notifyEncryptionRequired: true,
-                    //indicateEncryptionRequired: true,
-                }
-    					}
-  							]
+        characteristics: [{
+            uuid: "1235",
+            permissions: {
+                read: true,
+                write: true,
+                //readEncryptionRequired: true,
+                //writeEncryptionRequired: true,
+            },
+            properties: {
+                read: true,
+                writeWithoutResponse: true,
+                write: true,
+                notify: true,
+                indicate: true,
+                //authenticatedSignedWrites: true,
+                //notifyEncryptionRequired: true,
+                //indicateEncryptionRequired: true,
+            }
+        }]
     });
     // alert( " " + profile_id1);
-    bluetoothle.startAdvertising(function (result) {
-        alert(bytes+"   "+encodedString);
+    bluetoothle.startAdvertising(function(result) {
+        alert(bytes + "   " + encodedString);
         alert("success advertising" + JSON.stringify(result));
-    }, function (error) {
+    }, function(error) {
         alert("error" + JSON.stringify(error));
     }, {
         services: ["1235"],
@@ -125,9 +121,9 @@ function advertise() {
         timeout: 500,
         powerLevel: "low",
         manufacturerId: 0x004C,
-       //manufacturerSpecificData:  bluetoothle.bytesToEncodedString(profile_id),
-       //manufacturerSpecificData: 'OTg0MTEyMzQ1'
-       manufacturerSpecificData: encodedString,
+        //manufacturerSpecificData:  bluetoothle.bytesToEncodedString(profile_id),
+        //manufacturerSpecificData: 'OTg0MTEyMzQ1'
+        manufacturerSpecificData: encodedString,
 
     });
 }
@@ -156,3 +152,6 @@ function indexOfMax(arr) {
 
     return maxIndex;
 }
+
+
+

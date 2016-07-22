@@ -7,31 +7,40 @@
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
     <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
+    <link href="components/contact/contact.css" rel="stylesheet" type="text/css">
+    <link href="components/homeView/homeView.css" rel="stylesheet" type="text/css">
+    <link href="components/check/check.css" rel="stylesheet" type="text/css">
+    <link href="components/culture/explore.css" rel="stylesheet" type="text/css">
+    <link href="components/barcode/barcode.css" rel="stylesheet" type="text/css">
+    <link href="components/feedback/feedback.css" rel="stylesheet" type="text/css">
+    <link href="components/progressPremises/progressPremises.css" rel="stylesheet" type="text/css">
+    <link href="components/settingView/settingView.css" rel="stylesheet" type="text/css">
+    <link href="components/ARVideo/ARVideo.css" rel="stylesheet" type="text/css">
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
     <script src="appLogic/bleListener.js"></script>
-    <script src="components/check/index.js"></script>
+    <script src="components/check/check.js"></script>
     <script src="globalVariables.js"></script>
     <script src="components/barcode/bleAdvertise.js"></script>
-    <script src="components/homeView/index.js"></script>
-    <script src="components/culture/index.js"></script>
-    <script src="components/ARVideo/view.js"></script>
+    <script src="components/homeView/homeView.js"></script>
+    <script src="components/culture/explore.js"></script>
+    <script src="components/ARVideo/ARVideo.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
-    <script src="components/ARVideo/view.js"></script>
-    <script src="components/settingsView/index.js"></script>
-    <script src="components/homeView/index.js"></script>
+    <script src="components/ARVideo/ARVideo.js"></script>
+    <script src="components/settingView/settingView.js"></script>
+    <script src="components/homeView/homeView.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
 
-                <img src="images/icon.png" data-align="center">
-                <span data-role="view-title"></span>
+                <img src="images/icon.png" data-align="right">
+                <span data-align="right" data-role="view-title"></span>
                 <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-                <a data-role="button" data-align="right" onclick="startVuforia()">AR</a>
+                <!--a data-role="button" data-align="right" onclick="startVuforia()">AR</a-->
 
             </div>
         </header>
@@ -43,7 +52,7 @@
             </div>
         </header>
     </div>
-    <div id="appDrawer" data-role="drawer" data-title="Progress">
+    <div id="appDrawer" data-role="drawer"  data-title="Progress">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
@@ -51,8 +60,9 @@
         </header>
         <ul id="navigation-container" data-role="listview">
             <li><a href="components/homeView/view.html" data-icon="home">Home</a></li>
-            <li><a href="components/ARVideo/view.html" data-icon="about">AR Video</a></li>
-            <li><a href="components/barcode/view.html" data-icon="search">Identify Profile</a></li>
+            <li><a href="components/ARVideo/ARVideo.html" data-icon="about">AR Video</a></li>
+            <li><a href="components/barcode/barcode.html" data-icon="search">Identify Profile</a></li>
+            <li><a href="components/progressPremises/progressPremises.html" data-icon="about">Progress Premises</a></li>
             <li><a href="components/culture/explore.html" data-icon="about">Explore@Progress</a></li>
             <li><a href="components/feedback/feedback.html" data-icon="about">Feedback</a></li>
             <li><a href="components/contact/contact.html" data-icon="about">Contact Us</a></li>

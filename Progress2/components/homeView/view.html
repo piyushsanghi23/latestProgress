@@ -7,14 +7,14 @@
     <script src="appLogic/appActions.js"></script>
     <script src="globalVariables.js"></script>
     <script src="components/barcode/bleAdvertise.js"></script>
-    <script src="components/ARVideo/view.js"></script>
-    <script src="components/homeView/index.js"></script>
-    <srcript src='components/check/index.js'></srcript>
+    <script src="components/ARVideo/ARVideo.js"></script>
+    <script src="components/homeView/homeView.js"></script>
+    <srcript src='components/check/check.js'></srcript>
+    <link href="homeView.css" rel="stylesheet" type="text/css">
 </head>
 
 <body style="background-color:grey;" id='homepage'>
     <div data-role="view" data-title="Progress" data-layout="main">
-
         <div id='user_profile' style="display:none">
             <button align='center' onclick='logout()'>
                 log out
@@ -56,18 +56,23 @@
             </div>
         </div>
         <div id="login">
-            Email:<br>
-            <input type="email" id="email"><br>
-            <input type='submit' id='submit' onclick="authenticate()">
-            <div id="result">
-                <button id="scanButton" onclick="scan()">
-            QRcode Scan
+            <p id="wel_text">
+                Welcome to the Progress Interview Experience!
+            </p>
+            <p id="email_txt">Email Address</p>
+            <input type="email" id="email_box">
+            <button class="my_button" type='submit' id='submit' onclick="authenticate()">Submit</button>
+            <p id="or_txt">
+                OR
+            </p>
+            <p id="scan_qr_txt">Scan QR Code</p>
+            <button class="my_button" id="scanButton" onclick="scan()">
+             Scan
         </button>
-            </div>
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
         </div>
         <div id='profile' style="display:none">
-            <a data-role='button' href='components/profile_page.html' onclick='profileDisplay()' >profile</a>
+            <a data-role='button' href='components/profile_page.html' onclick='profileDisplay()'>profile</a>
             <a data-role='button' href='components/schedule_page.html'>Schedule</a>
             <a data-role='button' href='components/contact_page.html'>contact</a>
             <!--a  data-role='button' href='components/homeView/view.html' onclick="logout()" >logout</a-->

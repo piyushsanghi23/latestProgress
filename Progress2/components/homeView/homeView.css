@@ -1,15 +1,42 @@
-body {
+/* HOME-VIEW CSS */
+
+#wel_text {
+    font-family: verdana;
+    font-size: 100%;
+    color: black;
+    text-align: center;
+    margin-top: 170px;
 }
-p{
-    font-family:verdana;font-size: 150%;color:black;text-align: center;
+#email_txt {
+    font-family: verdana;
+    text-align: center;
+    font-size: 100%;
+    color: #B0BDCC;
+    margin-bottom: 0px;
 }
-.button {
-    background-color: #4CAF50; /* Green */
+#email_box {
+    border-style: ridge;
+    margin: 0 auto;
+    display: block;
+}
+#or_txt {
+    font-family: verdana;
+    font-size: 90%;
+    color: black;
+    text-align: center;
+}
+#scan_qr_txt {
+    font-family: verdana;
+    text-align: center;
+    font-size: 100%;
+    color: #B0BDCC;
+    margin-bottom: 0px;
+}
+.my_button {
+    margin: 0 auto;
+    display: block;
+    background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 }
+/* END OF HOME-VIEW CSS */

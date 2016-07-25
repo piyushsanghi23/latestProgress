@@ -26,13 +26,13 @@ function authenticate() {
                     url: url_email + sessionId + "&query=" + selectquery + "&output=json",
                     type: 'GET',
                     success: function(result) {
-                        //console.log("success" + JSON.stringify(result));
+                        console.log("success" + JSON.stringify(result));
                         if (result == '') {
                             alert("you are not a valid person");
                         } else {
                             //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
                             //window.open("components/profile_page.html", "_self");
-                            document.getElementById("login").style.display = 'none';
+                            //document.getElementById("login").style.display = 'none';
                             profile_id = result;
                             //alert(profile_id);
 
@@ -185,7 +185,7 @@ function scan() {
                                     //candidateInterviewDate = value1.innerHTML;
                                     value1 = value1.nextSibling.nextSibling
                                     candidateGender = value1.innerHTML;
-                                    alert("successs");
+                                    //alert("successs");
                                     profileDisplay2();
                                     // myfun();
 
@@ -207,7 +207,7 @@ function scan() {
 }
 
 function profileDisplay2() {
-    document.getElementById('profile').style.display = 'block';
+    //document.getElementById('profile').style.display = 'block';
     //document.getElementById('profile').style.display = 'none';
     //alert("p");
     profileDisplay();
@@ -216,7 +216,8 @@ function profileDisplay2() {
 function profileDisplay() {
     //alert("7");
     //setTimeout(function() {
-           //alert("hello");
+           alert("hello");
+    	
             document.getElementById("display_name").innerHTML = "Hi "+candidateName+",";
                        
         //},

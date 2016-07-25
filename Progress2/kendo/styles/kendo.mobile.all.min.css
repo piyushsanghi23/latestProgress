@@ -15535,7 +15535,7 @@ html .km-material .k-overflow-container.km-actionsheet>li {
 }
 .km-nova .km-drawer>.km-scroll-wrapper,
 .km-nova .km-drawer .km-scroll-container {
-    height: 100%
+    /*height: 100%*/
 }
 .km-nova .km-drawer-vertical-tabstrip {
     width: 4.86rem

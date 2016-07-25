@@ -1,5 +1,6 @@
 'use strict';
 var counter = 0;
+var link;
 app.startScanForBeacons = function() {
     //alert('startScanForBeacons')
     //startVuforia();
@@ -74,64 +75,35 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
             //stopVuforia();
             // alert("p");
             //document.getElementById('link').click();
-            //alert("0"):
+            //alert("0");
+            document.getElementById('login').style.display='none';
             counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
-            if (currentBeacon == "f7028248-68b4-4f65-8087-d5d5cb3a1cbd") {
-
-                //window.location = "components/homeView/view.html"
-                $('#place').html("you are at beacon 1");
-                $('#placeDescription').html("welcome to canteen");
-                vibrate();
-                //screen.lockOrientation('landscape');
-                $('#image').hide();
-                $('#player').show();
-                $('#video-display ').show();
-                //
-                //$("#appendSection").html("video" + currentBeacon);
-                //
-                $('#video-display  source').attr('src', 'videos/incubator_x264.mp4');
-
-                //$('#iframe-display').attr('src', 'https://www.youtube.com/watch?v=H-PWeICLvDw');
-                // document.getElementById('iframe-display').src
-                autoplay();
-
-
-
+            for (var r in app.beaconRegions) {
+                var region = app.beaconRegions[r]
+                    // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
+                if (currentBeacon == region.uuid) {
+                    //$("#login").append("video");
+                    link = region.url;
+                    // $("#login").append("video");
+                }
+                //$("#login").append("video");
 
             }
-            if (currentBeacon == "2f234454-cf6d-4a0f-adf2-f4911ba9ffa9") {
-
-                $('#place').html("you are at beacon 2");
-                $('#placeDescription').html("welcome to Alcantra");
-                vibrate();
-
-                //$('player').show();
-                //$("#appendSection").html("video" + currentBeacon);
-
-                $('#video-display').hide();
-                $('#video-display')[0].pause();
-                $('#player').show();
-
-                $('#image').show();
-                //autoplay();
-            }
-            if (currentBeacon == "2f234454-cf6d-4a0f-adf2-f4911ba9ffa8") {
 
 
-                //window.location = "components/homeView/view.html"
-                $('#place').html("you are at beacon 3");
-                $('#placeDescription').html("welcome to Incubator");
-                //navigator.vibrate(300);
-                vibrate();
-                //$('#video-display ').show();
-                //$("#appendSection").html("video" + currentBeacon);
-                $('#image').hide();
-                $('#player').show();
-                $('#video-display ').show();
-                $('#video-display  source').attr('src', 'videos/lunchRoom_x264.mp4');
-                autoplay();
-            }
+            vibrate();
+            //screen.lockOrientation('landscape');
+            $('#image').hide();
+            $('#player').show();
+            $('#video-display ').show();
+            //
+            //$("#appendSection").html("video" + currentBeacon);
+            //
+            $('#video-display  source').attr('src', link);
+
+            autoplay();
+
 
 
 
@@ -173,6 +145,7 @@ function close() {
                 $('#video-display')[0].pause();
                 if (counter == 0) {
                     //startVuforia();
+                    document.getElementById('login').style.display='block';
                     counter++;
                 }
             }

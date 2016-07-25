@@ -12,7 +12,7 @@
 .km-nova .km-content {
   color: #32364c;
   background-color: #fff;
-  background-image: url('../images/bg.PNG');
+  /*background-image: url('../images/bg.PNG');*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -235,7 +235,7 @@
   background-color: #2a2d40;
 }
 .km-nova .km-drawer .km-content {
-  background-color: #2a2d40;
+  background-color: #ffffff;
 }
 /* ListView in Drawer */
 .km-nova .km-drawer .km-group-title {
@@ -244,12 +244,14 @@
   border-color: #3c415b;
 }
 .km-nova .km-drawer .km-list > li {
-  border-color: #3c415b;
+      border-color: #bfb9b9;
+    
+    border-bottom-width: thin;
 }
 .km-nova .km-drawer .km-list > li,
 .km-nova .km-drawer .km-list > li > .km-listview-link,
 .km-nova .km-drawer .km-list > li .km-icon {
-  color: #fff;
+  color: #000;
 }
 /* Generic content */
 .km-nova .km-thumbnail {
@@ -443,9 +445,8 @@
 /*Custom Theme Overrides*/
 .km-nova .km-navbar,
 .km-nova .k-toolbar,
-.km-nova .km-tabstrip,
-.km-nova .km-drawer .km-content {
-  background-image: linear-gradient(to bottom, #2e3246 0%, #242736 100%);
+.km-nova .km-tabstrip {
+  background-image: linear-gradient(to bottom, #000000 0%, #000000 100%);
 }
 .km-nova .km-drawer .km-navbar {
   background: #14151e;
@@ -455,7 +456,7 @@
 }
 .km-nova #navigation-container .active,
 .km-nova .km-drawer .km-listview li.km-state-active {
-  background: #1e202d;
+  background: #eaebf1;
 }
 .km-nova .km-touch-scrollbar,
 .km-nova .km-loading-left:before {
@@ -466,9 +467,12 @@
 .km-nova .km-navbar .km-leftitem .km-back:before,
 .km-nova .km-tabstrip *,
 .km-nova .km-drawer .km-list > li,
-.km-nova .km-drawer .km-list > li > .km-listview-link,
+.km-nova .km-drawer .km-list > li > ,
 .km-nova .km-drawer .km-list > li .km-icon {
   color: #ffffff;
+}
+.km-listview-link{
+    color:#000;
 }
 /*Custom overrides*/
 /*Primary button*/

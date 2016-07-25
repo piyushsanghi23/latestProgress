@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
     <head>
-        <script src="components/check/check.js"></script>
+        <script src="components/homeView/homeView.js"></script>
         <script src='globalVariables.js'></script>
+         <link href="components/homeView/homeView.css" rel="stylesheet" type="text/css">
         <title></title>
     </head>
     <body>
          <div data-role="view" data-title="Progress" data-layout="main" data-model="app.settingsView" data-show="app.settingsView.onShow" data-after-show="app.settingsView.afterShow">
-        <div id='profile' >
-            
-            
-            <h2>
-                Name:<br>
-            </h2>
+        <div id='welcome_page' >
+          <img align='right' src='images/profile.png' id='candidate_image'>
             <h3 id='display_name'>
                 
             </h3>
-            <h2>
-                Email:<br>
-            </h2>
-            <h3 id='display_email'>
-                
-            </h3>
-            <h2>
-                Gender:<br>
-            </h2>
-            <h3 id='display_gender'>
-                
-            </h3>
-            <h2>
-                City:<br>
-            </h2>
-            <h3 id='display_city'>
-                
-            </h3>
-            
-            <!--h2>
-                Interview Date:<br>
-            </h2>
-            <h3 id='display_interviewDate'>
-                
-            </h3-->
-            <h2>
-                Photo:<br>
-            </h2>
-            <div id='profile2'>
-              
-            </div>
-                
-           
+
               </div>
+             <div id='best_of_luck'>
+                 <h1 id='best_of_luck_h1'>
+                     Best of Luck
+                 </h1>
+             </div>
+             <div id='explore_premises'>
+                 <h1 id='explore_permises_h1'>
+                     Explore Progress
+                 </h1>
+             </div>
         </div>
     </body>
 </html>

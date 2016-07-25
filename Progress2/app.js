@@ -8,7 +8,7 @@
     var bootstrap = function() {
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                skin: 'Black',
+                skin: 'nova',
                 initial: 'components/homeView/view.html'
             });
         });
@@ -33,7 +33,6 @@
                 //alert("deviceReady");
                 navigator.splashscreen.hide();
             }
-
             var element = document.getElementById('appDrawer');
             if (typeof(element) != 'undefined' && element !== null) {
                 if (window.navigator.msPointerEnabled) {

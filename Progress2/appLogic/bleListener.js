@@ -94,10 +94,10 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
             vibrate();
             //screen.lockOrientation('landscape');
-            $('#image').hide();
-            $('#player').show();
-            $('#video-display ').show();
-            //
+           // $('#image').hide();
+           // $('#player').show();
+            //$('#video-display ').show();
+            
             //$("#appendSection").html("video" + currentBeacon);
             //
             $('#video-display  source').attr('src', link);

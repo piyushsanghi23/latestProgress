@@ -1,39 +1,53 @@
-
-#progressPremises_text{
-   font-family: verdana;
+#progressPremises_text {
+    font-family: verdana;
     font-size: 150%;
     text-align: center;
     padding-top: 15px;
 }
-#progressPremises_div_header{
-    color:white;
+#progressPremises_div_header {
+    color: white;
     height: 60px;
     width: 100%;
     background-color: powderblue;
 }
-#img1{
-     margin: auto;
-    width: 50%;   
+#img1 {
+    margin: auto;
+    width: 50%;
     height: 216px;
 }
-#img2{
-     margin: auto;
-    width: 50%;   
-    height: 216px;
-    position: absolute;
-}
-#img3{
-     margin: auto;
-    width: 50%;   
-    height: 216px;
-}
-#img4{
-     margin: auto;
-    width: 50%;   
+#img2 {
+    margin: auto;
+    width: 50%;
     height: 216px;
     position: absolute;
 }
-#discover_txt{
-    color:black;
+#img3 {
+    margin: auto;
+    width: 50%;
+    height: 216px;
+}
+#img4 {
+    margin: auto;
+    width: 50%;
+    height: 216px;
+    position: absolute;
+}
+#discover_txt {
+    color: black;
     text-align: center;
+}
+.footer_hint {
+    color: green;
+    text-align: center;
+}
+.beacon_hint_img {
+    margin: auto;
+    width: 100%;
+    height: 150%;
+}
+#button_back {
+    color: white;
+    background: green;
+    margin: auto;
+    display: block;
 }

@@ -1,14 +1,14 @@
 'use strict';
-(function() {
+(function () {
     var app = {
         data: {}
     };
 
 
-    var bootstrap = function() {
-        $(function() {
+    var bootstrap = function () {
+        $(function () {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                skin: 'nova',
+                skin: 'nova', //flat
                 initial: 'components/homeView/view.html'
             });
         });
@@ -16,7 +16,7 @@
 
     if (window.cordova) {
 
-        document.addEventListener('deviceready', function() {
+        document.addEventListener('deviceready', function () {
 
             //$('#player').hide();
             /*  document.addEventListener("backbutton", function () {
@@ -29,18 +29,29 @@
                       history.back();
                   };
               }, false);*/
+            document.addEventListener("offline", onOffline, false);
+
+            function onOffline() {
+                // Handle the offline event
+                if(count==1){
+                alert("offline");
+                app.openDatabase();
+                app.readRecords();
+                    count++;
+                }
+            }
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();
             }
             var element = document.getElementById('appDrawer');
-            if (typeof(element) != 'undefined' && element !== null) {
+            if (typeof (element) != 'undefined' && element !== null) {
                 if (window.navigator.msPointerEnabled) {
-                    $('#navigation-container').on('MSPointerDown', 'a', function(event) {
+                    $('#navigation-container').on('MSPointerDown', 'a', function (event) {
                         app.keepActiveState($(this));
                     });
                 } else {
-                    $('#navigation-container').on('touchstart', 'a', function(event) {
+                    $('#navigation-container').on('touchstart', 'a', function (event) {
                         app.keepActiveState($(this).closest('li'));
                     });
                 }
@@ -48,9 +59,10 @@
 
             bootstrap();
             //startVuforia();
-
+            //setTimeout(authenticate(),5000);
             app.startScanForBeacons()
                 //advertise();
+
 
 
         }, false);
@@ -68,7 +80,7 @@
 
     window.app = app;
 
-    app.isOnline = function() {
+    app.isOnline = function () {
         if (!navigator || !navigator.connection) {
             return true;
         } else {
@@ -76,7 +88,7 @@
         }
     };
 
-    app.openLink = function(url) {
+    app.openLink = function (url) {
         if (url.substring(0, 4) === 'geo:' && device.platform === 'iOS') {
             url = 'http://maps.apple.com/?ll=' + url.substring(4, url.length);
         }
@@ -86,7 +98,9 @@
             window.event.preventDefault && window.event.preventDefault();
             window.event.returnValue = false;
         }
+
     };
+    
     //deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     // document.addEventListener("backbutton", onBackKeyDown, false);
 

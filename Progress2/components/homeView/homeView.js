@@ -7,15 +7,38 @@ function logout() {
         document.getElementById("user_profile").style.display = 'none';
     }
 }
+var upgradeTime = 172801;
+var seconds = upgradeTime;
+
+function timer() {
+    /*var d = new Date();
+    var seconds=d.getTime();*/
+    var days = Math.floor(seconds / 24 / 60 / 60);
+    var hoursLeft = Math.floor((seconds) - (days * 86400));
+    var hours = Math.floor(hoursLeft / 3600);
+    var minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
+    var minutes = Math.floor(minutesLeft / 60);
+    var remainingSeconds = seconds % 60;
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+    document.getElementById('countdown').innerHTML = days + ":" + hours + ":" + minutes + ":" + remainingSeconds;
+    if (seconds == 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('countdown').innerHTML = "Completed";
+    } else {
+        seconds--;
+    }
+}
+var countdownTimer = setInterval('timer()', 1000);
 
 function authenticate() {
-    //alert("a");
     if (document.getElementById('email_box').value != '') {
         //alert("in");
         $.ajax({
             url: url_login,
             type: 'GET',
-            success: function(result) {
+            success: function (result) {
 
                 sessionId = result.sessionId;
                 console.log("session id " + sessionId);
@@ -25,23 +48,23 @@ function authenticate() {
                 $.ajax({
                     url: url_email + sessionId + "&query=" + selectquery + "&output=json",
                     type: 'GET',
-                    success: function(result) {
+                    success: function (result) {
                         console.log("success" + JSON.stringify(result));
                         if (result == '') {
                             alert("you are not a valid person");
                         } else {
                             //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
                             //window.open("components/profile_page.html", "_self");
-                            //document.getElementById("login").style.display = 'none';
+                            document.getElementById("login").style.display = 'none';
                             profile_id = result;
                             //alert(profile_id);
 
-                           // document.getElementById("profile").style.display = 'block';
+                            // document.getElementById("profile").style.display = 'block';
                             $.ajax({
                                 url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
                                 type: 'GET',
                                 dataType: 'text',
-                                success: function(result) {
+                                success: function (result) {
                                     log = 1;
                                     //console.log((result));
                                     var txt, parser, xmlDoc, value1, value2;
@@ -63,25 +86,33 @@ function authenticate() {
                                     //candidateInterviewDate = value1.innerHTML;
                                     value1 = value1.nextSibling.nextSibling
                                     candidateGender = value1.innerHTML;
+                                    //window.location.href='components/profile_page.html';
+                                    app.openDatabase();
+                                    app.dropTable();
+                                    app.insertRecord();
+                                    app.readRecords();
+                                   // $('#employee_list').innerHTML=emp;
                                     profileDisplay2();
+									
                                     // myfun();
+                                    //document.getElementById('show').click();
 
                                 },
-                                error: function(error) {
+                                error: function (error) {
                                     console.log(JSON.stringify(error));
                                 }
                             });
 
                         }
                     },
-                    error: function(error) {
+                    error: function (error) {
                         console.log("error" + JSON.stringify(error));
                     }
 
                 });
 
             },
-            error: function(error) {
+            error: function (error) {
                 console.log(JSON.stringify(error));
             }
         });
@@ -89,11 +120,11 @@ function authenticate() {
 }
 
 var AppUtils = {};
-AppUtils.getHexProfileId = function(profileId) {
+AppUtils.getHexProfileId = function (profileId) {
 
     return profileId.toString(16).toUpperCase();
 }
-AppUtils.getUUID = function(profileId) {
+AppUtils.getUUID = function (profileId) {
     var hexProfileId = this.getHexProfileId(profileId);
     var profileUUID = "";
 
@@ -145,7 +176,7 @@ function scan() {
         alert("Not Supported in Simulator.");
     } else {
         cordova.plugins.barcodeScanner.scan(
-            function(result) { //alert("hello");
+            function (result) { //alert("hello");
                 if (!result.cancelled) {
                     //document.getElementById("scanButton").style.display = "none";
                     //var currentMessage = resultsField.innerHTML;
@@ -153,23 +184,23 @@ function scan() {
                     $.ajax({
                         url: url_login,
                         type: 'GET',
-                        success: function(result) {
+                        success: function (result) {
 
                             sessionId = result.sessionId;
-							alert(sessionId+"  "+profile_id);
+                            alert(sessionId + "  " + profile_id);
 
                             $.ajax({
                                 url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
                                 type: 'GET',
                                 dataType: 'text',
-                                success: function(result) {
+                                success: function (result) {
                                     log = 1;
                                     //console.log((result));
                                     var txt, parser, xmlDoc, value1, value2;
                                     txt = result;
                                     parser = new DOMParser();
                                     xmlDoc = parser.parseFromString(txt, "text/xml");
-                                    
+
                                     value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
                                     alert("xml");
                                     candidatePhoto = value1.childNodes[0].innerHTML;
@@ -190,12 +221,12 @@ function scan() {
                                     // myfun();
 
                                 },
-                                error: function(error) {
+                                error: function (error) {
                                     alert("erro" + JSON.stringify(error));
                                 }
                             });
                         },
-                        error: function(err) {
+                        error: function (err) {
                             console.log(err);
                         }
                     });
@@ -207,21 +238,22 @@ function scan() {
 }
 
 function profileDisplay2() {
-    //document.getElementById('profile').style.display = 'block';
+    document.getElementById('profile').style.display = 'block';
     //document.getElementById('profile').style.display = 'none';
     //alert("p");
     profileDisplay();
 
 }
+
 function profileDisplay() {
     //alert("7");
     //setTimeout(function() {
-           alert("hello");
-    	
-            document.getElementById("display_name").innerHTML = "Hi "+candidateName+",";
-                       
-        //},
-        //1000);
+    //alert("hello");
+
+    document.getElementById("display_name").innerHTML = "Hi " + candidateName + ",";
+	
+    //},
+    //1000);
 
 
 }

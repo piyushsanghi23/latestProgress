@@ -10,13 +10,13 @@
     width: 100%;
     background-color: powderblue;
 }
-#img1 {
+#img_1 {
     margin: auto;
-    width: 373px;   
+    width: 100%;   
     height: 216px;
 }
-#img2{
+#img_2{
     margin: auto;
-    width: 373px;   
+    width: 100%;   
     height: 216px;
 }

@@ -24,6 +24,36 @@ app.beaconRegions = [
 
     }
     ]
+app.employee=[
+    {
+        round:'HR Round',
+        time:'10.00 am-10:30 am',
+        image:'images/icon.png',
+        name: 'srikanth',
+        role: 'Principal Designer, UXD'
+        
+    },
+    {
+        round:'Technical 1',
+        time:'10.00 am-10:30 am',
+        image:'images/icon.png',
+        name: 'Kiran Babu',
+        role: 'Software Engineer'
+        
+    },
+    {
+        round:'Technical 2',
+        time:'10.00 am-10:30 am',
+        image:'images/icon.png',
+        name: 'Ramesh Pakalapati',
+        role: 'Software Engineer'
+        
+    }
+    
+]
+var db = null;
+var emp=[];
+var count=1;
 var sessionId, selectquery;
 var url_login = "https://www.rollbase.com/rest/api/login?loginName=" + "sakkinen" + "&password=" + "Susmitha@2712" + "&output=json";
 var url_email = "https://www.rollbase.com/rest/api/selectQuery?sessionId=";
@@ -33,6 +63,7 @@ var sensor_id, beacon_proximity, page_id, b, flag = 0;
 var candidateName, candidateEmail, candidateGender, candidateCity, candidateInterviewDate, candidatePhoto;
 var log = 0;
 var profile_id;
+var count2=1;
 var currentBeacon = "";
 var appState = [{
     uuid: '',

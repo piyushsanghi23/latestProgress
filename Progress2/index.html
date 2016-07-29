@@ -8,6 +8,7 @@
     <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
     <link href="components/contact/contact.css" rel="stylesheet" type="text/css">
+     <link href="components/schedule/schedule.css" rel="stylesheet" type="text/css">
     <link href="components/homeView/homeView.css" rel="stylesheet" type="text/css">
     <link href="components/check/check.css" rel="stylesheet" type="text/css">
     <link href="components/culture/explore.css" rel="stylesheet" type="text/css">
@@ -24,6 +25,7 @@
     <script src="components/check/check.js"></script>
     <script src="globalVariables.js"></script>
     <script src="components/barcode/bleAdvertise.js"></script>
+    <script src="components/schedule/schedule.js"></script>
     <script src="components/homeView/homeView.js"></script>
     <script src="components/culture/explore.js"></script>
     <script src="components/ARVideo/ARVideo.js"></script>
@@ -36,12 +38,10 @@
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
-
                 <img src="images/icon.png" data-align="right">
                 <span data-align="right" data-role="view-title"></span>
                 <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
                 <!--a data-role="button" data-align="right" onclick="startVuforia()">AR</a-->
-
             </div>
         </header>
     </div>
@@ -52,18 +52,16 @@
             </div>
         </header>
     </div>
-    <div id="appDrawer" data-role="drawer"  data-title="Progress" >
+    <div id="appDrawer" data-role="drawer" data-title="Progress">
         <header data-role="header" style="height: 7.8%; background-color: #000000;">
-            
         </header>
         <ul id="navigation-container" data-role="listview">
-            <li ><a href="components/homeView/view.html" data-icon="home">Home</a></li>
-            <li><a href="components/ARVideo/ARVideo.html" data-icon="about">AR Video</a></li>
-            <li><a href="components/barcode/barcode.html" data-icon="search">Identify Profile</a></li>
-            <li><a href="components/progressPremises/progressPremises.html" data-icon="about">Progress Premises</a></li>
-            <li><a href="components/culture/explore.html" data-icon="about">Explore@Progress</a></li>
-            <li><a href="components/feedback/feedback.html" data-icon="about">Feedback</a></li>
-            <li><a href="components/contact/contact.html" data-icon="about">Contact Us</a></li>
+            <li><a href="components/schedule/schedule.html">Interview Schedule</a></li>
+            <li><a href="components/contact/contact.html">Contact</a></li>
+            <li><a href="components/ARVideo/ARVideo.html">AR Mode</a></li>
+            <li><a href="components/progressPremises/progressPremises.html">Progress Premises</a></li>
+            <li><a href="components/culture/explore.html">Explore@Progress</a></li>
+            <li><a href="components/feedback/feedback.html">Feedback</a></li>
             <li><a href="components/check/check.html">Test</a></li>
         </ul>
     </div>

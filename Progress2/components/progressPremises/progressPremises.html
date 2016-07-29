@@ -5,6 +5,7 @@
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
     <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
+    <script src="components/progressPremises/progressPremises.js"></script>
 </head>
 
 <body>
@@ -14,13 +15,85 @@
                 Progress Premises
             </div>
         </div>
-        <div>
-            <a href="//shld give"><img id="img1" src="/shld give" alt="idea room" /></a>
-            <a href="//shld give"><img id="img2" src="/shld give" alt="gym" /></a>
+        <div id="idea_room_div" style="display:none">
+            <img id='id_room_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+            <img id='id_room_img_2' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='id_room_img_3' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='id_room_img_4' class="beacon_hint_img" src='//' style="display:none" >
+            <p class="footer_hint" id='hint_1_1'>
+                Hints : .....
+            </p>
+            <p class="footer_hint" id="hint_2_1" style="display:none">
+                Common u can do it 
+            </p>
+            <p class="footer_hint" id="hint_3_1" style="display:none">
+                You are almost there  
+            </p>
+            <button id="button_back" onclick="back('idea_room_div')" >
+                back 
+            </button>
         </div>
-        <div>
-            <a href="//shld give"><img id="img3" src="/shld give" alt="pantree" /></a>
-            <a href="//shld give"><img id="img4" src="/shld give" alt="lunchroom" /></a>
+        <div id="lunch_room_div" style="display:none">
+            <img id='lr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+            <img id='lr_img_2' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='lr_img_3' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='lr_img_4' class="beacon_hint_img" src='//' style="display:none" >
+            <p class="footer_hint" id='hint_1_2'>
+                Hints : .....
+            </p>
+            <p class="footer_hint" id="hint_2_2" style="display:none">
+                Common u can do it 
+            </p>
+            <p class="footer_hint" id="hint_3_2" style="display:none">
+                You are almost there  
+            </p>
+            <button id="button_back" onclick="back('lunch_room_div')" >
+                back 
+            </button>
+        </div>
+        <div id="gym_room_div" style="display:none">
+            <img id='gr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+            <img id='gr_img_2' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='gr_img_3' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='gr_img_4' class="beacon_hint_img" src='//' style="display:none" >
+            <p class="footer_hint" id='hint_1_3'>
+                Hints : .....
+            </p>
+            <p class="footer_hint" id="hint_2_3" style="display:none">
+                Common u can do it 
+            </p>
+            <p class="footer_hint" id="hint_3_3" style="display:none">
+                You are almost there  
+            </p>
+            <button id="button_back" onclick="back('gym_room_div')" >
+                back 
+            </button>
+        </div>
+        <div id="pantree_room_div" style="display:none">
+            <img id='pt_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+            <img id='pt_img_2' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='pt_img_3' class="beacon_hint_img" src='//' style="display:none" >
+            <img id='pt_img_4' class="beacon_hint_img" src='//' style="display:none" >
+            <p class="footer_hint" id='hint_1_4'>
+                Hints : .....
+            </p>
+            <p class="footer_hint" id="hint_2_4" style="display:none">
+                Common u can do it 
+            </p>
+            <p class="footer_hint" id="hint_3_4" style="display:none">
+                You are almost there  
+            </p>
+            <button id="button_back" onclick="back('pantree_room_div')" >
+                back 
+            </button>
+        </div>
+        <div id="first_block">
+            <img id="img1" src='images/idea room.PNG' alt="idea room" onclick="idea_Room()"/>
+            <img id="img2" src='images/gym.PNG' alt="gym" onclick="gym_Room()"/>
+        </div>
+        <div id="second_block">
+           <img id="img3" src='images/pantreee.PNG' alt="pantree" onclick="pantree()"/>
+           <img id="img4" src='images/lunch room.PNG' alt="lunchroom" onclick="lunch_Room()" />
         </div>
         <p id="discover_txt" >
             Discover the places around you! 

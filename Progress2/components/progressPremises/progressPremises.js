@@ -1,27 +1,37 @@
-
-#progressPremises_text{
-   font-family: verdana;
-    font-size: 150%;
-    text-align: center;
-    padding-top: 15px;
-}
-#progressPremises_div_header{
-    color:white;
-    height: 60px;
-    width: 100%;
-    background-color: powderblue;
-}
-#img1{
-     margin: auto;
-    width: 373px;   
-    height: 216px;
-}
-#img2{
+function idea_Room() {
+    
+   document.getElementById('idea_room_div').style.display = 'block';
+    document.getElementById('first_block').style.display = 'none';
+    document.getElementById('second_block').style.display = 'none';
+    document.getElementById('discover_txt').style.display = 'none';
     
 }
-#img3{
+function back(ID)
+{
+    document.getElementById(ID).style.display='none';
+    document.getElementById('first_block').style.display = 'block';
+    document.getElementById('second_block').style.display = 'block';
+    document.getElementById('discover_txt').style.display = 'block';
     
 }
-#img4{
+function lunch_Room() {
+   document.getElementById('lunch_room_div').style.display = 'block';
+    document.getElementById('first_block').style.display = 'none';
+    document.getElementById('second_block').style.display = 'none';
+    document.getElementById('discover_txt').style.display = 'none';
+    
+}
+function gym_Room() {
+   document.getElementById('gym_room_div').style.display = 'block';
+    document.getElementById('first_block').style.display = 'none';
+    document.getElementById('second_block').style.display = 'none';
+    document.getElementById('discover_txt').style.display = 'none';
+    
+}
+function pantree() {
+   document.getElementById('pantree_room_div').style.display = 'block';
+    document.getElementById('first_block').style.display = 'none';
+    document.getElementById('second_block').style.display = 'none';
+    document.getElementById('discover_txt').style.display = 'none';
     
 }

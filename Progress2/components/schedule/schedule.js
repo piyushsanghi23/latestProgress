@@ -77,7 +77,9 @@ app.readRecords = function () {
                                 " - name = " + row.name + "\n" +
                                 " - role= " + row.role
                             );*/
-                            emp.push(row.round + "	" + row.time + "	" + row.image + "	" + row.name + " " + row.role);
+
+                            emp.push(res.rows.item(i));
+                            //alert(JSON.stringify(emp[0]));
                             //document.getElementById('employee_list').innerHTML=emp;
 
                         }
@@ -134,16 +136,60 @@ app.checkOpenedDatabase = function () {
 var i = 0;
 
 function dis() {
-    /* for(i in emp)
-     document.getElementById("employee_list").append = emp[i];*/
+
     for (i in emp) {
-        var node = document.createElement("LI");
-        var textnode = document.createTextNode(emp[i]);
+        var node = document.createElement("li");
+        node.setAttribute("class", "listItem");
+        node.setAttribute('id', i);
+        var text = emp[i].round;
+        var textnode = document.createTextNode(text);
         node.appendChild(textnode);
         document.getElementById("employee_list").appendChild(node);
+        
+      /*  var node2=document.createElement('h3');
+        node2.setAttribute("class", "timeItem");
+        var text1 = emp[i].time;
+        var textnode1 = document.createTextNode(text1);
+        node2.appendChild(textnode1);
+        document.getElementById(i).appendChild(node2);*/
+        
+        var div = document.createElement("div");
+        div.setAttribute("class", "divItem");
+        div.setAttribute('id', 'div' + i);
+        var img=document.createElement('img');
+         //div.setAttribute("class", "imgItem");
+        img.setAttribute('src',emp[i].image);
+        div.appendChild(img);
+        var text2 = emp[i].name + "\n" + emp[i].role;
+        var textnode2 = document.createTextNode(text2);
+        div.appendChild(textnode2);
+        document.getElementById("employee_list").appendChild(div);
         if (i == emp.length - 1)
             clearInterval(my);
     }
 
 }
 var my = setInterval('dis()', 1000);
+
+function show() {
+    // if(document.getElementByClassName=='listItem')
+
+    document.getElementById('employee_list').onclick = function (e) {
+        //alert(e.target.id)
+        var x = 'div' + e.target.id;
+        for (i in emp) {
+            if (x == 'div' + i) {
+               //alert(x + "   " + i);
+                if(document.getElementById('div' + i).style.display =='none')
+                document.getElementById('div' + i).style.display = 'block';
+                else
+                    document.getElementById('div' + i).style.display = 'none';
+            } else {
+                //alert(x + "   " + i);
+                document.getElementById('div' + i).style.display = 'none';
+            }
+        }
+        // document.getElementById(x).style.display='block';
+
+    }
+}

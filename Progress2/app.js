@@ -29,12 +29,12 @@
                       history.back();
                   };
               }, false);*/
-            document.addEventListener("offline", onOffline, false);
+           document.addEventListener("offline", onOffline, false);
 
             function onOffline() {
                 // Handle the offline event
                 if(count==1){
-                alert("offline");
+                //alert("offline");
                 app.openDatabase();
                 app.readRecords();
                     count++;

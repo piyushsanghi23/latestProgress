@@ -1,3 +1,30 @@
+.imgItem{
+    border-radius:100%;
+}
+.divItem{
+    display:none;
+    height:30%;
+    width:100%;
+    background-color:lightgrey;
+}
+.up_arrow{
+    transform:rotate(90deg);
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+.listItem {
+    background-color: white;
+    padding: 7%;
+    list-style-position: inside;
+    border-bottom: 1px solid lightgrey;
+    
+}
+h3.timeItem {
+    display: -webkit-inline-box;
+    margin-left: 30%;
+    /* margin-left: 50%; */
+}
 #schedule_text {
     font-family: verdana;
     font-size: 150%;
@@ -6,13 +33,15 @@
 }
 #point_of_contact {
     background-color: lightgrey;
-    margin-top: 68%;
+    margin-top: 71%;
+    //margin-top: 68%;
     //padding-bottom: 71%
 }
 #point_of_contact_image {
     border-radius: 100%;
     height: 108px;
     width: auto;
+    margin-top: 10%;
     margin-left: 38%;
     //margin-top: 27%;
     margin-bottom: 42%;

@@ -28,7 +28,7 @@ app.employee=[
     {
         round:'HR Round',
         time:'10.00 am-10:30 am',
-        image:'images/icon.png',
+        image:'images/profile.png',
         name: 'srikanth',
         role: 'Principal Designer, UXD'
         

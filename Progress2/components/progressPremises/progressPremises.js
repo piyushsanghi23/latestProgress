@@ -1,3 +1,15 @@
+function tick()
+{
+    alert("in tick");
+    
+    for(z in flag_img)
+        if(flag_img[z]==1)
+            {
+                
+                document.getElementById('img'+z).src='images/'+i+'.png';
+                clearInterval(img_counter);
+            }
+}
 function idea_Room() {
     
    document.getElementById('idea_room_div').style.display = 'block';

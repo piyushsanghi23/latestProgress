@@ -61,7 +61,7 @@ app.employee=[
 var db = null;
 var emp=[];
 var count=1;
-var sessionId, selectquery;
+var sessionId, selectquery,img_counter;
 var url_login = "https://www.rollbase.com/rest/api/login?loginName=" + "sakkinen" + "&password=" + "Susmitha@2712" + "&output=json";
 var url_email = "https://www.rollbase.com/rest/api/selectQuery?sessionId=";
 var url_details1 = "https://www.rollbase.com/rest/api/getRecord?objName=" + "Profile2" + "&sessionId=";
@@ -80,3 +80,4 @@ var appState = [{
     id: '',
     files: ''
 }]
+var flag_img=[0,0,0,0];

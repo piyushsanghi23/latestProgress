@@ -87,9 +87,9 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                    vibrate();
                     //link = region.url;
                     //document.getElementById(region.img_id).style.display='none'; 
-                    alert(r);
+                   // alert(r);
                     flag_img[r]=1;
-                    img_counter=setInterval('tick()',10000);
+                    img_counter=setInterval('tick()',1000);
                     
                     // $("#login").append("video");
                 }

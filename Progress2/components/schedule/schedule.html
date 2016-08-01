@@ -1,40 +1,50 @@
 <!DOCTYPE html>
-<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <title>
     </title>
     <script src='components/homeView/homeView.js'></script>
     <script src='app.js'></script>
-    <link href="schedule.css" rel="stylesheet" type="text/css">
+    <link href="components/schedule/schedule.css" rel="stylesheet" type="text/css">
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
     <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
 </head>
 
 <body>
-    <div data-role="view" data-title="Progress" data-layout="main" >
+    <div data-role="view" data-title="Progress" data-layout="main">
         <div id="schedule_header">
             <div id="schedule_text">
                 Schedule
             </div>
         </div>
-        <ul id='employee_list' style="list-style-type:none; padding: 0;margin: 0;" onclick='show()'>
-            <!--li class='listItem'>Hello
-                <h3 class='timeItem'>
-                    100am-11.00am
-                </h3>
-            </li-->
-                
+        <ul id='employee_list' style="list-style-type:none; padding: 0;margin: 0;">
+            <li class='listItem' onclick='show(this.id)'> 
+            <!--div class='divItem' style='display:block'>
+                <img src='images/profile.png' class='imgItem'></img>
+                <div id='name'>
+               kavya gopireddy 
             </div>
-           
-        </ul>
-        <div style='display:none;' id='point_of_contact'>
-            
-           <img  id='point_of_contact_image' src='images/profile.png'/>
-            
-         
-        </div>
+                <div id='role'>
+             principle uxd,HR recuiter
+            </div>
+            </div-->
+                Round 1<div class='arrow'>&#10095;</div>
+            </li>
+    </ul>
+    <div id='point_of_contact'>
+        <img id='point_of_contact_image' src='images/profile.png'>
+        <h1 id='pName'>
+            Srikanth Reddy
+        </h1>
+        <h1 id='pRole'>
+            Sr Recruiter, Human Capital
+        </h1>
+        <h1 id='pDetail'>
+            +91 1234567890, sreddy@progress.com
+        </h1>
+    </div>
     </div>
 </body>
 

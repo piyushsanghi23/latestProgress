@@ -8,7 +8,7 @@ app.startScanForBeacons = function() {
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function(pluginResult) {
 
-        //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
+        alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
@@ -76,7 +76,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
             // alert("p");
             //document.getElementById('link').click();
             //alert("0");
-            document.getElementById('login').style.display='none';
+            //document.getElementById('login').style.display='none';
             counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
             for (var r in app.beaconRegions) {
@@ -84,7 +84,9 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                     // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
                 if (currentBeacon == region.uuid) {
                     //$("#login").append("video");
+                   vibrate();
                     link = region.url;
+                    document.getElementById(region.img_id).src=region.sourc_image; 
                     // $("#login").append("video");
                 }
                 //$("#login").append("video");
@@ -92,7 +94,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
             }
 
 
-            vibrate();
+            //vibrate();
             //screen.lockOrientation('landscape');
            // $('#image').hide();
            // $('#player').show();

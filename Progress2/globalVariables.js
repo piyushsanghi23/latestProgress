@@ -6,6 +6,8 @@ app.beaconRegions = [
         major: 1000,
         minor: 3333,
         url: 'videos/incubator_x264.mp4',
+        img_id:'img1',
+        source_img:'images/idea1.png'
 
 	},
     {
@@ -14,6 +16,8 @@ app.beaconRegions = [
         major: 1,
         minor: 1,
         url: 'videos/lunchRoom_x264.mp4',
+        img_id:'img2',
+        source_img:'images/gym1.png'
         
     },
     {
@@ -21,7 +25,9 @@ app.beaconRegions = [
         uuid: '2f234454-cf6d-4a0f-adf2-f4911ba9ffa8',
         major: 1,
         minor: 1,
-        url:'videos/lunchRoom_x264.mp4'
+        url:'videos/lunchRoom_x264.mp4',
+        img_id:'img3',
+        source_img:'images/lunch1.png'
 
     }
     ]

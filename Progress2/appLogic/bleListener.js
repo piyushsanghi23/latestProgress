@@ -86,7 +86,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                     //$("#login").append("video");
                    vibrate();
                     link = region.url;
-                    document.getElementById('img1').src='images/gym.PNG'; 
+                    document.getElementById(region.img_id).style.display='none'; 
                     // $("#login").append("video");
                 }
                 //$("#login").append("video");

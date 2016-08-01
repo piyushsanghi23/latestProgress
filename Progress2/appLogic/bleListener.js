@@ -85,8 +85,12 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                 if (currentBeacon == region.uuid) {
                     //$("#login").append("video");
                    vibrate();
-                    link = region.url;
-                    document.getElementById(region.img_id).style.display='none'; 
+                    //link = region.url;
+                    //document.getElementById(region.img_id).style.display='none'; 
+                    alert(r);
+                    flag_img[r]=1;
+                    img_counter=setInterval('tick()',10000);
+                    
                     // $("#login").append("video");
                 }
                 //$("#login").append("video");

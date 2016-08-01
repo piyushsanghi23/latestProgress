@@ -6,7 +6,7 @@ function tick()
         if(flag_img[z]==1)
             {
                 //alert('img'+z);
-                document.getElementById('img'+z).src='images/'+i+'.png';
+                document.getElementById('img'+z).src='images/'+z+'.jpg';
                 clearInterval(img_counter);
             }
 }

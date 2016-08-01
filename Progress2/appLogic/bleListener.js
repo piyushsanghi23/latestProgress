@@ -2,13 +2,13 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function() {
-    //alert('startScanForBeacons')
+    alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function(pluginResult) {
 
-        //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
+        alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
@@ -85,6 +85,9 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                 if (currentBeacon == region.uuid) {
                     //$("#login").append("video");
                     link = region.url;
+                    
+                      document.getElementById(region.img_id).src=region.sourc_image;
+                       
                     // $("#login").append("video");
                 }
                 //$("#login").append("video");

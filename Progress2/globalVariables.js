@@ -5,7 +5,7 @@ app.beaconRegions = [
         uuid: 'f7028248-68b4-4f65-8087-d5d5cb3a1cbd',
         major: 1000,
         minor: 3333,
-        url: 'videos/incubator_x264.mp4'
+        url: 'videos/incubator_x264.mp4',
 
 	},
     {
@@ -13,7 +13,8 @@ app.beaconRegions = [
         uuid: '2f234454-cf6d-4a0f-adf2-f4911ba9ffa9',
         major: 1,
         minor: 1,
-        url: 'videos/lunchRoom_x264.mp4'
+        url: 'videos/lunchRoom_x264.mp4',
+        
     },
     {
         id: 'third',
@@ -73,4 +74,3 @@ var appState = [{
     id: '',
     files: ''
 }]
-var int_sch =[]

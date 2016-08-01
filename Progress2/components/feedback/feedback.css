@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+#feedback_text {
+    font-family: verdana;
+    font-size: 150%;
+    text-align: center;
+    padding-top: 15px;
+}
+#feedback_div_header {
+    color: white;
+    height: 60px;
+    width: 100%;
+    background-color: powderblue;
+}

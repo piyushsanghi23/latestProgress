@@ -32,8 +32,14 @@ function timer() {
 }
 var countdownTimer = setInterval('timer()', 1000);
 
+function validate(email_validate) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email_validate);
+}
+
 function authenticate() {
-    if (document.getElementById('email_box').value != '') {
+    var flag = validate(document.getElementById('email_box').value);
+    if (flag) {
         //alert("in");
         $.ajax({
             url: url_login,
@@ -51,7 +57,7 @@ function authenticate() {
                     success: function (result) {
                         console.log("success" + JSON.stringify(result));
                         if (result == '') {
-                            alert("you are not a valid person");
+                            document.getElementById('login_error').innerHTML = 'your are not a valid person'
                         } else {
                             //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
                             //window.open("components/profile_page.html", "_self");
@@ -91,9 +97,9 @@ function authenticate() {
                                     app.dropTable();
                                     app.insertRecord();
                                     app.readRecords();
-                                   // $('#employee_list').innerHTML=emp;
+                                    // $('#employee_list').innerHTML=emp;
                                     profileDisplay2();
-									
+
                                     // myfun();
                                     //document.getElementById('show').click();
 
@@ -116,7 +122,12 @@ function authenticate() {
                 console.log(JSON.stringify(error));
             }
         });
+    } else {
+        document.getElementById('login_error').innerHTML = 'not valid email address';
     }
+
+
+
 }
 
 var AppUtils = {};
@@ -150,7 +161,7 @@ function myfun() {
         //document.getElementById('yourLinkID').click();
         //alert("9");
     var x = AppUtils.getUUID(parseInt(profile_id));
-    //alert(x);
+    alert(x);
     //x='2f234454-cf6d-4a0f-adf2-f4911ba9ffa8'
     region = [{
         id: "po",
@@ -187,8 +198,8 @@ function scan() {
                         success: function (result) {
 
                             sessionId = result.sessionId;
-                            alert(sessionId + "  " + profile_id);
-
+                            // alert(sessionId + "  " + profile_id);
+                            myfun();
                             $.ajax({
                                 url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
                                 type: 'GET',
@@ -202,7 +213,7 @@ function scan() {
                                     xmlDoc = parser.parseFromString(txt, "text/xml");
 
                                     value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                    alert("xml");
+                                    //alert("xml");
                                     candidatePhoto = value1.childNodes[0].innerHTML;
                                     value1 = value1.nextSibling.nextSibling
                                     candidateEmail = value1.innerHTML;
@@ -217,8 +228,15 @@ function scan() {
                                     value1 = value1.nextSibling.nextSibling
                                     candidateGender = value1.innerHTML;
                                     //alert("successs");
+                                    document.getElementById("login").style.display = 'none';
+                                    app.openDatabase();
+                                    app.dropTable();
+                                    app.insertRecord();
+                                    app.readRecords();
+                                    // $('#employee_list').innerHTML=emp;
+                                    myfun();
                                     profileDisplay2();
-                                    // myfun();
+
 
                                 },
                                 error: function (error) {
@@ -251,7 +269,7 @@ function profileDisplay() {
     //alert("hello");
 
     document.getElementById("display_name").innerHTML = "Hi " + candidateName + ",";
-	
+
     //},
     //1000);
 

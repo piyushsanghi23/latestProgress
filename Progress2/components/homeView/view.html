@@ -17,28 +17,22 @@
     <div data-role="view" data-title="Progress" data-layout="main">
         <div id='profile' style='display:none'>
             <div id='welcome_page'>
-                <img src='images/profile.png' id='candidate_image'>
-                <h3 id='display_name'>
-                
-            </h3>
+                <!--img src='images/profile.png' id='candidate_image'-->
+                <div id='display_name'>
+                </div>
             </div>
-            <div id='best_of_luck'>
-                <h1 style='margin-left: 27%'>
+            <h1 style='margin-left: 27%'>
                     Interview Starts in
                  </h1>
-                <span id="countdown" class="timer" style='margin-left: 38%'></span>
-                <script>
-                   
-                </script>
-                <a id='best_button' data-role='button' href='components/schedule/schedule.html'><img src='images/best.jpg' width='100%' /></a>
-            </div>
-            <div id='explore_premises'>
-                <!--h1 id='explore_permises_h1'>
-                     Explore Progress
-                 </h1-->
-                <a id='explore_button' data-role='button' href='components/progressPremises/progressPremises.html'><img src='images/explore.jpg' width='100%' /></a>
-            </div>
+            <span id="countdown" class="timer" style='margin-left: 38%'></span>
+            <div id='best_of_luck_button'>
+            <a data-role='button' href='components/schedule/schedule.html' style='width: 100%; border: none;'><img src='images/best.jpg' /></a>
         </div>
+             <div id='progress_premises_button'>
+            <a  data-role='button' href='components/progressPremises/progressPremises.html'  style='width: 100%; border: none;'><img src='images/explore.jpg' /></a>
+        </div>
+        </div>
+        
         <div id="login">
             <p id="wel_text">
                 Welcome to the Progress Interview Experience!
@@ -47,6 +41,8 @@
             <input type="email" id="email_box">
             <button class="my_button" type='submit' id='submit' onclick="authenticate()">Submit</button>
             <!--a id='show' data-role='button' onclick='authenticate()' href='components/profile_page.html'>profile</a-->
+            <p id='login_error'>
+            </p>
             <p id="or_txt">
                 OR
             </p>
@@ -55,15 +51,6 @@
              Scan
         </button>
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
-        </div>
-        <div id='player' style='display:none'>
-            <video id="video-display" style="width:100%;height:355px;" controls autoplay="autoplay">
-  	<source   src='videos/incubator_x264.mp4' type="video/mp4"  >
-                
-  </video>
-            <!--iframe id="iframe-display" width="420" height="315" src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1">
-</iframe-->
-            <img src='images/SampleIdeaCafe1.PNG' style='width:100%;height:100%;' id='image'></img>
         </div>
         <!-- END_CUSTOM_CODE_homeView -->
     </div>

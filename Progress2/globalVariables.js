@@ -42,7 +42,7 @@ app.employee=[
     },
     {
         round:'Technical 1',
-        time:'10.00 am-10:30 am',
+        time:'11.00 am-11:30 am',
         image:'images/icon.png',
         name: 'Kiran Babu',
         role: 'Software Engineer'
@@ -50,7 +50,7 @@ app.employee=[
     },
     {
         round:'Technical 2',
-        time:'10.00 am-10:30 am',
+        time:'01.00 am-01:30 pm',
         image:'images/icon.png',
         name: 'Ramesh Pakalapati',
         role: 'Software Engineer'

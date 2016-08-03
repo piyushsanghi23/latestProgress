@@ -147,13 +147,25 @@ function dis() {
         node.appendChild(textnode);
         document.getElementById("employee_list").appendChild(node);
 
-         var node2=document.createElement('div');
-          node2.setAttribute("class", "arrow");
-        node2.setAttribute('id','arrow'+i);
-          var text1 = '\u276f';
-          var textnode1 = document.createTextNode(text1);
-          node2.appendChild(textnode1);
-          document.getElementById(i).appendChild(node2);
+        var node2 = document.createElement('div');
+        node2.setAttribute("class", "arrow");
+        node2.setAttribute('id', 'arrow' + i);
+        var text1 = '\u276f';
+        var textnode1 = document.createTextNode(text1);
+        node2.appendChild(textnode1);
+        document.getElementById(i).appendChild(node2);
+
+        var node3 = document.createElement('div');
+        node3.setAttribute("class", "time");
+        //node2.setAttribute('id','arrow'+i);
+        var img1 = document.createElement('img')
+        img1.setAttribute('class', 'timeItem')
+        img1.setAttribute('src', 'images/timer.png');
+        node3.appendChild(img1);
+        var text3 = emp[i].time;
+        var textnode3 = document.createTextNode(text3);
+        node3.appendChild(textnode3);
+        document.getElementById(i).appendChild(node3);
 
         var div = document.createElement("div");
         div.setAttribute("class", "divItem");
@@ -162,18 +174,18 @@ function dis() {
         img.setAttribute("class", "imgItem");
         img.setAttribute('src', emp[i].image);
         div.appendChild(img);
-        var name= document.createElement("div");
-        name.setAttribute('id','name');
-        var text2 = emp[i].name ;
+        var name = document.createElement("div");
+        name.setAttribute('id', 'name');
+        var text2 = emp[i].name;
         var textnode2 = document.createTextNode(text2);
-         name.appendChild(textnode2);
+        name.appendChild(textnode2);
         //document.getElementById("employee_list").appendChild(div);
-         var role= document.createElement("div");
-        role.setAttribute('id','role');
-        var text3 = emp[i].role ;
+        var role = document.createElement("div");
+        role.setAttribute('id', 'role');
+        var text3 = emp[i].role;
         var textnode3 = document.createTextNode(text3);
-         role.appendChild(textnode3);
-         div.appendChild(name);
+        role.appendChild(textnode3);
+        div.appendChild(name);
         div.appendChild(role);
         document.getElementById("employee_list").appendChild(div);
         if (i == emp.length - 1)
@@ -189,22 +201,20 @@ function show(id) {
     for (i in emp) {
         if (x == 'div' + i) {
             //alert(x + "   " + i);
-            if (document.getElementById('div' + i).style.display == 'block')
-                {
-                    var arrow=document.getElementById('arrow' + i);
-                    arrow.setAttribute('class','arrow');
+            if (document.getElementById('div' + i).style.display == 'block') {
+                var arrow = document.getElementById('arrow' + i);
+                arrow.setAttribute('class', 'arrow');
                 document.getElementById('div' + i).style.display = 'none';
-                }
-            else
-                {
+            } else {
                 document.getElementById('div' + i).style.display = 'block';
-                var arrow=document.getElementById('arrow' + i);
-                    arrow.setAttribute('class','arrow2');}
+                var arrow = document.getElementById('arrow' + i);
+                arrow.setAttribute('class', 'arrow2');
+            }
         } else {
             //alert(x + "   " + i);
             document.getElementById('div' + i).style.display = 'none';
-            var arrow=document.getElementById('arrow' + i);
-                    arrow.setAttribute('class','arrow');
+            var arrow = document.getElementById('arrow' + i);
+            arrow.setAttribute('class', 'arrow');
         }
     }
 }

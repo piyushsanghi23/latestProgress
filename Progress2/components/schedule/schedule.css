@@ -1,3 +1,8 @@
+.time{
+            float: right;
+    display: inline-flex;
+    padding-right: 3%;
+}
 .arrow2 {
     transform: rotate(270deg);
     /* margin-top: 10%; */
@@ -11,6 +16,9 @@
     /* margin: 0; */
     float: right;
     display: inline-block;
+}
+.timeItem{
+        height: 24px;
 }
 #role {
     /*display: block;*/
@@ -51,16 +59,16 @@
     display: block;
 }
 #pDetail {
-    margin-left: 10%;
+    
     color: white;
     font-size: medium;
 }
 #pName {
-    margin-left: 31%;
+    
     color: white;
 }
 #pRole {
-    margin-left: 23%;
+   
     font-size: medium;
     color: white;
 }
@@ -84,6 +92,7 @@ h3.timeItem {
 #point_of_contact {
     background-color: #EE4854;
     /* margin-top: 71%; */
+    text-align:center;
     padding-top: 15%;
     padding-bottom: 15%;
 }
@@ -92,7 +101,7 @@ h3.timeItem {
     border: 4px solid white;
     height: 93px;
     /* margin: 37%; */
-    margin-left: 38%;
+    
 }
 #schedule_header {
     color: white;

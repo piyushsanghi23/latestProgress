@@ -8,7 +8,7 @@ app.startScanForBeacons = function() {
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function(pluginResult) {
 
-        alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
+        //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 

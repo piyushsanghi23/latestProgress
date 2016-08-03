@@ -26,17 +26,21 @@
                  </h1>
             <h1 id="countdown" class="timer" style='text-align: center;'></h1>
             <div id='best_of_luck_button'>
-            <a data-role='button' href='components/schedule/schedule.html' style='width: 100%; border: none;'><img src='images/best.jpg' /></a>
+                <a data-role='button' href='components/schedule/schedule.html' style='width: 100%; border: none;'><img src='images/best.jpg' /></a>
+            </div>
+            <div id='progress_premises_button'>
+                <a data-role='button' href='components/progressPremises/progressPremises.html' style='width: 100%; border: none;'><img src='images/explore.jpg' /></a>
+            </div>
         </div>
-             <div id='progress_premises_button'>
-            <a  data-role='button' href='components/progressPremises/progressPremises.html'  style='width: 100%; border: none;'><img src='images/explore.jpg' /></a>
-        </div>
-        </div>
-        
+         <div id="admin_div" style='display:none'>
+        <p id="scan_txt">Scan QR code</p>
+        <button class="my_button" onclick="scan()">scan</button>
+        <button class="my_button" onclick="back_login()">back</button>
+    </div>
         <div id="login">
             <p id="email_txt">Email:</p>
             <input type="email" id="email_box">
-            <img id="submit_arrow" src="images/submit.PNG" height="150" size="150" onclick="authenticate()"/>
+            <img id="submit_arrow" src="images/submit.PNG" height="150" size="150" onclick="authenticate()" />
             <!--a id='show' data-role='button' onclick='authenticate()' href='components/profile_page.html'>profile</a-->
             <p id='login_error'>
             </p>
@@ -44,6 +48,7 @@
         </div>
         <!-- END_CUSTOM_CODE_homeView -->
     </div>
+   
 </body>
 
 </html>

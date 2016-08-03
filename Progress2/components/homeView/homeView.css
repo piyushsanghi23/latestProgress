@@ -36,6 +36,14 @@
     color: black;
     margin-top: 50%;
 }
+#scan_txt{
+    font-family:myfont;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 50%;
+}
 #email_box {
     border-style: ridge;
     margin: 0 auto;

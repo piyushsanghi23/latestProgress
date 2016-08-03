@@ -289,3 +289,7 @@
    font-family:myfont;
    src: url(fonts/Blogger Sans-Medium.ttf);
 }
+@font-face {
+   font-family:roboto;
+   src: url(fonts/Roboto-Regular.ttf);
+}

@@ -2,7 +2,7 @@
     text-align:center;
 }
 #feedback_text {
-    font-family: verdana;
+    font-family: myfont;
     font-size: 150%;
     text-align: center;
     padding-top: 15px;
@@ -15,7 +15,6 @@
 }
 #how_para {
     margin-top: 10%;
-    
     text-align: center;
 }
 .imgContainer {

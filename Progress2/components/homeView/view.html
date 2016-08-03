@@ -11,7 +11,6 @@
     <script src="components/homeView/homeView.js"></script>
     <srcript src='components/check/check.js'></srcript>
     <link href="homeView.css" rel="stylesheet" type="text/css">
-    
 </head>
 
 <body>
@@ -35,22 +34,12 @@
         </div>
         
         <div id="login">
-            <p id="wel_text">
-                Welcome to the Progress Interview Experience!
-            </p>
-            <p id="email_txt">Email Address</p>
+            <p id="email_txt">Email:</p>
             <input type="email" id="email_box">
-            <button class="my_button" type='submit' id='submit' onclick="authenticate()">Submit</button>
+            <img id="submit_arrow" src="images/submit.PNG" height="150" size="150" onclick="authenticate()"/>
             <!--a id='show' data-role='button' onclick='authenticate()' href='components/profile_page.html'>profile</a-->
             <p id='login_error'>
             </p>
-            <p id="or_txt">
-                OR
-            </p>
-            <p id="scan_qr_txt">Scan QR Code</p>
-            <button class="my_button" id="scanButton" onclick="scan()">
-             Scan
-        </button>
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
         </div>
         <!-- END_CUSTOM_CODE_homeView -->

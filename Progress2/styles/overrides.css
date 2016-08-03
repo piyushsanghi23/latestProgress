@@ -185,6 +185,7 @@
 .km-nova .km-list > li {
   border-color: #dfe1e2;
   color: #32364c;
+    height:50px;
 }
 .km-nova .km-list > li.km-load-more {
   border-color: transparent;

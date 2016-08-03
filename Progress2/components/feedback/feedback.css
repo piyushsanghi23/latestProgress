@@ -10,3 +10,16 @@
     width: 100%;
     background-color: powderblue;
 }
+#how_para{
+    margin-top: 10%;
+    font-size: 68px;
+    text-align: center;
+}
+.imgContainer{
+    float:left;
+    margin:15px;
+    
+}
+#tp1{
+      display: inline-block;
+}

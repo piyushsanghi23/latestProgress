@@ -15,28 +15,38 @@
                 Feedback
             </div>
         </div>
-        <div>
-            <p id="how_para">How was your interview experience?</p>
-            <div id="tp1">
-                <div class="imgContainer">
-                    <img id="fed_img_1" src='images/Feedback 1.svg' onclick="feedback_smiley_click('fed_img_1')" />
-                    <p>4</p>
-                </div>
-                <div class="imgContainer">
-                    <img id="fed_img_2" src='images/Feedback 2.svg' onclick="feedback_smiley_click('fed_img_2')" />
-                    <p>3</p>
-                </div>
-                <div class="imgContainer">
-                    <img id="fed_img_3" src='images/Feedback 3.svg' onclick="feedback_smiley_click('fed_img_3')" />
-                    <p>2</p>
-                </div>
-                <div class="imgContainer">
-                    <img id="fed_img_4" src='images/Feedback 4.svg' onclick="feedback_smiley_click('fed_img_4')" />
-                    <p>1</p>
-                </div>
-            </div>
+        <div id='how_para' style='font-size: x-large; padding: 6%;'>
+            How Was Your </br>Interview Experience?
         </div>
-    </div>
+        <div class="imgContainer">
+            <img id="fed_img_1" src='images/Feedback 1.svg' onclick="feedback_smiley_click(this.id)" />
+            <p style='margin-left: -7%'>
+                Excellent
+            </p>
+        </div>
+        <div class='imgContainer'>
+            <img id="fed_img_2" src='images/Feedback 2.svg' onclick="feedback_smiley_click(this.id)" />
+            <p style='margin-left: 6%'>
+                Good
+            </p>
+        </div>
+        <div class='imgContainer'>
+            <img id="fed_img_3" src='images/Feedback 3.svg' onclick="feedback_smiley_click(this.id)" />
+            <p style='margin-left: -7%'>
+                Average
+            </p>
+        </div>
+        <div class='imgContainer' style='    padding-bottom: 3%;'>
+            <img id="fed_img_4" src='images/Feedback 4.svg' onclick="feedback_smiley_click(this.id)" />
+            <p style='margin-left: 18%'>
+                Bad
+            </p>
+        </div>
+        <textarea rows="5" cols="25" name="comment" id='textArea' placeholder='Type your additional comments....' style=' border: 1px solid gray;border-radius: 7%; height: 131px; margin-left: 19%;width: 63%;'></textarea></br>
+        <div style="display: -webkit-inline-box;text-align: center;padding-top: 6%;margin-left: 31%;">
+            We value your feedback<br>XOXO
+        </div>
+    <div style='text-align: center;padding-top: 3%;'> <a data-role='button'  onclick='submitFeedback()' style='background-color: black;color: white;border-radius: 9%; width: 26%;padding: 3%;'>submit</a></div>
     </div>
 </body>
 

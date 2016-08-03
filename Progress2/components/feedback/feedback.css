@@ -1,3 +1,6 @@
+.imgContainer.grade{
+    text-align:center;
+}
 #feedback_text {
     font-family: verdana;
     font-size: 150%;
@@ -10,16 +13,19 @@
     width: 100%;
     background-color: powderblue;
 }
-#how_para{
+#how_para {
     margin-top: 10%;
-    font-size: 68px;
+    
     text-align: center;
 }
-.imgContainer{
-    float:left;
-    margin:15px;
-    
+.imgContainer {
+    float: left;
+    margin: 7%;
+    width: 10%;
 }
-#tp1{
-      display: inline-block;
+.imgConatiner p{
+    color:red;
+}
+#tp1 {
+    display: inline-block;
 }

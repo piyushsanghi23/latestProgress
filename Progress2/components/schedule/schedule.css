@@ -1,6 +1,6 @@
 #backButton{
-    height: 60px;
-    width: 100%;
+        padding-top: 43%;
+   border: none;
     background-color: #AAE4F3;
 }
 .time{
@@ -64,41 +64,54 @@
     display: block;
 }
 #pDetail {
-    
+     font-family:roboto;
     color: white;
     font-size: medium;
 }
 #pName {
-    
+    font-family:roboto;
     color: white;
 }
 #pRole {
-   
+   font-family:roboto;
     font-size: medium;
     color: white;
 }
 .listItem {
+    font-family:roboto;
     background-color: white;
     padding: 7%;
     list-style-position: inside;
     border-bottom: 1px solid lightgrey;
 }
 h3.timeItem {
+    font-family:roboto;
     display: -webkit-inline-box;
     margin-left: 30%;
     /* margin-left: 50%; */
 }
 #schedule_text {
-    font-family: verdana;
-    font-size: 150%;
-    text-align: center;
-    padding-top: 15px;
+  
+    font-family: myfont;
+    font-size: xx-large;
+   text-align: -webkit-center;
+    padding: 4%;
+}
+@media (orientation: landscape) {
+    #backButton{
+        padding-top:68%
+            
+    }
+    #schedule-text{
+        text-align:center;
+    }
 }
 #point_of_contact {
+     font-family:roboto;
     background-color: #EE4854;
     /* margin-top: 71%; */
     text-align:center;
-    padding-top: 15%;
+       padding: 4%;
     padding-bottom: 15%;
 }
 #point_of_contact_image {
@@ -108,9 +121,16 @@ h3.timeItem {
     /* margin: 37%; */
     
 }
+#aTag{
+       
+    /* padding-right: 5%; */
+    float: left;
+    font-size: x-large;
+}
 #schedule_header {
+    font-family: myfont;
     color: white;
-    height: 60px;
+   
     width: 100%;
     background-color: #AAE4F3;
 }

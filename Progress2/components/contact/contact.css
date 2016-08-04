@@ -1,8 +1,12 @@
 #contact_text {
-    font-family: verdana;
-    font-size: 150%;
-    text-align: center;
-    padding-top: 15px;
+    font-family: myfont;
+    font-size: xx-large;
+    padding-right: 13%;
+     text-align: -webkit-center;
+    padding-bottom: 4%;
+    padding-left: 4%;
+    padding-right: 13%;
+    padding-top: 4%;
 }
 #contact_div_header {
     color: white;

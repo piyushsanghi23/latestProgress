@@ -37,91 +37,101 @@ function validate(email_validate) {
     return re.test(email_validate);
 }
 
+function back_login() {
+    document.getElementById("login").style.display = 'block';
+    document.getElementById("admin_div").style.display = 'none';
+}
+
 function authenticate() {
     var flag = validate(document.getElementById('email_box').value);
     if (flag) {
-        //alert("in");
-        $.ajax({
-            url: url_login,
-            type: 'GET',
-            success: function (result) {
+        if (document.getElementById('email_box').value == "admin@progress.com") {
+            document.getElementById("login").style.display = 'none';
+            document.getElementById("admin_div").style.display = 'block';
+        } else {
+            //alert("in");
+            $.ajax({
+                url: url_login,
+                type: 'GET',
+                success: function (result) {
 
-                sessionId = result.sessionId;
-                console.log("session id " + sessionId);
-                var email = document.getElementById('email_box').value;
-                selectquery = "SELECT id from Profile2 where Email = '" + email + "';";
-                //alert(selectquery);
-                $.ajax({
-                    url: url_email + sessionId + "&query=" + selectquery + "&output=json",
-                    type: 'GET',
-                    success: function (result) {
-                        console.log("success" + JSON.stringify(result));
-                        if (result == '') {
-                            document.getElementById('login_error').innerHTML = 'your are not a valid person'
-                        } else {
-                            //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
-                            //window.open("components/profile_page.html", "_self");
-                            document.getElementById("login").style.display = 'none';
-                            profile_id = result;
-                            //alert(profile_id);
+                    sessionId = result.sessionId;
+                    console.log("session id " + sessionId);
+                    var email = document.getElementById('email_box').value;
+                    selectquery = "SELECT id from Profile2 where Email = '" + email + "';";
+                    //alert(selectquery);
+                    $.ajax({
+                        url: url_email + sessionId + "&query=" + selectquery + "&output=json",
+                        type: 'GET',
+                        success: function (result) {
+                            console.log("success" + JSON.stringify(result));
+                            if (result == '') {
+                                document.getElementById('login_error').innerHTML = 'your are not a valid person'
+                            } else {
+                                //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
+                                //window.open("components/profile_page.html", "_self");
+                                document.getElementById("login").style.display = 'none';
+                                profile_id = result;
+                                //alert(profile_id);
 
-                            // document.getElementById("profile").style.display = 'block';
-                            $.ajax({
-                                url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
-                                type: 'GET',
-                                dataType: 'text',
-                                success: function (result) {
-                                    log = 1;
-                                    //console.log((result));
-                                    var txt, parser, xmlDoc, value1, value2;
-                                    txt = result;
-                                    parser = new DOMParser();
-                                    xmlDoc = parser.parseFromString(txt, "text/xml");
-                                    //alert("xml");
-                                    value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                    candidatePhoto = value1.childNodes[0].innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateEmail = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateCity = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateName = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidatePhoneNumber = value1.innerHTML;
-                                    //value1 = value1.nextSibling.nextSibling
-                                    //candidateInterviewDate = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateGender = value1.innerHTML;
-                                    //window.location.href='components/profile_page.html';
-                                    app.openDatabase();
-                                    app.dropTable();
-                                    app.insertRecord();
-                                    app.readRecords();
-                                    // $('#employee_list').innerHTML=emp;
-                                    profileDisplay2();
+                                // document.getElementById("profile").style.display = 'block';
+                                $.ajax({
+                                    url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
+                                    type: 'GET',
+                                    dataType: 'text',
+                                    success: function (result) {
+                                        log = 1;
+                                        //console.log((result));
+                                        var txt, parser, xmlDoc, value1, value2;
+                                        txt = result;
+                                        parser = new DOMParser();
+                                        xmlDoc = parser.parseFromString(txt, "text/xml");
+                                        //alert("xml");
+                                        value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
+                                        candidatePhoto = value1.childNodes[0].innerHTML;
+                                        value1 = value1.nextSibling.nextSibling
+                                        candidateEmail = value1.innerHTML;
+                                        value1 = value1.nextSibling.nextSibling
+                                        candidateCity = value1.innerHTML;
+                                        value1 = value1.nextSibling.nextSibling
+                                        candidateName = value1.innerHTML;
+                                        value1 = value1.nextSibling.nextSibling
+                                        candidatePhoneNumber = value1.innerHTML;
+                                        //value1 = value1.nextSibling.nextSibling
+                                        //candidateInterviewDate = value1.innerHTML;
+                                        value1 = value1.nextSibling.nextSibling
+                                        candidateGender = value1.innerHTML;
+                                        //window.location.href='components/profile_page.html';
+                                        app.openDatabase();
+                                        app.dropTable();
+                                        app.insertRecord();
+                                        app.readRecords();
+                                        // $('#employee_list').innerHTML=emp;
+                                        profileDisplay2();
 
-                                    // myfun();
-                                    //document.getElementById('show').click();
+                                        // myfun();
+                                        //document.getElementById('show').click();
 
-                                },
-                                error: function (error) {
-                                    console.log(JSON.stringify(error));
-                                }
-                            });
+                                    },
+                                    error: function (error) {
+                                        console.log(JSON.stringify(error));
+                                    }
+                                });
 
+                            }
+                        },
+                        error: function (error) {
+                            console.log("error" + JSON.stringify(error));
                         }
-                    },
-                    error: function (error) {
-                        console.log("error" + JSON.stringify(error));
-                    }
 
-                });
+                    });
 
-            },
-            error: function (error) {
-                console.log(JSON.stringify(error));
-            }
-        });
+                },
+                error: function (error) {
+                    console.log(JSON.stringify(error));
+                }
+            });
+        }
     } else {
         document.getElementById('login_error').innerHTML = 'not valid email address';
     }

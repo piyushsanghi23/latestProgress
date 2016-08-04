@@ -10,43 +10,48 @@
 
 <body>
     <div data-role="view" data-title="Progress" data-layout="main">
-        <div id="feedback_div_header">
-            <div id="feedback_text">
+        <div id="schedule_header">
+            <div id='aTag'>
+            <a data-role='button' href='components/homeView/view.html' id='backButton' >
+               <span style='color: white;'> &#10094;</span>
+                </a>
+    </div>
+            <div id="schedule_text">
                 Feedback
             </div>
         </div>
-        <div id='how_para' style='font-size: x-large; padding: 6%;'>
+        <div id='how_para' style='font-size: x-large; padding: 6%;font-family: myfont'>
             How Was Your </br>Interview Experience?
         </div>
         <div class="imgContainer">
             <img id="fed_img_1" src='images/Feedback 1.svg' onclick="feedback_smiley_click(this.id)" />
-            <p style='margin-left: -7%'>
+            <p style='margin-left: -7%;font-family: myfont'>
                 Excellent
             </p>
         </div>
         <div class='imgContainer'>
             <img id="fed_img_2" src='images/Feedback 2.svg' onclick="feedback_smiley_click(this.id)" />
-            <p style='margin-left: 6%'>
+            <p style='margin-left: 6%;font-family: myfont'>
                 Good
             </p>
         </div>
         <div class='imgContainer'>
             <img id="fed_img_3" src='images/Feedback 3.svg' onclick="feedback_smiley_click(this.id)" />
-            <p style='margin-left: -7%'>
+            <p style='margin-left: -7%;font-family: myfont'>
                 Average
             </p>
         </div>
         <div class='imgContainer' style='    padding-bottom: 3%;'>
             <img id="fed_img_4" src='images/Feedback 4.svg' onclick="feedback_smiley_click(this.id)" />
-            <p style='margin-left: 18%'>
+            <p style='margin-left: 18%;font-family: myfont'>
                 Bad
             </p>
         </div>
-        <textarea rows="5" cols="25" name="comment" id='textArea' placeholder='Type your additional comments....' style=' border: 1px solid gray;border-radius: 7%; height: 131px; margin-left: 19%;width: 63%;'></textarea></br>
-        <div style="display: -webkit-inline-box;text-align: center;padding-top: 6%;margin-left: 31%;">
+        <textarea rows="5" cols="25" name="comment" id='textArea' placeholder='Type your additional comments....' style=' font-family: myfont;border: 1px solid gray;border-radius: 7%; height: 131px; margin-left: 19%;width: 63%;'></textarea></br>
+        <div style="display: -webkit-inline-box;text-align: center;padding-top: 6%;margin-left: 31%;font-family: myfont;">
             We value your feedback<br>XOXO
         </div>
-    <div style='text-align: center;padding-top: 3%;'> <a data-role='button'  onclick='submitFeedback()' style='background-color: black;color: white;border-radius: 9%; width: 26%;padding: 3%;'>submit</a></div>
+    <div style='text-align: center;padding-top: 3%;'> <a data-role='button'  onclick='submitFeedback()' style='font-family: myfont;background-color: black;color: white;border-radius: 9%; width: 26%;padding: 3%;'>Submit</a></div>
     </div>
 </body>
 

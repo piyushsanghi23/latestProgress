@@ -31,9 +31,16 @@
     font-size: large;
     font-weight: bold;
 }
-
 #email_txt {
-    font-family:myfont;
+    font-family: myfont;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 50%;
+}
+#scan_txt {
+    font-family: myfont;
     text-align: center;
     font-size: 50px;
     margin-bottom: 0px;
@@ -44,27 +51,35 @@
     border-style: ridge;
     margin: 0 auto;
     display: block;
-    border-color:black;
+    border-color: black;
     width: 70%;
     margin-top: 5%;
 }
-#submit_arrow{
+#submit_arrow {
     margin-left: 66%;
     height: 9%;
 }
 .my_button {
-    margin: 0 auto;
     display: block;
     background-color: #4CAF50;
     border: none;
     color: white;
+    border-radius: 75px 75px 75px 75px;
+    -moz-border-radius: 75px 75px 75px 75px;
+    -webkit-border-radius: 75px 75px 75px 75px;
+    border: 0px solid #000000;
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    padding: 15px 32px;
+    font-size: large;
 }
-#login{
-     background-image:url('images/bg.PNG');
+#login {
+    background-image: url('images/bg.PNG');
 }
 @font-face {
-   font-family:myfont;
-   src: url(fonts/Blogger Sans-Medium.ttf);
+    font-family: myfont;
+    src: url(fonts/Blogger Sans-Medium.ttf);
 }
 
 /* END OF HOME-VIEW CSS */

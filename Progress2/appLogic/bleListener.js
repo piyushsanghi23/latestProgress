@@ -77,6 +77,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
             //document.getElementById('link').click();
             //alert("0");
             //document.getElementById('login').style.display='none';
+            alert(pluginResult.beacons[0].rssi);
             counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
             for (var r in app.beaconRegions) {

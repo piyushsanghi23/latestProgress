@@ -48,7 +48,7 @@ function authenticate() {
                                 document.getElementById("login").style.display = 'none';
                                 profile_id = result;
                                 //alert(profile_id);
-
+								myfun();
                                 // document.getElementById("profile").style.display = 'block';
                                 $.ajax({
                                     url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
@@ -146,7 +146,7 @@ function myfun() {
         //document.getElementById('yourLinkID').click();
         //alert("9");
     var x = AppUtils.getUUID(parseInt(profile_id));
-    alert(x);
+    //alert(x);
     //x='2f234454-cf6d-4a0f-adf2-f4911ba9ffa8'
     region = [{
         id: "po",

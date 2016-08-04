@@ -3,6 +3,11 @@
     display: inline-flex;
     padding-right: 3%;
 }
+#backButton{
+        padding-top: 43%;
+   border: none;
+    background-color: #AAE4F3;
+}
 .arrow2 {
     transform: rotate(270deg);
     /* margin-top: 10%; */
@@ -86,10 +91,26 @@ h3.timeItem {
     /* margin-left: 50%; */
 }
 #schedule_text {
+  
     font-family: myfont;
-    font-size: 150%;
-    text-align: center;
-    padding-top: 15px;
+    font-size: xx-large;
+   text-align: -webkit-center;
+    padding: 4%;
+}
+@media (orientation: landscape) {
+    #backButton{
+        padding-top:68%
+            
+    }
+    #schedule-text{
+        text-align:center;
+    }
+}
+#aTag{
+       
+    /* padding-right: 5%; */
+    float: left;
+    font-size: x-large;
 }
 #point_of_contact {
      font-family:roboto;
@@ -109,7 +130,7 @@ h3.timeItem {
 #schedule_header {
     font-family: myfont;
     color: white;
-    height: 60px;
+   
     width: 100%;
     background-color: #AAE4F3;
 }

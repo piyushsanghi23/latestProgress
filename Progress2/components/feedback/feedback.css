@@ -1,5 +1,5 @@
-.imgContainer.grade{
-    text-align:center;
+.imgContainer.grade {
+    text-align: center;
 }
 #feedback_text {
     font-family: myfont;
@@ -16,15 +16,46 @@
 #how_para {
     margin-top: 10%;
     text-align: center;
+    font-size: x-large;
+    padding: 6%;
+    font-family: myfont;
 }
 .imgContainer {
     float: left;
     margin: 7%;
     width: 10%;
 }
-.imgConatiner p{
-    color:red;
+.imgConatiner p {
+    color: red;
 }
+#we_value_txtstyle {
+    display: -webkit-inline-box;
+    text-align: center;
+    padding-top: 6%;
+    margin-left: 31%;
+    font-family: myfont;
+}
+
 #tp1 {
     display: inline-block;
+}
+#submit_button {
+    font-family: myfont;
+    background-color: black;
+    color: white;
+    border-radius: 9%;
+    width: 26%;
+    padding: 3%;
+}
+#submit_div {
+    text-align: center;
+    padding-top: 3%;
+}
+@font-face {
+    font-family: myfont;
+    src: url(fonts/Blogger Sans-Medium.ttf);
+}
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Regular.ttf);
 }

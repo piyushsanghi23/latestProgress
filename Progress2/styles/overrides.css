@@ -536,3 +536,11 @@
 #navigation-show-more-view {
   background-color: #fff;
 }
+@font-face {
+   font-family:myfont;
+   src: url(fonts/Blogger Sans-Medium.ttf);
+}
+@font-face {
+   font-family:roboto;
+   src: url(fonts/Roboto-Regular.ttf);
+}

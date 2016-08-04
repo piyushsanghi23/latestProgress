@@ -25,6 +25,8 @@
     margin-top: 10%;
 }
 #display_name {
+     font-family: myfont;
+    color:white;
     padding-top: 5%;
     padding-bottom: 5%;
     font-family: cursive;

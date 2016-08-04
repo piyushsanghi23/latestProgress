@@ -1,5 +1,9 @@
 /* HOME-VIEW CSS */
-
+#homePage_div{
+        background-image: url('images/icon.png');
+    background-repeat: no-repeat;
+    background-size: cover
+}
 #login_error {
     color: red;
     text-align: center;

@@ -1,3 +1,8 @@
+#backButton{
+    height: 60px;
+    width: 100%;
+    background-color: #AAE4F3;
+}
 .time{
             float: right;
     display: inline-flex;

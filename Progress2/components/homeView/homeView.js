@@ -7,31 +7,6 @@ function logout() {
         document.getElementById("user_profile").style.display = 'none';
     }
 }
-var upgradeTime = 172801;
-var seconds = upgradeTime;
-
-function timer() {
-    /*var d = new Date();
-    var seconds=d.getTime();*/
-    var days = Math.floor(seconds / 24 / 60 / 60);
-    var hoursLeft = Math.floor((seconds) - (days * 86400));
-    var hours = Math.floor(hoursLeft / 3600);
-    var minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
-    var minutes = Math.floor(minutesLeft / 60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 10) {
-        remainingSeconds = "0" + remainingSeconds;
-    }
-    document.getElementById('countdown').innerHTML = days + ":" + hours + ":" + minutes + ":" + remainingSeconds;
-    if (seconds == 0) {
-        clearInterval(countdownTimer);
-        document.getElementById('countdown').innerHTML = "Completed";
-    } else {
-        seconds--;
-    }
-}
-var countdownTimer = setInterval('timer()', 1000);
-
 function validate(email_validate) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email_validate);

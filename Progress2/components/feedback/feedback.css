@@ -7,6 +7,22 @@
     text-align: center;
     padding-top: 15px;
 }
+#p1 {
+    margin-left: -7%;
+    font-family: myfont1;
+}
+#p2 {
+    margin-left: 6%;
+    font-family: myfont;
+}
+#p3 {
+    margin-left: -7%;
+    font-family: myfont;
+}
+#p4 {
+    margin-left: 18%;
+    font-family: myfont;
+}
 #feedback_div_header {
     color: white;
     height: 60px;
@@ -35,7 +51,6 @@
     margin-left: 31%;
     font-family: myfont;
 }
-
 #tp1 {
     display: inline-block;
 }
@@ -58,4 +73,23 @@
 @font-face {
     font-family: roboto;
     src: url(fonts/Roboto-Regular.ttf);
+}
+@media (orientation: landscape) {
+    #p1 {
+        margin-left: 7%;
+    }
+    #p4 {
+        margin-left: 35%;
+    }
+    #p3 {
+        margin-left: 20%;
+    }
+    #p2 {
+        margin-left: 24%;
+    }
+    #we_value_txtstyle
+    {
+        margin-left: 39%;
+    }
+    
 }

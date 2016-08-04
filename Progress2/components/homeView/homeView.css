@@ -1,6 +1,7 @@
 /* HOME-VIEW CSS */
-#homePage_div{
-        background-image: url('images/icon.png');
+
+#homePage_div {
+    background-image: url('images/icon.png');
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -25,8 +26,8 @@
     margin-top: 10%;
 }
 #display_name {
-     font-family: myfont;
-    color:white;
+    font-family: myfont;
+    color: white;
     padding-top: 5%;
     padding-bottom: 5%;
     font-family: cursive;
@@ -82,6 +83,17 @@
 @font-face {
     font-family: myfont;
     src: url(fonts/Blogger Sans-Medium.ttf);
+}
+@media (orientation: landscape) {
+    #email_txt {
+        margin-top: 11%;
+    }
+    #submit_arrow {
+        margin-left: 68%;
+    }
+    #scan_txt{
+        margin-top: 6%;
+    }
 }
 
 /* END OF HOME-VIEW CSS */

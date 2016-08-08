@@ -38,6 +38,26 @@ app.dropTable = function () {
     }
 };
 
+app.dropTable2 = function () {
+    if (!this.checkSimulator()) {
+        if (this.checkOpenedDatabase()) {
+            db.transaction(function (tx) {
+                tx.executeSql(
+                    'DROP TABLE log', [],
+                    function (tx, res) {
+                        //alert('Table deleted');
+                    },
+                    // note: gets called when deleting table without having inserted rows,
+                    //       to avoid this error use: 'DROP TABLE IF EXISTS test'
+                    function (tx, res) {
+                        //alert('error: ' + res.message);
+                    }
+                );
+            });
+        }
+    }
+};
+
 app.insertRecord = function () {
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
@@ -54,6 +74,29 @@ app.insertRecord = function () {
                             //alert('error: ' + res.message);
                         });
                 }
+            });
+        }
+    }
+};
+app.insertRecord2 = function () {
+    alert("P");
+    if (!this.checkSimulator()) {
+        if (this.checkOpenedDatabase()) {
+            var x=email;
+            var y=candidateName;
+            var z=profile_id;
+            //alert(x);
+            db.transaction(function (tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text, log_value integer)");
+                    tx.executeSql(
+                        "INSERT INTO log (email,name,profile_id,log_value) VALUES (?,?,?,?)", [x,y,z,1],
+                        function (tx, res) {
+                            //alert("insertId: ");
+                        },
+                        function (tx, res) {
+                            alert('error: ' + res.message);
+                        });
+                
             });
         }
     }
@@ -94,17 +137,71 @@ app.readRecords = function () {
     }
 };
 
-app.countRecords = function () {
+app.readRecords2 = function () {
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
             db.transaction(function (tx) {
                 tx.executeSql(
-                    "select count(id) as cnt from test;", [],
+                    "select * from log;", [],
                     function (tx, res) {
-                        //alert("rows: " + res.rows.item(0).cnt);
+                        
+                        for (var i = 0; i < res.rows.length; i++) {
+                            var row = res.rows.item(i);
+                            /*alert(
+                                "row " + i + ":\n" +
+                                " - id = " + row.id + "\n" +
+                                " - round = " + row.round + "\n" +
+                                " - time = " + row.time + "\n" +
+                                " - image = " + row.image + "\n" +
+                                " - name = " + row.name + "\n" +
+                                " - role= " + row.role
+                            );*/
+
+                            log_details.push(res.rows.item(i));
+                            
+                            //alert(JSON.stringify(emp[0]));
+                            //document.getElementById('employee_list').innerHTML=emp;
+
+                        }
+                        
+                        candidateName=log_details[0].name;
+                        dataBaseFunction();
+                        document.getElementById('login').style.display='none';
+                         profileDisplay2();
+                        //dis();
+
                     },
                     function (tx, res) {
                         //alert('error: ' + res.message);
+                        //alert("in readrecords2");
+                    });
+            });
+        }
+    }
+};
+app.countRecords = function () {
+    
+    if (!this.checkSimulator()) {
+        if (this.checkOpenedDatabase()) {
+           
+            db.transaction(function (tx) {
+                tx.executeSql(
+                    "select count(*) as cnt from log;", [],
+                    function (tx, res) {
+                         //alert("count records");
+                     log_count= res.rows.item(0).cnt;
+                       	 //alert(log_count);
+                         if(log_count==1)
+                             {
+                                 app.readRecords2();
+                                   
+                             }
+                        
+                            
+                    },
+                    function (tx, res) {
+                       //alert('error: ' + res.message);
+//app.insertRecord2();
                     });
             });
         }
@@ -137,13 +234,19 @@ var i = 0;
 
 function dis() {
 
+  
+            
+            document.getElementById('employee_list').innerHTML='';
+       
     for (i in emp) {
+        count_dis=1;
         var node = document.createElement("li");
         node.setAttribute("class", "listItem");
         node.setAttribute('id', i);
         node.setAttribute('onclick', 'show(this.id)');
         var text = emp[i].round;
         var textnode = document.createTextNode(text);
+        //textNode.setAttribute("class", "textItem");
         node.appendChild(textnode);
         document.getElementById("employee_list").appendChild(node);
 
@@ -188,8 +291,9 @@ function dis() {
         div.appendChild(name);
         div.appendChild(role);
         document.getElementById("employee_list").appendChild(div);
-        if (i == emp.length - 1)
+        if (i == emp.length - 1){
             clearInterval(my);
+        }
     }
 
 }

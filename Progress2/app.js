@@ -29,17 +29,21 @@
                       history.back();
                   };
               }, false);*/
-           document.addEventListener("offline", onOffline, false);
+            document.addEventListener("offline", onOffline, false);
 
             function onOffline() {
                 // Handle the offline event
-                if(count==1){
-                //alert("offline");
-                app.openDatabase();
-                app.readRecords();
+                if (count == 1 && count_dis==0) {
+                    //alert("offline");
+                    app.openDatabase();
+                    app.readRecords();
+                    //app.dropTable();
                     count++;
                 }
             }
+            app.openDatabase();
+            //app.dropTable2();
+             app.countRecords();
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();
@@ -100,7 +104,12 @@
         }
 
     };
-    
+    app.openDatabase();
+    app.readRecords2();
+    if (log_details[0].log_value == 1) {
+         profileDisplay2();
+    }
+
     //deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     // document.addEventListener("backbutton", onBackKeyDown, false);
 

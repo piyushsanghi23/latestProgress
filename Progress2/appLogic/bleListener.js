@@ -1,22 +1,22 @@
 'use strict';
 var counter = 0;
 var link;
-app.startScanForBeacons = function() {
+app.startScanForBeacons = function () {
     //alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
-    delegate.didDetermineStateForRegion = function(pluginResult) {
+    delegate.didDetermineStateForRegion = function (pluginResult) {
 
         //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
-    delegate.didStartMonitoringForRegion = function(pluginResult) {
+    delegate.didStartMonitoringForRegion = function (pluginResult) {
         // alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
     }
 
-    delegate.didRangeBeaconsInRegion = function(pluginResult) {
+    delegate.didRangeBeaconsInRegion = function (pluginResult) {
         //alert('didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult))
         app.didRangeBeaconsInRegion(pluginResult)
     }
@@ -45,7 +45,7 @@ app.startScanForBeacons = function() {
 var m = -60;
 var time = '';
 // Display pages depending of which beacon is close.
-app.didRangeBeaconsInRegion = function(pluginResult) {
+app.didRangeBeaconsInRegion = function (pluginResult) {
     // There must be a beacon within range.
 
     if (0 == pluginResult.beacons.length) {
@@ -77,7 +77,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
             //document.getElementById('link').click();
             //alert("0");
             //document.getElementById('login').style.display='none';
-            alert(pluginResult.beacons[0].rssi);
+            //alert(pluginResult.beacons[0].rssi);
             counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
             for (var r in app.beaconRegions) {
@@ -85,13 +85,20 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
                     // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
                 if (currentBeacon == region.uuid) {
                     //$("#login").append("video");
-                   vibrate();
+                    if (pluginResult.beacons[0].rssi >= -70 && pluginResult.beacons[0].rssi <= -37)
+                        vibrate();
                     //link = region.url;
                     //document.getElementById(region.img_id).style.display='none'; 
-                   // alert(r);
-                    flag_img[r]=1;
-                    img_counter=setInterval('tick()',1000);
-                    
+                    // alert(r);
+                    var beacon_div = document.createElement('div');
+                    beacon_div.setAttribute("class", "beacon");
+                    var text1 = 'hey';
+                    var textnode1 = document.createTextNode(text1);
+                    beacon_div.appendChild(textnode1);
+                    document.getElementById('login').appendChild(beacon_div);
+                    flag_img[r] = 1;
+                    img_counter = setInterval('tick()', 1000);
+
                     // $("#login").append("video");
                 }
                 //$("#login").append("video");
@@ -101,10 +108,10 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
             //vibrate();
             //screen.lockOrientation('landscape');
-           // $('#image').hide();
-           // $('#player').show();
+            // $('#image').hide();
+            // $('#player').show();
             //$('#video-display ').show();
-            
+
             //$("#appendSection").html("video" + currentBeacon);
             //
             $('#video-display  source').attr('src', link);
@@ -123,10 +130,10 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 }
 
 function vibrate() {
-    var myVar = setInterval(function() {
+    var myVar = setInterval(function () {
         navigator.vibrate(500);
     }, 2000);
-    setTimeout(function() {
+    setTimeout(function () {
         clearTimeout(myVar)
     }, 7500);
 }
@@ -152,7 +159,7 @@ function close() {
                 $('#video-display')[0].pause();
                 if (counter == 0) {
                     //startVuforia();
-                    document.getElementById('login').style.display='block';
+                    document.getElementById('login').style.display = 'block';
                     counter++;
                 }
             }

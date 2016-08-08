@@ -7,6 +7,7 @@ function logout() {
         document.getElementById("user_profile").style.display = 'none';
     }
 }
+
 function validate(email_validate) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email_validate);
@@ -15,6 +16,14 @@ function validate(email_validate) {
 function back_login() {
     document.getElementById("login").style.display = 'block';
     document.getElementById("admin_div").style.display = 'none';
+}
+
+function dataBaseFunction() {
+    app.openDatabase();
+    app.dropTable();
+    app.insertRecord();
+   
+    app.readRecords();
 }
 
 function authenticate() {
@@ -32,7 +41,7 @@ function authenticate() {
 
                     sessionId = result.sessionId;
                     console.log("session id " + sessionId);
-                    var email = document.getElementById('email_box').value;
+                    email = document.getElementById('email_box').value;
                     selectquery = "SELECT id from Profile2 where Email = '" + email + "';";
                     //alert(selectquery);
                     $.ajax({
@@ -47,8 +56,7 @@ function authenticate() {
                                 //window.open("components/profile_page.html", "_self");
                                 document.getElementById("login").style.display = 'none';
                                 profile_id = result;
-                                //alert(profile_id);
-								myfun();
+                                myfun();
                                 // document.getElementById("profile").style.display = 'block';
                                 $.ajax({
                                     url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
@@ -77,11 +85,10 @@ function authenticate() {
                                         value1 = value1.nextSibling.nextSibling
                                         candidateGender = value1.innerHTML;
                                         //window.location.href='components/profile_page.html';
-                                        app.openDatabase();
-                                        app.dropTable();
-                                        app.insertRecord();
-                                        app.readRecords();
-                                        // $('#employee_list').innerHTML=emp;
+                                        dataBaseFunction();
+                                         app.insertRecord2();
+                                        //alert("valid email id")
+                                            // $('#employee_list').innerHTML=emp;
                                         profileDisplay2();
 
                                         // myfun();
@@ -174,7 +181,7 @@ function scan() {
         cordova.plugins.barcodeScanner.scan(
             function (result) { //alert("hello");
                 if (!result.cancelled) {
-                    //document.getElementById("scanButton").style.display = "none";
+                    document.getElementById("admin_div").style.display = "none";
                     //var currentMessage = resultsField.innerHTML;
                     profile_id = result.text;
                     $.ajax({
@@ -183,7 +190,7 @@ function scan() {
                         success: function (result) {
 
                             sessionId = result.sessionId;
-                            // alert(sessionId + "  " + profile_id);
+                            //alert(sessionId + "  " + profile_id);
                             myfun();
                             $.ajax({
                                 url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
@@ -197,8 +204,9 @@ function scan() {
                                     parser = new DOMParser();
                                     xmlDoc = parser.parseFromString(txt, "text/xml");
 
+                                    //value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
+                                    alert("xml");
                                     value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                    //alert("xml");
                                     candidatePhoto = value1.childNodes[0].innerHTML;
                                     value1 = value1.nextSibling.nextSibling
                                     candidateEmail = value1.innerHTML;
@@ -212,15 +220,18 @@ function scan() {
                                     //candidateInterviewDate = value1.innerHTML;
                                     value1 = value1.nextSibling.nextSibling
                                     candidateGender = value1.innerHTML;
-                                    //alert("successs");
-                                    document.getElementById("login").style.display = 'none';
+                                    //window.location.href='components/profile_page.html';
                                     app.openDatabase();
                                     app.dropTable();
                                     app.insertRecord();
                                     app.readRecords();
                                     // $('#employee_list').innerHTML=emp;
-                                    myfun();
+                                    alert("1");
                                     profileDisplay2();
+
+                                    // myfun();
+                                    //document.getElementById('show').click();
+
 
 
                                 },
@@ -241,7 +252,10 @@ function scan() {
 }
 
 function profileDisplay2() {
+    //document.getElementById('admin_div').style.display = 'none';
+    //alert("in fun");
     document.getElementById('profile').style.display = 'block';
+
     //document.getElementById('profile').style.display = 'none';
     //alert("p");
     profileDisplay();

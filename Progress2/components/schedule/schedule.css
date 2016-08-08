@@ -63,6 +63,9 @@
     height: 10px;
     display: block;
 }
+.textItem{
+    width:25%;
+}
 #pDetail {
      font-family:roboto;
     color: white;
@@ -78,6 +81,7 @@
     color: white;
 }
 .listItem {
+   
     font-family:roboto;
     background-color: white;
     padding: 7%;

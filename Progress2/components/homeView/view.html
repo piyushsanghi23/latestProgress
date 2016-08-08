@@ -15,7 +15,7 @@
 
 <body>
     <div data-role="view" data-title="Progress" data-layout="main">
-        <div id='profile' style='display:block'>
+        <div id='profile' style='display:none'>
             <div id='welcome_page'>
                 <!--img src='images/profile.png' id='candidate_image'-->
                 <div id='display_name'>
@@ -39,13 +39,14 @@
             <button class="my_button" onclick="scan()">scan</button>
             <button class="my_button" onclick="back_login()">back</button>
         </div>
-        <div id="login" style='display:none'>
+        <div id="login" >
             <p id="email_txt">Email:</p>
             <input type="email" id="email_box">
             <img id="submit_arrow" src="images/submit.PNG" height="150" size="150" onclick="authenticate()" />
             <!--a id='show' data-role='button' onclick='authenticate()' href='components/profile_page.html'>profile</a-->
-            <p id='login_error'>
-            </p>
+            <div id='login_error' style='display:none'>
+                you are not a valid person
+            </div>
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
         </div>
         <div id="note_wifi" style='display:none'>

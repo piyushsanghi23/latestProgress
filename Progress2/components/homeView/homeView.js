@@ -50,7 +50,9 @@ function authenticate() {
                         success: function (result) {
                             console.log("success" + JSON.stringify(result));
                             if (result == '') {
-                                document.getElementById('login_error').innerHTML = 'your are not a valid person'
+                                 document.getElementById('login_error').innerHTML = 'you are not a valid person';
+                                document.getElementById('login_error').style.display = 'block';
+   setTimeout(function(){ document.getElementById('login_error').style.display = 'none';},3000);
                             } else {
                                 //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
                                 //window.open("components/profile_page.html", "_self");
@@ -116,6 +118,8 @@ function authenticate() {
         }
     } else {
         document.getElementById('login_error').innerHTML = 'not valid email address';
+         document.getElementById('login_error').style.display = 'block';
+   setTimeout(function(){ document.getElementById('login_error').style.display = 'none';},3000);
     }
 
 

@@ -86,7 +86,7 @@
     background-color: white;
     padding: 7%;
     list-style-position: inside;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #f5f7f8;
 }
 h3.timeItem {
     font-family:roboto;

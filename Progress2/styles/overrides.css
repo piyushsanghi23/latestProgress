@@ -245,6 +245,8 @@
   border-color: #3c415b;
 }
 .km-nova .km-drawer .km-list > li {
+        text-align: -webkit-left;
+    padding-bottom: 20%;
       border-color: #bfb9b9;
     
     border-bottom-width: thin;

@@ -85,7 +85,7 @@ app.insertRecord2 = function () {
             var x=email;
             var y=candidateName;
             var z=profile_id;
-            //alert(x);
+            alert(z);
             db.transaction(function (tx) {
                 tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text, log_value integer)");
                     tx.executeSql(
@@ -166,6 +166,9 @@ app.readRecords2 = function () {
                         
                         candidateName=log_details[0].name;
                         dataBaseFunction();
+                        //ert(log_details[0].profile_id);
+                        profile_id=log_details[0].profile_id;
+                        myfun();
                         document.getElementById('login').style.display='none';
                          profileDisplay2();
                         //dis();

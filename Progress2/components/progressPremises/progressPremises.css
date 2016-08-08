@@ -20,11 +20,13 @@
     width: 50%;
     height: 216px;
     position: absolute;
+    background-color:#f1f1f1;
 }
 #img2 {
     margin: auto;
     width: 50%;
     height: 216px;
+     background-color:#f1f1f1;
 }
 #img3 {
     margin: auto;

@@ -257,7 +257,7 @@ function scan() {
 
 function profileDisplay2() {
     //document.getElementById('admin_div').style.display = 'none';
-    alert("in fun");
+   //alert("in fun");
     document.getElementById('profile').style.display = 'block';
 
     //document.getElementById('profile').style.display = 'none';

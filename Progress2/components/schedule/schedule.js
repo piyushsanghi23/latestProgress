@@ -236,7 +236,7 @@ function dis() {
 
   
             
-            document.getElementById('employee_list').innerHTML='';
+            //document.getElementById('employee_list').innerHTML='';
        
     for (i in emp) {
         count_dis=1;

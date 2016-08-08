@@ -33,6 +33,8 @@
 
             function onOffline() {
                 // Handle the offline event
+                   document.getElementById('note_wifi').style.display = 'block';
+   setTimeout(function(){ document.getElementById('note_wifi').style.display = 'none';},3000);
                 if (count == 1 && count_dis==0) {
                     //alert("offline");
                     app.openDatabase();

@@ -89,7 +89,8 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #fde073;
+    background-color:#FF6347;
+    font-family:myfont;
     text-align: center;
     line-height: 2.5;
     overflow: hidden; 
@@ -103,7 +104,8 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #fde073;
+    background-color:#FF6347;
+    font-family:myfont;
     text-align: center;
     line-height: 2.5;
     overflow: hidden; 

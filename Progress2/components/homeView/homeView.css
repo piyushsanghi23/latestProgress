@@ -13,16 +13,14 @@
 }
 #best_of_luck_button {
     overflow: hidden;
-    padding-top:6%;
+    padding-top: 10%;
     width: 100%;
     margin-top: 10%;
 }
 #progress_premises_button {
-    background-color: #f1f1f1;
-    padding-top:16%;
+    padding-top: 20%;
     overflow: hidden;
     width: 100%;
-    margin-top: 10%;
 }
 #display_name {
     font-family: myfont;
@@ -76,12 +74,24 @@
     font-size: large;
 }
 @-webkit-keyframes slideDown {
-    0%, 100% { -webkit-transform: translateY(-50px); }
-    10%, 90% { -webkit-transform: translateY(0px); }
+    0%,
+    100% {
+        -webkit-transform: translateY(-50px);
+    }
+    10%,
+    90% {
+        -webkit-transform: translateY(0px);
+    }
 }
 @-moz-keyframes slideDown {
-    0%, 100% { -moz-transform: translateY(-50px); }
-    10%, 90% { -moz-transform: translateY(0px); }
+    0%,
+    100% {
+        -moz-transform: translateY(-50px);
+    }
+    10%,
+    90% {
+        -moz-transform: translateY(0px);
+    }
 }
 #note_wifi {
     position: absolute;
@@ -89,31 +99,30 @@
     top: 0;
     left: 0;
     right: 0;
-    background-color:#FF6347;
-    font-family:myfont;
+    background-color: #FF6347;
+    font-family: myfont;
     text-align: center;
     line-height: 2.5;
-    overflow: hidden; 
+    overflow: hidden;
     -webkit-box-shadow: 0 0 5px black;
-    -moz-box-shadow:    0 0 5px black;
-    box-shadow:         0 0 5px black;
+    -moz-box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px black;
 }
-#login_error{
+#login_error {
     position: absolute;
     z-index: 101;
     top: 0;
     left: 0;
     right: 0;
-    background-color:#FF6347;
-    font-family:myfont;
+    background-color: #FF6347;
+    font-family: myfont;
     text-align: center;
     line-height: 2.5;
-    overflow: hidden; 
+    overflow: hidden;
     -webkit-box-shadow: 0 0 5px black;
-    -moz-box-shadow:    0 0 5px black;
-    box-shadow:         0 0 5px black;
+    -moz-box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px black;
 }
-
 #login {
     background-image: url('images/bg.PNG');
 }
@@ -125,10 +134,24 @@
     #email_txt {
         margin-top: 11%;
     }
+    #wrapper {
+        display: flex;
+    }
+    #best_of_luck_button {
+        /* overflow: hidden; */
+        padding-top: 0%;
+        width: 100%;
+        /* margin-top: 9%; */
+    }
+    #progress_premises_button {
+        padding-top: 10%;
+        /* overflow: hidden; */
+        width: 100%;
+    }
     #submit_arrow {
         margin-left: 68%;
     }
-    #scan_txt{
+    #scan_txt {
         margin-top: 6%;
     }
 }

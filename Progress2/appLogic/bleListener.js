@@ -2,7 +2,7 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    //alert('startScanForBeacons')
+    alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
@@ -47,7 +47,7 @@ var time = '';
 // Display pages depending of which beacon is close.
 app.didRangeBeaconsInRegion = function (pluginResult) {
     // There must be a beacon within range.
-
+	alert("fdksfnmdsklfslkdfkfl fkjl");
     if (0 == pluginResult.beacons.length) {
         close();
         return
@@ -97,7 +97,11 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     beacon_div.appendChild(textnode1);
                     document.getElementById('login').appendChild(beacon_div);
                     flag_img[r] = 1;
+                    
                     img_counter = setInterval('tick()', 1000);
+                    if(my_flag_pp==1){
+                        tick_page(id_hint_pno,region.url,r);
+                    }
 
                     // $("#login").append("video");
                 }

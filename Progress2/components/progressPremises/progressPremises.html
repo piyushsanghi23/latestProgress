@@ -14,98 +14,99 @@
     <div data-role="view" data-title="Progress" data-layout="main">
         <div id="schedule_header">
             <div id='aTag'>
-            <a data-role='button' href='components/homeView/view.html' id='backButton' >
-               <span style='color: white;'> &#10094;</span>
+                <a data-role='button' href='components/homeView/view.html' id='backButton'>
+                    <span style='color: white;'> &#10094;</span>
                 </a>
-    </div>
+            </div>
             <div id="schedule_text">
                 Progress Premises
             </div>
         </div>
-
+       
+        <div id="video_container" style="display:none">
+            <p>
+                temporary video container
+            </p>
+            <p id="title_video">
+                nothing before 
+            </p>
+            <button id="button_back" onclick="back('idea_room_div')">
+                done
+            </button>
+        </div>
+        
         <div id="idea_room_div" style="display:none">
             <img id='id_room_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
-            <img id='id_room_img_2' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='id_room_img_3' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='id_room_img_4' class="beacon_hint_img" src='//' style="display:none" >
             <p class="footer_hint" id='hint_1_1'>
-                Hints : .....
+                Hints : Common u can do it
             </p>
-            <p class="footer_hint" id="hint_2_1" style="display:none">
-                Common u can do it 
-            </p>
-            <p class="footer_hint" id="hint_3_1" style="display:none">
-                You are almost there  
-            </p>
-            <button id="button_back" onclick="back('idea_room_div')" >
+            <button id="button_back" onclick="back('idea_room_div')">
                 back 
             </button>
         </div>
-        <div id="lunch_room_div" style="display:none">
-            <img id='lr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
-            <img id='lr_img_2' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='lr_img_3' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='lr_img_4' class="beacon_hint_img" src='//' style="display:none" >
-            <p class="footer_hint" id='hint_1_2'>
-                Hints : .....
+       
+        <div id="idea_room_div_final" style="display:none">
+            <img id='id_room_img_1' class="beacon_hint_img" src='images/tick_green.png'>
+            <p class="footer_hint" id="hint_3_1">
+                You did it
             </p>
-            <p class="footer_hint" id="hint_2_2" style="display:none">
-                Common u can do it 
-            </p>
-            <p class="footer_hint" id="hint_3_2" style="display:none">
-                You are almost there  
-            </p>
-            <button id="button_back" onclick="back('lunch_room_div')" >
+        </div>
+            <div id="lunch_room_div" style="display:none">
+                <img id='lr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+                <p class="footer_hint" id='hint_1_2'>
+                    Hints : .....
+                </p>
+                <button id="button_back" onclick="back('lunch_room_div')">
                 back 
             </button>
-        </div>
-        <div id="gym_room_div" style="display:none">
-            <img id='gr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
-            <img id='gr_img_2' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='gr_img_3' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='gr_img_4' class="beacon_hint_img" src='//' style="display:none" >
-            <p class="footer_hint" id='hint_1_3'>
-                Hints : .....
-            </p>
-            <p class="footer_hint" id="hint_2_3" style="display:none">
-                Common u can do it 
-            </p>
-            <p class="footer_hint" id="hint_3_3" style="display:none">
-                You are almost there  
-            </p>
-            <button id="button_back" onclick="back('gym_room_div')" >
+            </div>
+            <div id="lunch_room_div_final" style="display:none">
+                <img id='lr_img_1' class="beacon_hint_img" src='images/tick_green.png'>
+                <p class="footer_hint" id="hint_3_2">
+                    You did it :D
+                </p>
+            </div>
+            <div id="gym_room_div" style="display:none">
+                <img id='gr_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+                <p class="footer_hint" id='hint_1_3'>
+                    Hints : gymm room in gym :P
+                </p>
+                <button id="button_back" onclick="back('gym_room_div')">
                 back 
             </button>
-        </div>
-        <div id="pantree_room_div" style="display:none">
-            <img id='pt_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
-            <img id='pt_img_2' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='pt_img_3' class="beacon_hint_img" src='//' style="display:none" >
-            <img id='pt_img_4' class="beacon_hint_img" src='//' style="display:none" >
-            <p class="footer_hint" id='hint_1_4'>
-                Hints : .....
-            </p>
-            <p class="footer_hint" id="hint_2_4" style="display:none">
-                Common u can do it 
-            </p>
-            <p class="footer_hint" id="hint_3_4" style="display:none">
-                You are almost there  
-            </p>
-            <button id="button_back" onclick="back('pantree_room_div')" >
+            </div>
+            <div id="gym_room_div_final" style="display:none">
+                <img id='gr_img_1' class="beacon_hint_img" src='images/tick_green.png'>
+                <p class="footer_hint" id="hint_3_3">
+                    You did it gym boy
+                </p>
+            </div>
+            <div id="pantree_room_div" style="display:none">
+                <img id='pt_img_1' class="beacon_hint_img" src='images/bulb.PNG'>
+                <p class="footer_hint" id='hint_1_4'>
+                    Hints : .....
+                </p>
+                <button id="button_back" onclick="back('pantree_room_div')">
                 back 
             </button>
-        </div>
-        <div id="first_block">
-            <img id="img0" src='images/idea room.PNG' alt="idea room" onclick="idea_Room()"/>
-            <img id="img1" src='images/gym.PNG' alt="gym" onclick="gym_Room()"/>
-        </div>
-        <div id="second_block">
-           <img id="img2" src='images/pantreee.PNG' alt="pantree" onclick="pantree()"/>
-           <img id="img3" src='images/lunch room.PNG' alt="lunchroom" onclick="lunch_Room()" />
-        </div>
-        <p id="discover_txt" >
-            Discover the places around you! 
-        </p>
+            </div>
+            <div id="pantree_room_div_final" style="display:none">
+                <img id='pt_img_1' class="beacon_hint_img" src='images/tick_green.png'>
+                <p class="footer_hint" id="hint_2_4">
+                    you did it
+                </p>
+            </div>
+            <div id="first_block">
+                <img id="img0" src='images/idea room.PNG' alt="idea room" onclick="idea_Room()" />
+                <img id="img1" src='images/gym.PNG' alt="gym" onclick="gym_Room()" />
+            </div>
+            <div id="second_block">
+                <img id="img2" src='images/pantreee.PNG' alt="pantree" onclick="pantree()" />
+                <img id="img3" src='images/lunch room.PNG' alt="lunchroom" onclick="lunch_Room()" />
+            </div>
+            <p id="discover_txt">
+                Discover the places around you!
+            </p>
 </body>
 
 </html>

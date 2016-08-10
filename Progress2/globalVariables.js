@@ -5,7 +5,7 @@ app.beaconRegions = [
         uuid: 'f7028248-68b4-4f65-8087-d5d5cb3a1cbd',
         major: 1000,
         minor: 3333,
-        url: 'videos/incubator_x264.mp4',
+        url: 'videos/lunchRoom_x264.mp4',
         img_id:'img1',
         source_img:'images/idea1.png'
 
@@ -62,6 +62,8 @@ var db = null;
 var emp=[];
 var email;
 var count=1;
+var id_hint_pno;
+var my_flag_pp=0;
 var log_value=0;
 var log_details=[];
 var log_count=0;

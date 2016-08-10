@@ -11,36 +11,42 @@ function tick() {
 }
 
 function tick_page(x, video_url, r) {
+    alert("in fucntion");
     if (x == 1 && r == x - 1) {
+        document.getElementById('idea_room_div').style.display = 'none';
         setInterval(function () {
-            document.getElementById('idea_room_div').style.display = 'none';
+            
             document.getElementById('idea_room_div_final').style.display = 'block';
         }, 4000);
-
+        
+     document.getElementById('idea_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 1 !";
         document.getElementById('video_container').style.display = 'block';
     } else if (x == 2) {
+         document.getElementById('gym_room_div').style.display = 'none';
         setInterval(function () {
-            document.getElementById('gym_room_div').style.display = 'none';
+           
             document.getElementById('gym_room_div_final').style.display = 'block';
         }, 4000);
-
+ document.getElementById('gym_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 2 !";
         document.getElementById('video_container').style.display = 'block';
     } else if (x == 3) {
+         document.getElementById('pantree_room_div').style.display = 'none';
         setInterval(function () {
-            document.getElementById('pantree_room_div').style.display = 'none';
+           
             document.getElementById('pantree_room_div_final').style.display = 'block';
         }, 4000);
-
+ document.getElementById('pantree_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 3 !";
         document.getElementById('video_container').style.display = 'block';
     } else {
+         document.getElementById('lunch_room_div').style.display = 'none';
         setInterval(function () {
-            document.getElementById('lunch_room_div').style.display = 'none';
+           
             document.getElementById('lunch_room_div_final').style.display = 'block';
         }, 4000);
-
+ document.getElementById('lunch_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 4 !";
         document.getElementById('video_container').style.display = 'block';
     }
@@ -48,6 +54,7 @@ function tick_page(x, video_url, r) {
 }
 
 function idea_Room() {
+    vibrate();
     my_flag_pp = 1;
     id_hint_pno = 0;
     document.getElementById('idea_room_div').style.display = 'block';

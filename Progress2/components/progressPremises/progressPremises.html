@@ -27,8 +27,13 @@
             <p>
                 temporary video container
             </p>
+            <video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
             <p id="title_video">
-                nothing before 
+                title
             </p>
             <button id="button_back" onclick="back('idea_room_div')">
                 done
@@ -100,7 +105,7 @@
                 <img id="img0" src='images/idea room.PNG' alt="idea room" onclick="idea_Room()" />
                 <img id="img1" src='images/gym.PNG' alt="gym" onclick="gym_Room()" />
             </div>
-            <div id="second_block">
+            <div id="second_block" >
                 <img id="img2" src='images/pantreee.PNG' alt="pantree" onclick="pantree()" />
                 <img id="img3" src='images/lunch room.PNG' alt="lunchroom" onclick="lunch_Room()" />
             </div>

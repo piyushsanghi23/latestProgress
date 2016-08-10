@@ -47,7 +47,6 @@ var time = '';
 // Display pages depending of which beacon is close.
 app.didRangeBeaconsInRegion = function (pluginResult) {
     // There must be a beacon within range.
-	alert("fdksfnmdsklfslkdfkfl fkjl");
     if (0 == pluginResult.beacons.length) {
         close();
         return
@@ -100,6 +99,8 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     
                     img_counter = setInterval('tick()', 1000);
                     if(my_flag_pp==1){
+                        alert("in my flag pp ");
+                        alert(id_hint_pno);
                         tick_page(id_hint_pno,region.url,r);
                     }
 

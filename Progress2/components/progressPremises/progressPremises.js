@@ -10,45 +10,64 @@ function tick() {
         }
 }
 
+function done() {
+    document.getElementById('video_container').style.display = 'none';
+    //more code for stopping the video to play 
+}
+
 function tick_page(x, video_url, r) {
     alert("in fucntion");
-    if (x == 1 && r == x - 1) {
+    if (x == 0 && r == x) {
         document.getElementById('idea_room_div').style.display = 'none';
-        setInterval(function () {
-            
-            document.getElementById('idea_room_div_final').style.display = 'block';
+
+
+        document.getElementById('idea_room_div_final').style.display = 'block';
+
+
+        setTimeout(function () {
+            document.getElementById('idea_room_div_final').style.display = 'none';
         }, 4000);
-        
-     document.getElementById('idea_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 1 !";
-        document.getElementById('video_container').style.display = 'block';
-    } else if (x == 2) {
-         document.getElementById('gym_room_div').style.display = 'none';
-        setInterval(function () {
-           
-            document.getElementById('gym_room_div_final').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('video_container').style.display = 'block';
+        }, 4500);
+    } else if (x == 2 && r == x) {
+        document.getElementById('gym_room_div').style.display = 'none';
+
+        document.getElementById('gym_room_div_final').style.display = 'block'
+        setTimeout(function () {
+            document.getElementById('gym_room_div_final').style.display = 'none';
         }, 4000);
- document.getElementById('gym_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 2 !";
-        document.getElementById('video_container').style.display = 'block';
-    } else if (x == 3) {
-         document.getElementById('pantree_room_div').style.display = 'none';
-        setInterval(function () {
-           
-            document.getElementById('pantree_room_div_final').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('video_container').style.display = 'block';
+        }, 4500);
+    } else if (x == 3 && r == x) {
+        document.getElementById('pantree_room_div').style.display = 'none';
+
+
+        document.getElementById('pantree_room_div_final').style.display = 'block';
+
+        setTimeout(function () {
+            document.getElementById('pantree_room_div_final').style.display = 'none';
         }, 4000);
- document.getElementById('pantree_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 3 !";
-        document.getElementById('video_container').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('video_container').style.display = 'block';
+        }, 4500);
     } else {
-         document.getElementById('lunch_room_div').style.display = 'none';
-        setInterval(function () {
-           
-            document.getElementById('lunch_room_div_final').style.display = 'block';
+        document.getElementById('lunch_room_div').style.display = 'none';
+
+
+        document.getElementById('lunch_room_div_final').style.display = 'block';
+
+        setTimeout(function () {
+            document.getElementById('lunch_room_div_final').style.display = 'none';;
         }, 4000);
- document.getElementById('lunch_room_div_final').style.display = 'none';
         document.getElementById("title_video").innerHTML = "Paragraph changed in 4 !";
-        document.getElementById('video_container').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('video_container').style.display = 'block';
+        }, 4500);
     }
 
 }
@@ -70,7 +89,7 @@ function back(ID) {
     document.getElementById('first_block').style.display = 'block';
     document.getElementById('second_block').style.display = 'block';
     document.getElementById('discover_txt').style.display = 'block';
-
+    done();
 
 }
 

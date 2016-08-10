@@ -20,10 +20,9 @@ function back_login() {
 
 function dataBaseFunction() {
     app.openDatabase();
-    app.dropTable();
-    app.insertRecord();
-   
-    app.readRecords();
+    app.dropTable('test');
+    app.insertRecord('test');
+    app.readRecords('test');
 }
 
 function authenticate() {
@@ -50,9 +49,11 @@ function authenticate() {
                         success: function (result) {
                             console.log("success" + JSON.stringify(result));
                             if (result == '') {
-                                 document.getElementById('login_error').innerHTML = 'you are not a valid person';
+                                document.getElementById('login_error').innerHTML = 'you are not a valid person';
                                 document.getElementById('login_error').style.display = 'block';
-   setTimeout(function(){ document.getElementById('login_error').style.display = 'none';},3000);
+                                setTimeout(function () {
+                                    document.getElementById('login_error').style.display = 'none';
+                                }, 3000);
                             } else {
                                 //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
                                 //window.open("components/profile_page.html", "_self");
@@ -88,9 +89,9 @@ function authenticate() {
                                         candidateGender = value1.innerHTML;
                                         //window.location.href='components/profile_page.html';
                                         dataBaseFunction();
-                                         app.insertRecord2();
+                                        app.insertRecord('log');
                                         //alert("valid email id")
-                                            // $('#employee_list').innerHTML=emp;
+                                        // $('#employee_list').innerHTML=emp;
                                         profileDisplay2();
 
                                         // myfun();
@@ -118,8 +119,10 @@ function authenticate() {
         }
     } else {
         document.getElementById('login_error').innerHTML = 'not valid email address';
-         document.getElementById('login_error').style.display = 'block';
-   setTimeout(function(){ document.getElementById('login_error').style.display = 'none';},3000);
+        document.getElementById('login_error').style.display = 'block';
+        setTimeout(function () {
+            document.getElementById('login_error').style.display = 'none';
+        }, 3000);
     }
 
 
@@ -226,9 +229,9 @@ function scan() {
                                     candidateGender = value1.innerHTML;
                                     //window.location.href='components/profile_page.html';
                                     app.openDatabase();
-                                    app.dropTable();
-                                    app.insertRecord();
-                                    app.readRecords();
+                                    app.dropTable('test');
+                                    app.insertRecord('test');
+                                    app.readRecords('test');
                                     // $('#employee_list').innerHTML=emp;
                                     alert("1");
                                     profileDisplay2();
@@ -257,7 +260,7 @@ function scan() {
 
 function profileDisplay2() {
     //document.getElementById('admin_div').style.display = 'none';
-   //alert("in fun");
+    //alert("in fun");
     document.getElementById('profile').style.display = 'block';
 
     //document.getElementById('profile').style.display = 'none';

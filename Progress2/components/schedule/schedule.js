@@ -18,12 +18,13 @@ app.openDatabase = function () {
     }
 };
 
-app.dropTable = function () {
+app.dropTable = function (table_name) {
+    //alert(table_name);
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
             db.transaction(function (tx) {
                 tx.executeSql(
-                    'DROP TABLE test', [],
+                    'DROP TABLE ' + table_name, [],
                     function (tx, res) {
                         //alert('Table deleted');
                     },
@@ -38,173 +39,104 @@ app.dropTable = function () {
     }
 };
 
-app.dropTable2 = function () {
+app.insertRecord = function (table_name) {
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
             db.transaction(function (tx) {
-                tx.executeSql(
-                    'DROP TABLE log', [],
-                    function (tx, res) {
-                        //alert('Table deleted');
-                    },
-                    // note: gets called when deleting table without having inserted rows,
-                    //       to avoid this error use: 'DROP TABLE IF EXISTS test'
-                    function (tx, res) {
-                        //alert('error: ' + res.message);
+                if (table_name == 'test') {
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS test (id integer primary key, round text,time text,image text,name text,role text)");
+                    for (var i in app.employee) {
+                        var x = app.employee[i];
+                        tx.executeSql(
+                            "INSERT INTO test (round, time, image, name, role) VALUES (?,?,?,?,?)", [x.round, x.time, x.image, x.name, x.role],
+                            function (tx, res) {
+                                //alert("insertId: " + res.insertId + ", rows affected: " + res.rowsAffected);
+                            },
+                            function (tx, res) {
+                                //alert('error: ' + res.message);
+                            });
                     }
-                );
-            });
-        }
-    }
-};
-
-app.insertRecord = function () {
-    if (!this.checkSimulator()) {
-        if (this.checkOpenedDatabase()) {
-            db.transaction(function (tx) {
-                tx.executeSql("CREATE TABLE IF NOT EXISTS test (id integer primary key, round text,time text,image text,name text,role text)");
-                for (var i in app.employee) {
-                    var x = app.employee[i];
+                } else if (table_name == 'log') {
+                    var x = email;
+                    var y = candidateName;
+                    var z = profile_id;
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text, log_value integer)");
                     tx.executeSql(
-                        "INSERT INTO test (round, time, image, name, role) VALUES (?,?,?,?,?)", [x.round, x.time, x.image, x.name, x.role],
-                        function (tx, res) {
-                            //alert("insertId: " + res.insertId + ", rows affected: " + res.rowsAffected);
-                        },
-                        function (tx, res) {
-                            //alert('error: ' + res.message);
-                        });
-                }
-            });
-        }
-    }
-};
-app.insertRecord2 = function () {
-    alert("P");
-    if (!this.checkSimulator()) {
-        if (this.checkOpenedDatabase()) {
-            var x=email;
-            var y=candidateName;
-            var z=profile_id;
-            alert(z);
-            db.transaction(function (tx) {
-                tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text, log_value integer)");
-                    tx.executeSql(
-                        "INSERT INTO log (email,name,profile_id,log_value) VALUES (?,?,?,?)", [x,y,z,1],
+                        "INSERT INTO log (email,name,profile_id,log_value) VALUES (?,?,?,?)", [x, y, z, 1],
                         function (tx, res) {
                             //alert("insertId: ");
                         },
                         function (tx, res) {
                             alert('error: ' + res.message);
                         });
-                
+                }
+
             });
         }
     }
 };
-
-app.readRecords = function () {
+app.readRecords = function (table_name) {
+    // alert(table_name);
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
             db.transaction(function (tx) {
                 tx.executeSql(
-                    "select * from test;", [],
+                    "select * from " + table_name + ";", [],
                     function (tx, res) {
-                        for (var i = 0; i < res.rows.length; i++) {
-                            var row = res.rows.item(i);
-                            /*alert(
-                                "row " + i + ":\n" +
-                                " - id = " + row.id + "\n" +
-                                " - round = " + row.round + "\n" +
-                                " - time = " + row.time + "\n" +
-                                " - image = " + row.image + "\n" +
-                                " - name = " + row.name + "\n" +
-                                " - role= " + row.role
-                            );*/
+                        if (table_name == 'test') {
+                            for (var i = 0; i < res.rows.length; i++) {
+                                var row = res.rows.item(i);
+                                emp.push(res.rows.item(i));
+                            }
+                        } else if (table_name == 'log') {
 
-                            emp.push(res.rows.item(i));
-                            //alert(JSON.stringify(emp[0]));
-                            //document.getElementById('employee_list').innerHTML=emp;
+                            for (var i = 0; i < res.rows.length; i++) {
+                                var row = res.rows.item(i);
 
+
+                                log_details.push(res.rows.item(i));
+
+
+                            }
+
+                            candidateName = log_details[0].name;
+                            dataBaseFunction();
+                            //ert(log_details[0].profile_id);
+                            profile_id = log_details[0].profile_id;
+                            myfun();
+                            document.getElementById('login').style.display = 'none';
+                            profileDisplay2();
                         }
-                        //dis();
-
                     },
                     function (tx, res) {
                         //alert('error: ' + res.message);
-                    });
-            });
-        }
-    }
-};
-
-app.readRecords2 = function () {
-    if (!this.checkSimulator()) {
-        if (this.checkOpenedDatabase()) {
-            db.transaction(function (tx) {
-                tx.executeSql(
-                    "select * from log;", [],
-                    function (tx, res) {
-                        
-                        for (var i = 0; i < res.rows.length; i++) {
-                            var row = res.rows.item(i);
-                            /*alert(
-                                "row " + i + ":\n" +
-                                " - id = " + row.id + "\n" +
-                                " - round = " + row.round + "\n" +
-                                " - time = " + row.time + "\n" +
-                                " - image = " + row.image + "\n" +
-                                " - name = " + row.name + "\n" +
-                                " - role= " + row.role
-                            );*/
-
-                            log_details.push(res.rows.item(i));
-                            
-                            //alert(JSON.stringify(emp[0]));
-                            //document.getElementById('employee_list').innerHTML=emp;
-
-                        }
-                        
-                        candidateName=log_details[0].name;
-                        dataBaseFunction();
-                        //ert(log_details[0].profile_id);
-                        profile_id=log_details[0].profile_id;
-                        myfun();
-                        document.getElementById('login').style.display='none';
-                         profileDisplay2();
-                        //dis();
-
-                    },
-                    function (tx, res) {
-                        //alert('error: ' + res.message);
-                        //alert("in readrecords2");
                     });
             });
         }
     }
 };
 app.countRecords = function () {
-    
+
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
-           
+
             db.transaction(function (tx) {
                 tx.executeSql(
                     "select count(*) as cnt from log;", [],
                     function (tx, res) {
-                         //alert("count records");
-                     log_count= res.rows.item(0).cnt;
-                       	 //alert(log_count);
-                         if(log_count==1)
-                             {
-                                 app.readRecords2();
-                                   
-                             }
-                        
-                            
+                        //alert("count records");
+                        log_count = res.rows.item(0).cnt;
+                        //alert(log_count);
+                        if (log_count == 1) {
+                            app.readRecords('log');
+
+                        }
+
+
                     },
                     function (tx, res) {
-                       //alert('error: ' + res.message);
-//app.insertRecord2();
+                        //alert('error: ' + res.message);
+                        //app.insertRecord2();
                     });
             });
         }
@@ -237,12 +169,12 @@ var i = 0;
 
 function dis() {
 
-  
-            
-            //document.getElementById('employee_list').innerHTML='';
-       
+
+
+    //document.getElementById('employee_list').innerHTML='';
+
     for (i in emp) {
-        count_dis=1;
+        count_dis = 1;
         var node = document.createElement("li");
         node.setAttribute("class", "listItem");
         node.setAttribute('id', i);
@@ -294,7 +226,7 @@ function dis() {
         div.appendChild(name);
         div.appendChild(role);
         document.getElementById("employee_list").appendChild(div);
-        if (i == emp.length - 1){
+        if (i == emp.length - 1) {
             clearInterval(my);
         }
     }

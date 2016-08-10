@@ -38,13 +38,13 @@
                 if (count == 1 && count_dis==0) {
                     //alert("offline");
                     app.openDatabase();
-                    app.readRecords();
+                    app.readRecords('test');
                     //app.dropTable();
                     count++;
                 }
             }
             app.openDatabase();
-            //app.dropTable2();
+           // app.dropTable('log');
              app.countRecords();
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
@@ -106,12 +106,6 @@
         }
 
     };
-    app.openDatabase();
-    app.readRecords2();
-    if (log_details[0].log_value == 1) {
-         profileDisplay2();
-    }
-
     //deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     // document.addEventListener("backbutton", onBackKeyDown, false);
 

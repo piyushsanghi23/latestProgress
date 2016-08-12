@@ -12,10 +12,7 @@
     /*padding-top: 18%;*/
 }
 #best_of_luck_button {
-    overflow: hidden;
-    padding-top: 10%;
-    width: 100%;
-    margin-top: 10%;
+        padding: 30px;
 }
 #progress_premises_button {
     padding-top: 20%;
@@ -26,7 +23,7 @@
     font-family: myfont;
     color: white;
     padding-top: 5%;
-    padding-bottom: 5%;
+    padding-left: 40px;
     font-size: large;
     font-weight: bold;
 }
@@ -35,8 +32,15 @@
     text-align: center;
     font-size: 50px;
     margin-bottom: 0px;
-    color: black;
-    margin-top: 50%;
+    color: white;
+    padding-top: 64%;
+}
+#intro_txt {
+    font-family: myfont;
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 0px;
+    color: white;
 }
 #scan_txt {
     font-family: myfont;
@@ -46,13 +50,21 @@
     color: black;
     margin-top: 50%;
 }
+#green_arrow {
+    height: 54px;
+    margin-top: 2px;
+    margin-left: -21%;
+}
+#email_wrapper {
+    display: flex;
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 13%;
+    
+}
 #email_box {
-    border-style: ridge;
-    margin: 0 auto;
-    display: block;
-    border-color: black;
-    width: 70%;
-    margin-top: 5%;
+    width: 85%;
+    height: 58px;
 }
 #submit_arrow {
     margin-left: 66%;
@@ -154,6 +166,16 @@
     #scan_txt {
         margin-top: 6%;
     }
+}
+input {
+    padding: 20px;
+    border-style: none;
+}
+::-webkit-input-placeholder {
+    color: grey;
+    padding: 20px 20px;
+    font-family: myfont;
+    font-size: small;
 }
 
 /* END OF HOME-VIEW CSS */

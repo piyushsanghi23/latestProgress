@@ -39,12 +39,10 @@
     <script src="components/homeView/homeView.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
-            <div data-role="navbar">
-                <img src="images/icon.png" data-align="right">
-                <span data-align="right" data-role="view-title"></span>
-                <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-                <!--a data-role="button" data-align="right" onclick="startVuforia()">AR</a-->
-                <img src="images/The Interview Logo.png" data-align="center" width="41.001%" style="margin-top: 4%;">
+            <div data-role="navbar" style=" background-image: linear-gradient(to bottom, #181919 0%, #181919 100%);";>
+                <img src="images/ProgressLogoAsset 28@1x.png" data-align="right">
+                 <a data-role="button" href="#appDrawer" data-rel="drawer" style="float: left;top: 12px;left: 7px; background-image: url('images/HambergerAsset 1@1x.png'); background-repeat: no-repeat;"></a>   
+                <div style='float: left;'> App Title</div>
             </div>
         </header>
     </div>
@@ -56,9 +54,9 @@
         </header>
     </div>
     <div id="appDrawer" data-role="drawer" data-title="Progress">
-        <header data-role="header" style="height:50px; background-color: #000000;">
+        <header data-role="header" style="height:50px; background-color: #181919;">
         </header>
-        <ul id="navigation-container" data-role="listview">
+        <ul id="navigation-container" data-role="listview" style="   list-style-image: url('images/BadGrayAsset 14@1x.png');">
             <li><a href="components/schedule/schedule.html" style="font-family:myfont;">Interview Schedule</a></li>
             <li><a href="components/contact/contact.html" style="font-family: myfont;">Contact</a></li>
             <li><a href="components/ARVideo/ARVideo.html" style="font-family: myfont;">AR Mode</a></li>

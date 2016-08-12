@@ -44,7 +44,7 @@
                 }
             }
             app.openDatabase();
-           // app.dropTable('log');
+           //app.dropTable('log');
              app.countRecords();
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");

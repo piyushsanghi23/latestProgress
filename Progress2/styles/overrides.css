@@ -246,10 +246,8 @@
 }
 .km-nova .km-drawer .km-list > li {
         text-align: -webkit-left;
-    padding-bottom: 20%;
-      border-color: #bfb9b9;
-    
-    border-bottom-width: thin;
+    padding-bottom: 40px;
+    border-color: #fff;
 }
 .km-nova .km-drawer .km-list > li,
 .km-nova .km-drawer .km-list > li > .km-listview-link,

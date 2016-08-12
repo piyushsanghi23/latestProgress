@@ -1,12 +1,17 @@
-.time{
-            float: right;
+.time {
+    float: right;
     display: inline-flex;
     padding-right: 3%;
 }
-#backButton{
-        padding-top: 43%;
-   border: none;
-    background-color: #AAE4F3;
+#backButton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    float: left;
+    padding-top: 5%;
 }
 .arrow2 {
     transform: rotate(270deg);
@@ -22,8 +27,8 @@
     float: right;
     display: inline-block;
 }
-.timeItem{
-        height: 24px;
+.timeItem {
+    height: 24px;
 }
 #role {
     /*display: block;*/
@@ -63,64 +68,71 @@
     height: 10px;
     display: block;
 }
-.textItem{
-    width:25%;
+.textItem {
+    width: 25%;
 }
 #pDetail {
-     font-family:roboto;
+    font-family: roboto;
     color: white;
     font-size: medium;
 }
 #pName {
-    font-family:roboto;
+    font-family: roboto;
     color: white;
 }
 #pRole {
-   font-family:roboto;
+    font-family: roboto;
     font-size: medium;
     color: white;
 }
 .listItem {
-   
-    font-family:roboto;
+    font-family: roboto;
     background-color: white;
     padding: 7%;
     list-style-position: inside;
     border-bottom: 1px solid #f5f7f8;
 }
 h3.timeItem {
-    font-family:roboto;
+    font-family: roboto;
     display: -webkit-inline-box;
     margin-left: 30%;
     /* margin-left: 50%; */
 }
 #schedule_text {
-  
     font-family: myfont;
     font-size: xx-large;
-   text-align: -webkit-center;
+    text-align: -webkit-center;
     padding: 4%;
 }
 @media (orientation: landscape) {
-    #backButton{
-        padding-top:68%
-            
+    #backButton {
+        padding-top: 68%
     }
-    #schedule-text{
-        text-align:center;
+    #schedule-text {
+        text-align: center;
     }
 }
-#aTag{
-       
+#main_title {
+    color: white;
+    font-size: 20px;
+    padding-top: 5%;
+    padding-left: 40px;
+}
+#sub_title {
+    color: white;
+    font-size: 16px;
+    padding-left: 40px;
+}
+#aTag {
     /* padding-right: 5%; */
     float: left;
     font-size: x-large;
 }
 #point_of_contact {
-     font-family:roboto;
+    font-family: roboto;
     background-color: #EE4854;
     /* margin-top: 71%; */
-    text-align:center;
+    text-align: center;
     padding-top: 15%;
     padding-bottom: 15%;
 }
@@ -129,20 +141,18 @@ h3.timeItem {
     border: 4px solid white;
     height: 93px;
     /* margin: 37%; */
-    
 }
 #schedule_header {
     font-family: myfont;
-    color: white;
-   
     width: 100%;
-    background-color: #AAE4F3;
+    height: 86px;
+    background-image: url('images/BannerBGAsset 2@1x.png');
 }
 @font-face {
-   font-family:myfont;
-   src: url(fonts/Blogger Sans-Medium.ttf);
+    font-family: myfont;
+    src: url(fonts/Blogger Sans-Medium.ttf);
 }
 @font-face {
-   font-family:roboto;
-   src: url(fonts/Roboto-Regular.ttf);
+    font-family: roboto;
+    src: url(fonts/Roboto-Regular.ttf);
 }

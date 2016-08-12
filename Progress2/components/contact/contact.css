@@ -30,6 +30,30 @@
     width: 100%;
     display: block;
 }
+#address_div{
+     border-bottom-width: 1px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-bottom: solid grey;
+}
+#address_para{
+    padding:20px;
+    font-family:myfont;
+    display: inline-block;
+}
+#contact_no_div{
+      padding-left:40px;
+    padding-right:40px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+#contact_no{
+    display: inline-block;
+    color:orange;
+    
+}
 @font-face {
    font-family:myfont;
    src: url(fonts/Blogger Sans-Medium.ttf);

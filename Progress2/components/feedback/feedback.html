@@ -12,43 +12,37 @@
     <div data-role="view" data-title="Progress" data-layout="main">
         <div id="schedule_header">
             <div id='aTag'>
-            <a data-role='button' href='components/homeView/view.html' id='backButton' >
-               <span style='color: white;'> &#10094;</span>
+                <a data-role='button' href='components/homeView/view.html' id='backButton'>
+                    <span style='color: black;'> &#10094;</span>
                 </a>
-    </div>
+            </div>
             <div id="schedule_text">
                 Feedback
             </div>
         </div>
-
         <div id='how_para'>
-            How was your interview experience?
+            How was your </br>interview experience?
         </div>
         <div class="imgContainer">
             <img id="fed_img_1" src='images/Feedback 1.svg' onclick="feedback_smiley_click(this.id)" />
-          
         </div>
         <div class='imgContainer'>
             <img id="fed_img_2" src='images/Feedback 2.svg' onclick="feedback_smiley_click(this.id)" />
-           
         </div>
         <div class='imgContainer'>
             <img id="fed_img_3" src='images/Feedback 3.svg' onclick="feedback_smiley_click(this.id)" />
-           
         </div>
         <div class='imgContainer' style='padding-bottom: 3%;'>
             <img id="fed_img_4" src='images/Feedback 4.svg' onclick="feedback_smiley_click(this.id)" />
-           
         </div>
-        <div>
-            
-        
-        <textarea rows="5" cols="25" name="comment" id='textArea' style="font-family: myfont; border: 1px solid gray; border-radius: 5%;height: 131px;margin-left: 19%;width: 63%;" placeholder='Type your additional comments....'></textarea></br>
-       </div>
+        <textarea rows="5" cols="25" name="comment" id='textArea1' style=" font-family: myfont;border: 1px solid gray;border-radius: 5%;height: 131px;margin-left: 8%;width: 81%;" placeholder='Type your additional comments..'></textarea></br>
         <div id="we_value_txtstyle">
             We value your feedback<br>XOXO
         </div>
         <div id="submit_div"> <a data-role='button' onclick='submitFeedback()' id="submit_button">Submit</a></div>
+        <div id="note_feedback" style="display:none">
+            Can submit feed-back only after interview
+        </div>
     </div>
 </body>
 

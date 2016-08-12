@@ -12,28 +12,31 @@
 }
 #img0 {
     margin: auto;
-    width: 50%;
-    height: 216px;
-    padding-right: 20px;
+    width: 47%;
+    height: 180px;
+    padding:20px;
+    background-color:green;
 }
 #img1 {
     margin: auto;
-    width: 50%;
-    height: 216px;
+    width: 37%;
+    height: 180px;
     position: absolute;
-    background-color:#f1f1f1;
+    padding:20px;
+    background-color:green;
 }
 #img2 {
     margin: auto;
-    width: 50%;
-    height: 216px;
-     background-color:#f1f1f1;
+    width: 47%;
+    height: 180px;
+     background-color:green;
 }
 #img3 {
     margin: auto;
-    width: 50%;
-    height: 216px;
+    width: 37%;
+    height: 180px;
     position: absolute;
+    background-color:green;
 }
 #discover_txt {
     color: black;

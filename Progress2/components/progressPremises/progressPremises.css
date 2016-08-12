@@ -15,7 +15,7 @@
     width: 47%;
     height: 180px;
     padding:20px;
-    background-color:green;
+    background-color:white;
 }
 #img1 {
     margin: auto;
@@ -23,14 +23,14 @@
     height: 180px;
     position: absolute;
     padding:20px;
-    background-color:green;
+    background-color:white;
 }
 #img2 {
      padding:20px;
     margin: auto;
     width: 47%;
     height: 180px;
-     background-color:green;
+     background-color:white;
 }
 #img3 {
      padding:20px;
@@ -38,7 +38,7 @@
     width: 37%;
     height: 180px;
     position: absolute;
-    background-color:green;
+    background-color:white;
 }
 #discover_txt {
     color: black;

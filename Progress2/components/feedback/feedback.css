@@ -75,6 +75,18 @@
     src: url(fonts/Roboto-Regular.ttf);
 }
 @media (orientation: landscape) {
+    #how_para {
+        margin-top: 5%;
+    }
+    .imgContainer{
+            float: left;
+    /* margin: 7%; */
+    margin-bottom: 7%;
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 10%;
+            margin-top: 0%;
+    }
     #p1 {
         margin-left: 7%;
     }
@@ -87,9 +99,7 @@
     #p2 {
         margin-left: 24%;
     }
-    #we_value_txtstyle
-    {
+    #we_value_txtstyle {
         margin-left: 39%;
     }
-    
 }

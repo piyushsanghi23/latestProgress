@@ -76,15 +76,13 @@
     display: inline-block;
 }
 #submit_button {
-    height: 48px;
-    padding: 30px;
+    font-family:Roboto-Light ;
     background-color: #cf4620;
-    font-family: Roboto-Light;
-    font-size: larger;
-    color: #FFFFFF;
-    text-align: center;
-    margin-left: 33%;
-    margin-bottom: 10%;
+   color: #FFFFFF;
+   
+    width: 26%;
+    padding: 3%;
+     height: 48px;
 }
 #submit_div {
     text-align: center;
@@ -140,7 +138,7 @@
     box-shadow: 0 0 5px black;
 }
 ::-webkit-input-placeholder {
-    color: green;
+    color: grey;
     padding: 20px 20px ;
     font-family: myfont;
     font-size: small;

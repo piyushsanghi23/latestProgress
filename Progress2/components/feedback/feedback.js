@@ -3,24 +3,25 @@ var rating, comment;
 function feedback_smiley_click(id) {
     rating = id.replace(/[^\d]/g, '');
     if (rating == '1') {
+         document.getElementById("fed_img_1").src = "images/GreatNormalAsset 16@1x.png";
         document.getElementById("fed_img_2").src = "images/GoodGrayAsset 13@1x.png";
         document.getElementById("fed_img_3").src = "images/BadGrayAsset 14@1x.png";
         document.getElementById("fed_img_4").src = "images/WorstGrayAsset 15@1x.png";
         rating = 'Excellent';
     } else if (rating == '2') {
-
+        document.getElementById("fed_img_2").src = "images/GoodNormalAsset 17@1x.png";
         document.getElementById("fed_img_1").src = "images/GreatGrayAsset 12@1x.png"
         document.getElementById("fed_img_3").src = "images/BadGrayAsset 14@1x.png";
         document.getElementById("fed_img_4").src = "images/WorstGrayAsset 15@1x.png";
         rating = 'Good';
     } else if (rating == '3') {
-
+         document.getElementById("fed_img_3").src = "images/BadNormalAsset 18@1x.png";
         document.getElementById("fed_img_1").src = "images/GreatGrayAsset 12@1x.png"
         document.getElementById("fed_img_2").src = "images/GoodGrayAsset 13@1x.png";
         document.getElementById("fed_img_4").src = "images/WorstGrayAsset 15@1x.png";
         rating = 'Average';
     } else if (rating == '4') {
-
+       document.getElementById("fed_img_4").src = "images/WorstNormalAsset 19@1x.png";
         document.getElementById("fed_img_1").src = "images/GreatGrayAsset 12@1x.png"
         document.getElementById("fed_img_2").src = "images/GoodGrayAsset 13@1x.png";
         document.getElementById("fed_img_3").src = "images/BadGrayAsset 14@1x.png";

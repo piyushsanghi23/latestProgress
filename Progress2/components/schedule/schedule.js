@@ -57,19 +57,33 @@ app.insertRecord = function (table_name) {
                             });
                     }
                 } else if (table_name == 'log') {
+                    var w=candidateDate;
                     var x = email;
                     var y = candidateName;
                     var z = profile_id;
-                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text, log_value integer)");
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text,date Date, log_value integer)");
                     tx.executeSql(
-                        "INSERT INTO log (email,name,profile_id,log_value) VALUES (?,?,?,?)", [x, y, z, 1],
+                        "INSERT INTO log (email,name,profile_id,date,log_value) VALUES (?,?,?,?,?)", [x, y, z, w, 1],
                         function (tx, res) {
                             //alert("insertId: ");
                         },
                         function (tx, res) {
                             alert('error: ' + res.message);
                         });
+                } else if (table_name == 'schedule') {
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS schedule (Round_Name text ,Interviewer text,Start_Time text, End_time text)");
+                    for (var i in app.employee) {
+                        tx.executeSql(
+                            "INSERT INTO schedule (Round_Name,Interviewer,Start_Time,End_time) VALUES (?,?,?,?)", [app.employee[i].Round_Name, app.employee[i].Interviewer, app.employee[i].Start_Time, app.employee[i].End_Time],
+                            function (tx, res) {
+                               alert(JSON.stringify(app.employee[i]));
+                            },
+                            function (tx, res) {
+                                alert('error: ' + res.message);
+                            });
+                    }
                 }
+
 
             });
         }
@@ -89,24 +103,24 @@ app.readRecords = function (table_name) {
                                 emp.push(res.rows.item(i));
                             }
                         } else if (table_name == 'log') {
-
                             for (var i = 0; i < res.rows.length; i++) {
                                 var row = res.rows.item(i);
-
-
                                 log_details.push(res.rows.item(i));
-
-
                             }
-
                             candidateName = log_details[0].name;
+                            interview_date=log_details[0].date;
                             dataBaseFunction();
-                            //ert(log_details[0].profile_id);
                             profile_id = log_details[0].profile_id;
                             myfun();
                             document.getElementById('login').style.display = 'none';
                             profileDisplay2();
                         }
+                        else if (table_name == 'schedule') {
+                            for (var i = 0; i < res.rows.length; i++) {
+                                app.employee[i]=res.rows.item(i);
+                            }
+                        }
+                        
                     },
                     function (tx, res) {
                         //alert('error: ' + res.message);
@@ -129,7 +143,7 @@ app.countRecords = function () {
                         //alert(log_count);
                         if (log_count == 1) {
                             app.readRecords('log');
-
+                            app.readRecords('schedule');
                         }
 
 
@@ -172,14 +186,14 @@ function dis() {
 
 
     //document.getElementById('employee_list').innerHTML='';
-
-    for (i in emp) {
+   
+    for (i in app.employee) {
         count_dis = 1;
         var node = document.createElement("li");
         node.setAttribute("class", "listItem");
         node.setAttribute('id', i);
         node.setAttribute('onclick', 'show(this.id)');
-        var text = emp[i].round;
+        var text = app.employee[i].Round_Name;
         var textnode = document.createTextNode(text);
         //textNode.setAttribute("class", "textItem");
         node.appendChild(textnode);
@@ -195,12 +209,7 @@ function dis() {
 
         var node3 = document.createElement('div');
         node3.setAttribute("class", "time");
-        //node2.setAttribute('id','arrow'+i);
-        var img1 = document.createElement('img')
-        img1.setAttribute('class', 'timeItem')
-        img1.setAttribute('src', 'images/timer.png');
-        node3.appendChild(img1);
-        var text3 = emp[i].time;
+        var text3 = app.employee[i].Start_Time+"-"+app.employee[i].End_time;
         var textnode3 = document.createTextNode(text3);
         node3.appendChild(textnode3);
         document.getElementById(i).appendChild(node3);
@@ -208,25 +217,18 @@ function dis() {
         var div = document.createElement("div");
         div.setAttribute("class", "divItem");
         div.setAttribute('id', 'div' + i);
-        var img = document.createElement('img');
+       /* var img = document.createElement('img');
         img.setAttribute("class", "imgItem");
         img.setAttribute('src', emp[i].image);
-        div.appendChild(img);
+        div.appendChild(img);*/
         var name = document.createElement("div");
         name.setAttribute('id', 'name');
-        var text2 = emp[i].name;
+        var text2 = app.employee[i].Interviewer;
         var textnode2 = document.createTextNode(text2);
         name.appendChild(textnode2);
-        //document.getElementById("employee_list").appendChild(div);
-        var role = document.createElement("div");
-        role.setAttribute('id', 'role');
-        var text3 = emp[i].role;
-        var textnode3 = document.createTextNode(text3);
-        role.appendChild(textnode3);
         div.appendChild(name);
-        div.appendChild(role);
         document.getElementById("employee_list").appendChild(div);
-        if (i == emp.length - 1) {
+        if (i == app.employee.length - 1) {
             clearInterval(my);
         }
     }

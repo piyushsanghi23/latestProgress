@@ -41,13 +41,16 @@
                     //alert("offline");
                     app.openDatabase();
                     app.readRecords('test');
+                    app.readRecords('schedule');
                     //app.dropTable();
                     count++;
                 }
             }
             app.openDatabase();
             //app.dropTable('log');
+           //app.dropTable('schedule');
             app.countRecords();
+             
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();

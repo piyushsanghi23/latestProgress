@@ -58,7 +58,9 @@ function authenticate() {
                                     url: url_details1 + sessionId + "&id=" + profile_id + "&output=json",
                                     type: 'GET',
                                     success: function (result) {
+                                        //alert(JSON.stringify(result));
                                         log = 1;
+                                        candidateDate= result.Interview_Date;
                                         candidateName = result.CandidateName;
                                         dataBaseFunction();
                                         app.insertRecord('log');
@@ -66,13 +68,14 @@ function authenticate() {
                                         //myfun();
 
                                         $.ajax({
-                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + "258915824" + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
                                             type: 'GET',
                                             success: function (result) {
-                                                for(var i in result)
-                                                    {
-                                                        
-                                                    }
+                                                //alert(JSON.stringify(result));
+                                                app.openDatabase();
+                                               
+                                                app.employee=result;
+                                                app.insertRecord('schedule');
                                             },
                                             error: function (result) {
                                                 alert("error:" + JSON.stringify(result));

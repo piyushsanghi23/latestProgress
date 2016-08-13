@@ -12,9 +12,13 @@
 
 <body>
     <div data-role="view" data-title="Progress" data-layout="main">
-        <div id="schedule_header" style="background-image: url('images/BannerBGAsset 2@1x.png');background-position: center;background-color: #5F2367;">
+        
+            <div id="schedule_header" style="background-image: url('images/BannerBGAsset 2@1x.png');background-position: center;background-color: #5F2367;">
             <div>
-                <a data-role='button' href='components/homeView/view.html' id='backButton'>
+                <a data-role='button' href="components/homeView/view.html" id='backButton'>
+                    <img src='images/BackArrowAsset 4@1x.png'>
+                </a>
+                <a style="display:none" data-role='button' onclick="back(back_header_temp)" id='backButton1'>
                     <img src='images/BackArrowAsset 4@1x.png'>
                 </a>
             </div>
@@ -50,9 +54,7 @@
             <p class="footer_hint" id='hint_1_1'>
                  Common u can do it
             </p>
-            <button id="button_back" onclick="back('idea_room_div')">
-                back 
-            </button>
+           
         </div>
         <div id="idea_room_div_final" style="display:none">
             <img id='id_room_img_1' class="beacon_hint_img" src='images/InnovationCompleteAsset 24@1.5x.png'>
@@ -71,9 +73,7 @@
             <p class="footer_hint" id='hint_1_2'>
                 gfdgdfghhg .....
             </p>
-            <button id="button_back" onclick="back('lunch_room_div')">
-                back 
-            </button>
+           
         </div>
         <div id="lunch_room_div_final" style="display:none">
             <img id='lr_img_1' class="beacon_hint_img" src='images/CafeteriaCompleteAsset 25@1.5x.png'>
@@ -92,9 +92,7 @@
             <p class="footer_hint" id='hint_1_3'>
                 gymm room in gym :P
             </p>
-            <button id="button_back" onclick="back('gym_room_div')">
-                back 
-            </button>
+          
         </div>
         <div id="gym_room_div_final" style="display:none">
             <img id='gr_img_1' class="beacon_hint_img" src='images/GymCompleteAsset 27@1.5x.png'>
@@ -113,9 +111,7 @@
             <p class="footer_hint" id='hint_1_4'>
                 dfdfgdhdfhzhd .....
             </p>
-            <button id="button_back" onclick="back('pantree_room_div')">
-                back 
-            </button>
+           
         </div>
         <div id="pantree_room_div_final" style="display:none">
             <img id='pt_img_1' class="beacon_hint_img" src='images/PantryCompleteAsset 26@1.5x.png'>

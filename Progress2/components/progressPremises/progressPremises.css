@@ -80,6 +80,17 @@
     margin: auto;
     display: block;
 }
+#backButton1 {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    float: left;
+    padding-top: 5%;
+}
+
 @font-face {
    font-family:myfont;
    src: url(fonts/Blogger Sans-Medium.ttf);

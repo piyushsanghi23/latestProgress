@@ -75,7 +75,10 @@ function tick_page(x, video_url, r) {
 function idea_Room() {
     vibrate();
     my_flag_pp = 1;
+    back_header_temp='idea_room_div';
     id_hint_pno = 0;
+    document.getElementById('backButton').style.display = 'none';
+    document.getElementById('backButton1').style.display = 'block';
     document.getElementById('idea_room_div').style.display = 'block';
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
@@ -86,6 +89,9 @@ function idea_Room() {
 function back(ID) {
     my_flag_pp = 0;
     document.getElementById(ID).style.display = 'none';
+    document.getElementById('backButton1').style.display = 'none';
+    document.getElementById('backButton').style.display = 'block';
+    document.getElementById('backButton1').style.display = 'none';
     document.getElementById('first_block').style.display = 'block';
     document.getElementById('second_block').style.display = 'block';
     document.getElementById('discover_txt').style.display = 'block';
@@ -96,7 +102,10 @@ function back(ID) {
 function lunch_Room() {
     my_flag_pp = 1;
     id_hint_pno = 1;
+    back_header_temp='lunch_room_div';
     document.getElementById('lunch_room_div').style.display = 'block';
+    document.getElementById('backButton').style.display = 'none';
+    document.getElementById('backButton1').style.display = 'block';
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
@@ -106,6 +115,9 @@ function lunch_Room() {
 function gym_Room() {
     my_flag_pp = 1;
     id_hint_pno = 2;
+    back_header_temp='gym_room_div';
+    document.getElementById('backButton').style.display = 'none';
+    document.getElementById('backButton1').style.display = 'block';
     document.getElementById('gym_room_div').style.display = 'block';
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
@@ -116,6 +128,9 @@ function gym_Room() {
 function pantree() {
     my_flag_pp = 1;
     id_hint_pno = 3;
+    back_header_temp='pantree_room_div';
+    document.getElementById('backButton').style.display = 'none';
+    document.getElementById('backButton1').style.display = 'block';
     document.getElementById('pantree_room_div').style.display = 'block';
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';

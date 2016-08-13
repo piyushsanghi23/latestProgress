@@ -19,11 +19,7 @@ function tick_page(x, video_url, r) {
     alert("in fucntion");
     if (x == 0 && r == x) {
         document.getElementById('idea_room_div').style.display = 'none';
-
-
         document.getElementById('idea_room_div_final').style.display = 'block';
-
-
         setTimeout(function () {
             document.getElementById('idea_room_div_final').style.display = 'none';
         }, 4000);
@@ -136,4 +132,7 @@ function pantree() {
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
 
+}
+function debug(){
+     document.getElementById('video_container').style.display = 'block';
 }

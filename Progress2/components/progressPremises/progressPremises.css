@@ -14,31 +14,31 @@
     margin: auto;
     width: 47%;
     height: 180px;
-    padding:20px;
-    background-color:white;
+    padding: 20px;
+    background-color: white;
 }
 #img1 {
     margin: auto;
     width: 37%;
     height: 180px;
     position: absolute;
-    padding:20px;
-    background-color:white;
+    padding: 20px;
+    background-color: white;
 }
 #img2 {
-     padding:20px;
+    padding: 20px;
     margin: auto;
     width: 47%;
     height: 180px;
-     background-color:white;
+    background-color: white;
 }
 #img3 {
-     padding:20px;
+    padding: 20px;
     margin: auto;
     width: 37%;
     height: 180px;
     position: absolute;
-    background-color:white;
+    background-color: white;
 }
 #discover_txt {
     color: black;
@@ -49,50 +49,50 @@
     padding-top: 15px;
     color: green;
     text-align: center;
-    font-size:14px;
-    
+    font-size: 14px;
 }
 .beacon_hint_img {
-        padding: 50px;
+    padding: 50px;
     margin: auto;
     width: 100%;
     height: 150%;
 }
-.hint_img{
-    
-}
-#first_block{
+.hint_img {}
+#first_block {
     padding-left: 40px;
     padding-top: 20px;
     padding-right: 20px;
-
 }
-#second_block{
+#second_block {
     padding-left: 40px;
     padding-top: 20px;
     padding-right: 20px;
-
 }
-#done_button{
-Height: 48
-Side Spacing: 30
-BG Colour: #cf4620
-Font: Roboto Light 18 (All Caps), #FFFFFF
+#done_button {
+    height: 48px;
+    padding: 30px;
+    background-color: #cf4620;
+    font-family: Roboto-Light;
+    font-size: larger;
+    color: #FFFFFF;
+    text-align: center;
+    margin-left: 33%;
+    margin-bottom: 10%;
 }
-#title_video{
-        padding-top: 55px;
+#title_video {
+    padding-top: 55px;
     padding-bottom: 15px;
     text-align: -webkit-center;
     font-family: myfont;
     font-size: 20px;
     color: #373A3E;
 }
-#title_text{
-    padding-top:15px;
-    padding-bottom:30px;
-    text-align:center;
-    font-size:16px;
-    font-family:Roboto-Regular;
+#title_text {
+    padding-top: 15px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-family: Roboto-Regular;
 }
 #button_back {
     color: white;
@@ -110,26 +110,29 @@ Font: Roboto Light 18 (All Caps), #FFFFFF
     float: left;
     padding-top: 5%;
 }
-#video_container{
+#video_container {
     display: block;
     height: 100vh;
     padding: 20px;
     background-color: grey;
 }
 @font-face {
-   font-family:Roboto-Bold;
-   src: url(fonts/Roboto-Bold.ttf);
-}@font-face {
-   font-family:Roboto-Medium;
-   src: url(fonts/Roboto-Medium.ttf);
-}@font-face {
-   font-family:Roboto-Light;
-   src: url(fonts/Roboto-Light.ttf);
-}@font-face {
-   font-family:Roboto-Thin;
-   src: url(fonts/Roboto-Thin.ttf);
+    font-family: Roboto-Bold;
+    src: url(fonts/Roboto-Bold.ttf);
 }
 @font-face {
-   font-family:Roboto-Regular;
-   src: url(fonts/Roboto-Regular.ttf);
+    font-family: Roboto-Medium;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url(fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: Roboto-Thin;
+    src: url(fonts/Roboto-Thin.ttf);
+}
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(fonts/Roboto-Regular.ttf);
 }

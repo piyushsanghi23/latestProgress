@@ -33,9 +33,11 @@
 
             function onOffline() {
                 // Handle the offline event
-                   document.getElementById('note_wifi').style.display = 'block';
-   setTimeout(function(){ document.getElementById('note_wifi').style.display = 'none';},3000);
-                if (count == 1 && count_dis==0) {
+                document.getElementById('note_wifi').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('note_wifi').style.display = 'none';
+                }, 3000);
+                if (count == 1 && count_dis == 0) {
                     //alert("offline");
                     app.openDatabase();
                     app.readRecords('test');
@@ -44,8 +46,8 @@
                 }
             }
             app.openDatabase();
-           //app.dropTable('log');
-             app.countRecords();
+            //app.dropTable('log');
+            app.countRecords();
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();
@@ -68,8 +70,6 @@
             //setTimeout(authenticate(),5000);
             app.startScanForBeacons()
                 //advertise();
-
-
 
         }, false);
 

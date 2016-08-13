@@ -1,5 +1,8 @@
 /* HOME-VIEW CSS */
-
+#wrapper{
+    padding-right:40px;
+    padding-left:40px;
+}
 #homePage_div {
     background-image: url('images/icon.png');
     background-repeat: no-repeat;

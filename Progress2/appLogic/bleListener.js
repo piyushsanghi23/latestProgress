@@ -2,7 +2,7 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    alert('startScanForBeacons')
+    //alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()

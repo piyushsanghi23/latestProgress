@@ -32,17 +32,14 @@ function authenticate() {
             document.getElementById("login").style.display = 'none';
             document.getElementById("admin_div").style.display = 'block';
         } else {
-            //alert("in");
             $.ajax({
                 url: url_login,
                 type: 'GET',
                 success: function (result) {
-
                     sessionId = result.sessionId;
                     console.log("session id " + sessionId);
                     email = document.getElementById('email_box').value;
                     selectquery = "SELECT id from Profile2 where Email = '" + email + "';";
-                    //alert(selectquery);
                     $.ajax({
                         url: url_email + sessionId + "&query=" + selectquery + "&output=json",
                         type: 'GET',
@@ -55,47 +52,32 @@ function authenticate() {
                                     document.getElementById('login_error').style.display = 'none';
                                 }, 3000);
                             } else {
-                                //$.mobile.changePage("barcode/view.html",{transition : "slide"}, false);
-                                //window.open("components/profile_page.html", "_self");
                                 document.getElementById("login").style.display = 'none';
                                 profile_id = result;
-                                myfun();
-                                // document.getElementById("profile").style.display = 'block';
                                 $.ajax({
-                                    url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
+                                    url: url_details1 + sessionId + "&id=" + profile_id + "&output=json",
                                     type: 'GET',
-                                    dataType: 'text',
                                     success: function (result) {
                                         log = 1;
-                                        //console.log((result));
-                                        var txt, parser, xmlDoc, value1, value2;
-                                        txt = result;
-                                        parser = new DOMParser();
-                                        xmlDoc = parser.parseFromString(txt, "text/xml");
-                                        //alert("xml");
-                                        value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                        candidatePhoto = value1.childNodes[0].innerHTML;
-                                        value1 = value1.nextSibling.nextSibling
-                                        candidateEmail = value1.innerHTML;
-                                        value1 = value1.nextSibling.nextSibling
-                                        candidateCity = value1.innerHTML;
-                                        value1 = value1.nextSibling.nextSibling
-                                        candidateName = value1.innerHTML;
-                                        value1 = value1.nextSibling.nextSibling
-                                        candidatePhoneNumber = value1.innerHTML;
-                                        //value1 = value1.nextSibling.nextSibling
-                                        //candidateInterviewDate = value1.innerHTML;
-                                        value1 = value1.nextSibling.nextSibling
-                                        candidateGender = value1.innerHTML;
-                                        //window.location.href='components/profile_page.html';
+                                        candidateName = result.CandidateName;
                                         dataBaseFunction();
                                         app.insertRecord('log');
-                                        //alert("valid email id")
-                                        // $('#employee_list').innerHTML=emp;
                                         profileDisplay2();
+                                        //myfun();
 
-                                        // myfun();
-                                        //document.getElementById('show').click();
+                                        $.ajax({
+                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + "258915824" + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            type: 'GET',
+                                            success: function (result) {
+                                                for(var i in result)
+                                                    {
+                                                        
+                                                    }
+                                            },
+                                            error: function (result) {
+                                                alert("error:" + JSON.stringify(result));
+                                            }
+                                        });
 
                                     },
                                     error: function (error) {

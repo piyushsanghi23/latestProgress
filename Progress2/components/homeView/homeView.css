@@ -121,33 +121,43 @@
     }
 }
 #note_wifi {
+   padding: 5px;
+    color: white;
     position: absolute;
     z-index: 101;
-    top: 0;
+    /* top: -45px; */
     left: 0;
     right: 0;
-    background-color: #FF6347;
-    font-family: myfont;
-    text-align: center;
-    line-height: 9.5;
-    overflow: hidden;
-    -webkit-box-shadow: 0 0 5px black;
-    -moz-box-shadow: 0 0 5px black;
-    box-shadow: 0 0 5px black;
-}
-#login_error {
-    position: absolute;
-    z-index: 101;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #FF6347;
-    font-family: myfont;
+    height: 49px;
+    /* bottom: -33px; */
+    background-color: #4B4E52;
+    font-family: Roboto-Regular;
     text-align: center;
     line-height: 2.5;
     overflow: hidden;
     -webkit-box-shadow: 0 0 5px black;
     -moz-box-shadow: 0 0 5px black;
+    font-size: 16px;
+    box-shadow: 0 0 5px black;
+}
+#login_error {
+    padding: 5px;
+    color: white;
+    position: absolute;
+    z-index: 101;
+    /* top: -45px; */
+    left: 0;
+    right: 0;
+    height: 49px;
+    /* bottom: -33px; */
+    background-color: #4B4E52;
+    font-family: Roboto-Regular;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow: 0 0 5px black;
+    font-size: 16px;
     box-shadow: 0 0 5px black;
 }
 #login {

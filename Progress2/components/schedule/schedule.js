@@ -220,10 +220,10 @@ function dis() {
     for (var i in app.employee) {
         count_dis = 1;
         var node = document.createElement("li");
-        node.setAttribute("class", "listItem");
+        node.setAttribute("class", "time");
         node.setAttribute('id', i);
         node.setAttribute('onclick', 'show(this.id)');
-        var text = app.employee[i].Round_Name;
+        var text = app.employee[i].Start_Time + "-" + app.employee[i].End_Time;
         var textnode = document.createTextNode(text);
         //textNode.setAttribute("class", "textItem");
         node.appendChild(textnode);
@@ -232,14 +232,18 @@ function dis() {
         var node2 = document.createElement('div');
         node2.setAttribute("class", "arrow");
         node2.setAttribute('id', 'arrow' + i);
-        var text1 = '\u276f';
-        var textnode1 = document.createTextNode(text1);
-        node2.appendChild(textnode1);
+        var img = document.createElement('img');
+         img.setAttribute("class", "imgArrow");
+        img.setAttribute("id", "Arrow"+i);
+         img.setAttribute('src', 'images/arrow-downAsset 2@1x.png');
+         node2.appendChild(img);
+        //var textnode1 = document.createTextNode(text1);
+        //node2.appendChild(img);
         document.getElementById(i).appendChild(node2);
 
         var node3 = document.createElement('div');
-        node3.setAttribute("class", "time");
-        var text3 = app.employee[i].Start_Time + "-" + app.employee[i].End_Time;
+        node3.setAttribute("class", "listItem");
+        var text3 =app.employee[i].Round_Name ;
         var textnode3 = document.createTextNode(text3);
         node3.appendChild(textnode3);
         document.getElementById(i).appendChild(node3);
@@ -272,11 +276,15 @@ function show(id) {
     for (i in app.employee) {
         if (x == 'div' + i) {
             //alert(x + "   " + i);
+            
             if (document.getElementById('div' + i).style.display == 'block') {
+                document.getElementById(id).style.background='white';
                 var arrow = document.getElementById('arrow' + i);
                 arrow.setAttribute('class', 'arrow');
                 document.getElementById('div' + i).style.display = 'none';
             } else {
+                document.getElementById(id).style.background='lightgrey';
+                document.getElementById("Arrow"+id).src='images/arrow-upAsset 1@1x.png';
                 document.getElementById('div' + i).style.display = 'block';
                 var arrow = document.getElementById('arrow' + i);
                 arrow.setAttribute('class', 'arrow2');

@@ -9,6 +9,7 @@ var id_hint_pno;
 var my_flag_pp = 0;
 var log_value = 0;
 var log_details = [];
+var log_time;
 var log_count = 0;
 var sessionId, selectquery, img_counter;
 var url_login = "https://www.rollbase.com/rest/api/login?loginName=" + "sakkinen" + "&password=" + "Susmitha@2712" + "&output=json";

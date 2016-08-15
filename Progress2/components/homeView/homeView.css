@@ -1,7 +1,20 @@
 /* HOME-VIEW CSS */
-#wrapper{
-    padding-right:40px;
-    padding-left:40px;
+
+#wrapper {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#lItem {
+    background: url('images/BadGrayAsset 14@1x.png') no-repeat center left;
+    padding-bottom: 3%;
+    padding-left: 10%;
+    padding-top: 3%;
+    font-family: myfont;
 }
 #homePage_div {
     background-image: url('images/icon.png');
@@ -15,10 +28,12 @@
     /*padding-top: 18%;*/
 }
 #best_of_luck_button {
-        padding: 30px;
+    padding: 30px;
 }
 #progress_premises_button {
-    padding: 11px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px
 }
 #display_name {
     font-family: myfont;
@@ -61,7 +76,6 @@
     text-align: center;
     padding-top: 30px;
     padding-left: 13%;
-    
 }
 #email_box {
     width: 85%;
@@ -140,21 +154,24 @@
     background-image: url('images/bg.PNG');
 }
 @font-face {
-   font-family:Roboto-Bold;
-   src: url(fonts/Roboto-Bold.ttf);
-}@font-face {
-   font-family:Roboto-Medium;
-   src: url(fonts/Roboto-Medium.ttf);
-}@font-face {
-   font-family:Roboto-Light;
-   src: url(fonts/Roboto-Light.ttf);
-}@font-face {
-   font-family:Roboto-Thin;
-   src: url(fonts/Roboto-Thin.ttf);
+    font-family: Roboto-Bold;
+    src: url(fonts/Roboto-Bold.ttf);
 }
 @font-face {
-   font-family:Roboto-Regular;
-   src: url(fonts/Roboto-Regular.ttf);
+    font-family: Roboto-Medium;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url(fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: Roboto-Thin;
+    src: url(fonts/Roboto-Thin.ttf);
+}
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(fonts/Roboto-Regular.ttf);
 }
 @media (orientation: landscape) {
     #email_txt {

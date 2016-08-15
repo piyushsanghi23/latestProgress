@@ -17,7 +17,28 @@ app.openDatabase = function () {
         );
     }
 };
-
+app.update = function (table_name) {
+    alert("in update");
+    var d = new Date();
+    var h = d.getHours();
+    if (!this.checkSimulator()) {
+        if (this.checkOpenedDatabase()) {
+            alert("f");
+            db.transaction(function (tx) {
+                tx.executeSql('UPDATE' + table_name + 'SET log_time=' + h + 'WHERE email=' + email + ';',
+                    function (tx, res) {
+                        alert(JSON.stringify(res));
+                    },
+                    function (tx, res) {
+                        alert(JSON.stringify(res));
+                        //alert('error: ' + res.message);
+                    }
+                );
+            });
+            alert("ff");
+        }
+    }
+};
 app.dropTable = function (table_name) {
     //alert(table_name);
     if (!this.checkSimulator()) {
@@ -48,15 +69,18 @@ app.insertRecord = function (table_name) {
                     var x = email;
                     var y = candidateName;
                     var z = profile_id;
-                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text ,name text,profile_id text,date Date, log_value integer)");
+                    var d = new Date();
+                    var h = d.getHours();
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text primary key,name text,profile_id text,date Date, log_value integer,log_time int)");
                     tx.executeSql(
-                        "INSERT INTO log (email,name,profile_id,date,log_value) VALUES (?,?,?,?,?)", [x, y, z, w, 1],
+                        "INSERT INTO log (email,name,profile_id,date,log_value,log_time) VALUES (?,?,?,?,?,?)", [x, y, z, w, 1, h],
                         function (tx, res) {
-                            //alert("insertId: ");
+                            alert(JSON.stringify(res));
                         },
                         function (tx, res) {
                             alert('error: ' + res.message);
                         });
+                    
                 } else if (table_name == 'schedule') {
                     tx.executeSql("CREATE TABLE IF NOT EXISTS schedule (Round_Name text ,Interviewer text,Start_Time text, End_Time text)");
 
@@ -79,13 +103,13 @@ app.insertRecord = function (table_name) {
                             "INSERT INTO beacon (DeviceDescription,Tag1,Content_Type1,Content) VALUES (?,?,?,?)", [app.beaconRegions[i].DeviceDescription, app.beaconRegions[i].Tag1, app.beaconRegions[i].Content_Type1, app.beaconRegions[i].Content],
                             function (tx, res) {
                                 //alert(JSON.stringify(app.beaconRegions[i]));
-                                
+
                             },
                             function (tx, res) {
                                 alert('error: ' + res.message);
                             });
                     }
-                     app.startScanForBeacons();
+                    app.startScanForBeacons();
                 }
 
 
@@ -109,12 +133,51 @@ app.readRecords = function (table_name) {
                             }
                             candidateName = log_details[0].name;
                             interview_date = log_details[0].date;
+                            email = log_details[0].email;
+                            log_time = log_details[0].log_time;
                             //alert(interview_date);
                             dataBaseFunction();
                             profile_id = log_details[0].profile_id;
                             myfun();
                             document.getElementById('login').style.display = 'none';
                             profileDisplay2();
+                            var d = new Date();
+                            var h = d.getHours();
+                            //alert(log_time);
+                            if (Math.abs(log_time - h) >= 3) {
+                                alert(Math.abs(log_time - h));
+                                app.openDatabase();
+                                app.dropTable('schedule');
+                                $.ajax({
+                                    url: url_login,
+                                    type: 'GET',
+                                    success: function (result) {
+                                        $.ajax({
+                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + result.sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            type: 'GET',
+                                            success: function (result) {
+                                                //alert(JSON.stringify(result));
+                                                app.openDatabase();
+
+                                                app.employee = result;
+                                                //alert(JSON.stringify(app.employee));
+                                                app.insertRecord('schedule');
+                                                app.dropTable('log');
+                                                app.insertRecord('log');
+                                                
+                                            },
+                                            error: function (result) {
+                                                alert("error:" + JSON.stringify(result));
+                                            }
+                                        });
+                                    },
+                                    error: function (result) {
+                                        alert(error.message);
+                                    }
+                                });
+
+                            }
+
                         } else if (table_name == 'schedule') {
                             //alert(table_name + "		" + res.rows.length);
                             for (var i = 0; i < res.rows.length; i++) {
@@ -139,14 +202,14 @@ app.readRecords = function (table_name) {
 
 
                             }
-                            greatestTime=max;
+                            greatestTime = max;
                             //alert(greatestTime);
 
                         } else if (table_name == 'beacon') {
                             //alert(table_name + "		" + res.rows.length);
                             for (var i = 0; i < res.rows.length; i++) {
                                 app.beaconRegions[i] = res.rows.item(i);
-                               
+
                             }
                             ///alert(JSON.stringify(app.beaconRegions))
                             app.startScanForBeacons();
@@ -177,7 +240,7 @@ app.countRecords = function () {
                             app.readRecords('log');
                             app.readRecords('schedule');
                             app.readRecords('beacon');
-                            
+
 
                         }
 
@@ -233,17 +296,17 @@ function dis() {
         node2.setAttribute("class", "arrow");
         node2.setAttribute('id', 'arrow' + i);
         var img = document.createElement('img');
-         img.setAttribute("class", "imgArrow");
-        img.setAttribute("id", "Arrow"+i);
-         img.setAttribute('src', 'images/arrow-downAsset 2@1x.png');
-         node2.appendChild(img);
+        img.setAttribute("class", "imgArrow");
+        img.setAttribute("id", "Arrow" + i);
+        img.setAttribute('src', 'images/arrow-downAsset 2@1x.png');
+        node2.appendChild(img);
         //var textnode1 = document.createTextNode(text1);
         //node2.appendChild(img);
         document.getElementById(i).appendChild(node2);
 
         var node3 = document.createElement('div');
         node3.setAttribute("class", "listItem");
-        var text3 =app.employee[i].Round_Name ;
+        var text3 = app.employee[i].Round_Name;
         var textnode3 = document.createTextNode(text3);
         node3.appendChild(textnode3);
         document.getElementById(i).appendChild(node3);
@@ -276,15 +339,15 @@ function show(id) {
     for (i in app.employee) {
         if (x == 'div' + i) {
             //alert(x + "   " + i);
-            
+
             if (document.getElementById('div' + i).style.display == 'block') {
-                document.getElementById(id).style.background='white';
+                document.getElementById(id).style.background = 'white';
                 var arrow = document.getElementById('arrow' + i);
                 arrow.setAttribute('class', 'arrow');
                 document.getElementById('div' + i).style.display = 'none';
             } else {
-                document.getElementById(id).style.background='lightgrey';
-                document.getElementById("Arrow"+id).src='images/arrow-upAsset 1@1x.png';
+                document.getElementById(id).style.background = 'lightgrey';
+                document.getElementById("Arrow" + id).src = 'images/arrow-upAsset 1@1x.png';
                 document.getElementById('div' + i).style.display = 'block';
                 var arrow = document.getElementById('arrow' + i);
                 arrow.setAttribute('class', 'arrow2');

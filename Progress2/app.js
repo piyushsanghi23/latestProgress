@@ -17,7 +17,7 @@
     if (window.cordova) {
 
         document.addEventListener('deviceready', function () {
-           
+
             document.addEventListener("offline", onOffline, false);
 
             function onOffline() {
@@ -38,11 +38,11 @@
                 }
             }
             app.openDatabase();
-            //app.dropTable('log');
+         //   app.dropTable('log');
             //app.dropTable('schedule');
             //app.dropTable('beacon');
             app.countRecords();
-
+            
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();

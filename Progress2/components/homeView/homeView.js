@@ -1,13 +1,3 @@
-function logout() {
-    //alert("login");
-    if (log == 1) {
-        document.getElementById("login").style.display = 'block';
-        log = 0;
-        document.getElementById("profile").style.display = 'none';
-        document.getElementById("user_profile").style.display = 'none';
-    }
-}
-
 function validate(email_validate) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email_validate);
@@ -60,7 +50,7 @@ function authenticate() {
                                     success: function (result) {
                                         //alert(JSON.stringify(result));
                                         log = 1;
-                                        candidateDate= result.Interview_Date;
+                                        candidateDate = result.Interview_Date;
                                         candidateName = result.CandidateName;
                                         dataBaseFunction();
                                         app.insertRecord('log');
@@ -73,9 +63,28 @@ function authenticate() {
                                             success: function (result) {
                                                 //alert(JSON.stringify(result));
                                                 app.openDatabase();
-                                               
-                                                app.employee=result;
+
+                                                app.employee = result;
+                                                //alert(JSON.stringify(app.employee));
                                                 app.insertRecord('schedule');
+                                            },
+                                            error: function (result) {
+                                                alert("error:" + JSON.stringify(result));
+                                            }
+                                        });
+                                        var searchfor = "Beacon";
+                                        $.ajax({
+
+                                            url: "https://www.rollbase.com/rest/api/getPage?sessionId=" + sessionId + "&viewId=fbbwJGoQR0aiGljb6tWy5Q&fieldList=DeviceName,DeviceDescription,Content_Type1,Content,Tag1&filterName=Device_Type&filterValue=" + searchfor + "&output=json",
+                                            type: 'GET',
+                                            success: function (result) {
+
+                                                //app.openDatabase();
+
+                                                app.beaconRegions = result;
+                                                //alert(JSON.stringify(app.beaconRegions));
+                                                app.insertRecord('beacon');
+                                                app.startScanForBeacons();
                                             },
                                             error: function (result) {
                                                 alert("error:" + JSON.stringify(result));

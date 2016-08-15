@@ -17,18 +17,7 @@
     if (window.cordova) {
 
         document.addEventListener('deviceready', function () {
-
-            //$('#player').hide();
-            /*  document.addEventListener("backbutton", function () {
-                  
-                  if ($.mobile.activePage.is('#homepage')) {
-                      //window.location = "#exitDialog";
-                     
-                      navigator.app.exitApp();
-                  } else {
-                      history.back();
-                  };
-              }, false);*/
+           
             document.addEventListener("offline", onOffline, false);
 
             function onOffline() {
@@ -42,15 +31,18 @@
                     app.openDatabase();
                     app.readRecords('test');
                     app.readRecords('schedule');
+                    app.readRecords('beacon');
+                    app.startScanForBeacons();
                     //app.dropTable();
                     count++;
                 }
             }
             app.openDatabase();
             //app.dropTable('log');
-           //app.dropTable('schedule');
+            //app.dropTable('schedule');
+            //app.dropTable('beacon');
             app.countRecords();
-             
+
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();
@@ -69,10 +61,11 @@
             }
 
             bootstrap();
+            //app.readRecords('beacon');
             //startVuforia();
             //setTimeout(authenticate(),5000);
-            app.startScanForBeacons()
-                //advertise();
+
+            //advertise();
 
         }, false);
 

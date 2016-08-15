@@ -8,7 +8,7 @@ app.startScanForBeacons = function () {
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function (pluginResult) {
 
-        //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
+        alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
@@ -27,9 +27,9 @@ app.startScanForBeacons = function () {
     // Start monitoring and ranging our beacons.
     for (var r in app.beaconRegions) {
         var region = app.beaconRegions[r]
-            //alert("beacon" + r);
-        var beaconRegion = new locationManager.BeaconRegion(
-            region.id, region.uuid, region.major, region.minor)
+            alert(JSON.stringify(region));
+        var beaconRegion = new locationManager.BeaconRegion(region.DeviceDescription,
+            region.Tag1)
 
         // Start monitoring.
         locationManager.startMonitoringForRegion(beaconRegion)
@@ -82,7 +82,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
             for (var r in app.beaconRegions) {
                 var region = app.beaconRegions[r]
                     // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
-                if (currentBeacon == region.uuid) {
+                if (currentBeacon == region.Tag1) {
                     //$("#login").append("video");
                     if (pluginResult.beacons[0].rssi >= -70 && pluginResult.beacons[0].rssi <= -37)
                         vibrate();
@@ -101,7 +101,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     if(my_flag_pp==1){
                         alert("in my flag pp ");
                         alert(id_hint_pno);
-                        tick_page(id_hint_pno,region.url,r);
+                        tick_page(id_hint_pno,region.Content,r);
                     }
 
                     // $("#login").append("video");

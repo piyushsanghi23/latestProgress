@@ -1,36 +1,4 @@
-app.beaconRegions = [
-
-    {
-        id: 'first',
-        uuid: 'f7028248-68b4-4f65-8087-d5d5cb3a1cbd',
-        major: 1000,
-        minor: 3333,
-        url: 'videos/lunchRoom_x264.mp4',
-        img_id: 'img1',
-        source_img: 'images/idea1.png'
-
-	},
-    {
-        id: 'second',
-        uuid: '2f234454-cf6d-4a0f-adf2-f4911ba9ffa9',
-        major: 1,
-        minor: 1,
-        url: 'videos/lunchRoom_x264.mp4',
-        img_id: 'img2',
-        source_img: 'images/gym1.png'
-
-    },
-    {
-        id: 'third',
-        uuid: '2f234454-cf6d-4a0f-adf2-f4911ba9ffa8',
-        major: 1,
-        minor: 1,
-        url: 'videos/lunchRoom_x264.mp4',
-        img_id: 'img3',
-        source_img: 'images/lunch1.png'
-
-    }
-    ]
+app.beaconRegions = []
 var back_header_temp;
 app.employee = []
 var db = null;
@@ -49,7 +17,7 @@ var url_details1 = "https://www.rollbase.com/rest/api/getRecord?objName=" + "Pro
 var url_details2 = "&fieldList=" + "City,Email,CandidateGender,CandidateStartDate,CandidateName,CandidatePhoneNumber,CandidatePhoto";
 var url_details3 = "&fieldList=" + "CandidateName";
 var sensor_id, beacon_proximity, page_id, b, flag = 0;
-var candidateName, candidateEmail, candidateGender, candidateCity, candidateDate, candidatePhoto,interview_date;
+var candidateName, candidateEmail, candidateGender, candidateCity, candidateDate, candidatePhoto,interview_date,greatestTime;
 var log = 0;
 var profile_id;
 var count2 = 1;

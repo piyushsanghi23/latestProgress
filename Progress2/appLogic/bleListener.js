@@ -27,7 +27,7 @@ app.startScanForBeacons = function () {
     // Start monitoring and ranging our beacons.
     for (var r in app.beaconRegions) {
         var region = app.beaconRegions[r]
-            alert(JSON.stringify(region));
+            //alert(JSON.stringify(region));
         var beaconRegion = new locationManager.BeaconRegion(region.DeviceDescription,
             region.Tag1)
 

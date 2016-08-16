@@ -65,7 +65,7 @@ app.insertRecord = function (table_name) {
         if (this.checkOpenedDatabase()) {
             db.transaction(function (tx) {
                 if (table_name == 'log') {
-                    var w = candidateDate;
+                    var w = interview_date;
                     var x = email;
                     var y = candidateName;
                     var z = profile_id;
@@ -75,7 +75,7 @@ app.insertRecord = function (table_name) {
                     tx.executeSql(
                         "INSERT INTO log (email,name,profile_id,date,log_value,log_time) VALUES (?,?,?,?,?,?)", [x, y, z, w, 1, h],
                         function (tx, res) {
-                            alert(JSON.stringify(res));
+                            //alert(JSON.stringify(res) + "   " + w);
                         },
                         function (tx, res) {
                             alert('error: ' + res.message);
@@ -96,6 +96,28 @@ app.insertRecord = function (table_name) {
                                 alert('error: ' + res.message);
                             });
                     }
+                    var max = app.employee[0].End_Time;
+
+                    max = max.split(" ");
+                    for (var i = 1; i < app.employee.length; i++) {
+                        var time = app.employee[i].End_Time;
+
+                        time = time.split(" ");
+                        if (time[1] >= max[1]) {
+
+                            max[1] = time[1];
+                            if (time[0] > max[0])
+                                max[0] = time[0];
+
+                        }
+
+
+
+                    }
+                    greatestTime = max;
+                    //alert("insertRecord" + greatestTime);
+                    changeHref();
+
                 } else if (table_name == 'beacon') {
                     tx.executeSql("CREATE TABLE IF NOT EXISTS beacon (DeviceDescription text ,Tag1 text unique,Content_Type1 text, Content text)");
                     for (var i in app.beaconRegions) {
@@ -109,7 +131,7 @@ app.insertRecord = function (table_name) {
                                 alert('error: ' + res.message);
                             });
                     }
-                    changeHref();
+                    //changeHref();
                     app.startScanForBeacons();
                 }
 
@@ -160,7 +182,7 @@ function changeHref() {
         mm = '0' + mm
     }
     var x = interview_date;
-    alert(x);
+    //alert('changeHref' + x);
     x = x.split(' ');
     x[1] = convertMonthNameToNumber(x[1])
     if (x[1] < 10) {
@@ -170,24 +192,23 @@ function changeHref() {
         x[2] = '0' + x[2]
     }
     if (x[1] == mm && x[2] == dd && x[3] == yyyy) {
+        //alert("greatest time in"+greatestTime[0])
         var time1 = greatestTime[0] + " " + greatestTime[1];
-
+        
         time1 = parseTime(time1);
         var date1 = new Date(2000, 0, 1, time1.hh, time1.mm); // 9:00 AM
-        var date2 = new Date(2000, 0, 1, 18, 36); // 5:00 PM
+        var date2 = new Date(2000, 0, 1, 18, 34); // 5:00 PM
         if (date2 > date1) {
-            
-            //alert("currenttime greater"+diff);
+             
+            //alert("currenttime greater" + diff);
             document.getElementById('feedback').href = 'components/feedback/feedback.html';
-        }
-        else
-            {
-                var diff = date1 - date2;
-            setTimeout(function(){
+        } else {
+            var diff = date1 - date2;
+            setTimeout(function () {
                 //alert("kl");
                 document.getElementById('feedback').href = 'components/feedback/feedback.html';
-            },diff);
-            }
+            }, diff);
+        }
 
     }
 }
@@ -278,7 +299,7 @@ app.readRecords = function (table_name) {
 
                             }
                             greatestTime = max;
-                            alert("j"+greatestTime);
+                            //alert("j" + greatestTime);
                             changeHref();
 
                             //setTimeout('changeHref()', time);

@@ -50,7 +50,7 @@ function authenticate() {
                                     success: function (result) {
                                         //alert(JSON.stringify(result));
                                         log = 1;
-                                        candidateDate = result.Interview_Date;
+                                        interview_date = result.Interview_Date;
                                         candidateName = result.CandidateName;
                                         dataBaseFunction();
                                         app.insertRecord('log');
@@ -84,7 +84,7 @@ function authenticate() {
                                                 app.beaconRegions = result;
                                                 //alert(JSON.stringify(app.beaconRegions));
                                                 app.insertRecord('beacon');
-                                                app.startScanForBeacons();
+                                                
                                             },
                                             error: function (result) {
                                                 alert("error:" + JSON.stringify(result));

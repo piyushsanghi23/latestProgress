@@ -10,7 +10,24 @@
     <script src="components/ARVideo/ARVideo.js"></script>
     <script src="components/homeView/homeView.js"></script>
     <srcript src='components/check/check.js'></srcript>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <link href="homeView.css" rel="stylesheet" type="text/css">
+    <script>
+        $(function () {
+
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function () {
+                $('#slideshow > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow');
+            }, 3000);
+
+        });
+    </script>
 </head>
 
 <body>
@@ -44,6 +61,17 @@
                         </div>
                     </a>
                 </div>
+                <div id="slideshow">
+                    <div>
+                        <img src="images/arrow-downAsset 2@1.5x.png">
+                    </div>
+                    <div>
+                        <img src="">
+                    </div>
+                    <div>
+                       checking it works
+                    </div>
+                </div>
             </div>
         </div>
         <div id="admin_div" style='display:none'>
@@ -63,13 +91,12 @@
             <div id='login_error' style='display:none'>
                 you are not a valid person
             </div>
-        <div id="note_wifi" style='display:none'>
-        please connect to internet
-    </div>
+            <div id="note_wifi" style='display:none'>
+                please connect to internet
+            </div>
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
         </div>
     </div>
-    
     </div>
     <!-- END_CUSTOM_CODE_homeView -->
 </body>

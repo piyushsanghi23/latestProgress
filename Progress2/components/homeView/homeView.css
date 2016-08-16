@@ -218,5 +218,22 @@ input {
     font-family: myfont;
     font-size: small;
 }
+#slideshow {
+    margin-left: 30px;
+    margin-top: 0px;
+    position: relative;
+    width: 237px;
+    height: 136px;
+    /* padding: 30px; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    background-color: grey;
+}
 
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
 /* END OF HOME-VIEW CSS */

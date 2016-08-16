@@ -177,6 +177,9 @@ function changeHref() {
         var date2 = new Date(2000, 0, 1, 18, 36); // 5:00 PM
         if (date2 > date1) {
             var diff = date2 - date1;
+            setTimeout(function(){
+                document.getElementById('feedback').href = 'components/feedback/feedback.html';
+            },diff);
             //alert("currenttime greater"+diff);
             document.getElementById('feedback').href = 'components/feedback/feedback.html';
         }

@@ -19,12 +19,13 @@
         document.addEventListener('deviceready', function () {
 
             document.addEventListener("offline", onOffline, false);
-            if (window.navigator.simulator === false) {
+            if (window.navigator.simulator != true) {
+               // alert(cordova.plugins.locationManager.isBluetoothEnabled())
                 cordova.plugins.locationManager.isBluetoothEnabled()
                     .then(function (isEnabled) {
                         console.log("isEnabled: " + isEnabled);
                         if (isEnabled) {
-                            cordova.plugins.locationManager.disableBluetooth();
+                            //cordova.plugins.locationManager.disableBluetooth();
                         } else {
                             cordova.plugins.locationManager.enableBluetooth();
                         }

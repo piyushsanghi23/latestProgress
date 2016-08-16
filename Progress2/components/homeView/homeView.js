@@ -194,52 +194,58 @@ function scan() {
                             //alert(sessionId + "  " + profile_id);
                             myfun();
                             $.ajax({
-                                url: url_details1 + sessionId + "&id=" + profile_id + url_details2,
-                                type: 'GET',
-                                dataType: 'text',
-                                success: function (result) {
-                                    log = 1;
-                                    //console.log((result));
-                                    var txt, parser, xmlDoc, value1, value2;
-                                    txt = result;
-                                    parser = new DOMParser();
-                                    xmlDoc = parser.parseFromString(txt, "text/xml");
+                                    url: url_details1 + sessionId + "&id=" + profile_id + "&output=json",
+                                    type: 'GET',
+                                    success: function (result) {
+                                        //alert(JSON.stringify(result));
+                                        log = 1;
+                                        candidateDate = result.Interview_Date;
+                                        candidateName = result.CandidateName;
+                                        dataBaseFunction();
+                                        app.insertRecord('log');
+                                        profileDisplay2();
+                                        //myfun();
 
-                                    //value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                    alert("xml");
-                                    value1 = xmlDoc.getElementsByTagName("data")[0].childNodes[0].nextSibling;
-                                    candidatePhoto = value1.childNodes[0].innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateEmail = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateCity = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateName = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidatePhoneNumber = value1.innerHTML;
-                                    //value1 = value1.nextSibling.nextSibling
-                                    //candidateInterviewDate = value1.innerHTML;
-                                    value1 = value1.nextSibling.nextSibling
-                                    candidateGender = value1.innerHTML;
-                                    //window.location.href='components/profile_page.html';
-                                    app.openDatabase();
-                                    app.dropTable('test');
-                                    app.insertRecord('test');
-                                    app.readRecords('test');
-                                    // $('#employee_list').innerHTML=emp;
-                                    alert("1");
-                                    profileDisplay2();
+                                        $.ajax({
+                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            type: 'GET',
+                                            success: function (result) {
+                                                //alert(JSON.stringify(result));
+                                                app.openDatabase();
 
-                                    // myfun();
-                                    //document.getElementById('show').click();
+                                                app.employee = result;
+                                                //alert(JSON.stringify(app.employee));
+                                                app.insertRecord('schedule');
+                                            },
+                                            error: function (result) {
+                                                alert("error:" + JSON.stringify(result));
+                                            }
+                                        });
+                                        var searchfor = "Beacon";
+                                        $.ajax({
 
+                                            url: "https://www.rollbase.com/rest/api/getPage?sessionId=" + sessionId + "&viewId=fbbwJGoQR0aiGljb6tWy5Q&fieldList=DeviceName,DeviceDescription,Content_Type1,Content,Tag1&filterName=Device_Type&filterValue=" + searchfor + "&output=json",
+                                            type: 'GET',
+                                            success: function (result) {
 
+                                                //app.openDatabase();
 
-                                },
-                                error: function (error) {
-                                    alert("erro" + JSON.stringify(error));
-                                }
-                            });
+                                                app.beaconRegions = result;
+                                                //alert(JSON.stringify(app.beaconRegions));
+                                                app.insertRecord('beacon');
+                                                app.startScanForBeacons();
+                                            },
+                                            error: function (result) {
+                                                alert("error:" + JSON.stringify(result));
+                                            }
+                                        });
+
+                                    },
+                                    error: function (error) {
+                                        console.log(JSON.stringify(error));
+                                    }
+                                });
+
                         },
                         error: function (err) {
                             console.log(err);

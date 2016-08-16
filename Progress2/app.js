@@ -19,6 +19,21 @@
         document.addEventListener('deviceready', function () {
 
             document.addEventListener("offline", onOffline, false);
+            if (window.navigator.simulator === false) {
+                cordova.plugins.locationManager.isBluetoothEnabled()
+                    .then(function (isEnabled) {
+                        console.log("isEnabled: " + isEnabled);
+                        if (isEnabled) {
+                            cordova.plugins.locationManager.disableBluetooth();
+                        } else {
+                            cordova.plugins.locationManager.enableBluetooth();
+                        }
+                    })
+                    .fail(function (e) {
+                        console.error(e);
+                    })
+                    .done();
+            }
 
             function onOffline() {
                 // Handle the offline event
@@ -37,12 +52,15 @@
                     count++;
                 }
             }
+           /* setTimeout(function () {
+                //alert("P");
+                document.getElementById('feedback').href = 'components/homeView/view.html';
+            }, 10000);*/
             app.openDatabase();
-         //   app.dropTable('log');
+              //app.dropTable('log');
             //app.dropTable('schedule');
             //app.dropTable('beacon');
             app.countRecords();
-            
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
                 navigator.splashscreen.hide();

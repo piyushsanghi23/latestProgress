@@ -80,7 +80,7 @@ app.insertRecord = function (table_name) {
                         function (tx, res) {
                             alert('error: ' + res.message);
                         });
-                    
+
                 } else if (table_name == 'schedule') {
                     tx.executeSql("CREATE TABLE IF NOT EXISTS schedule (Round_Name text ,Interviewer text,Start_Time text, End_Time text)");
 
@@ -109,6 +109,7 @@ app.insertRecord = function (table_name) {
                                 alert('error: ' + res.message);
                             });
                     }
+                    changeHref();
                     app.startScanForBeacons();
                 }
 
@@ -117,6 +118,71 @@ app.insertRecord = function (table_name) {
         }
     }
 };
+
+function convertMonthNameToNumber(monthName) {
+    var myDate = new Date(monthName + " 1, 2000");
+    var monthDigit = myDate.getMonth();
+    return isNaN(monthDigit) ? 0 : (monthDigit + 1);
+}
+
+function parseTime(s) {
+    var part = s.match(/(\d+):(\d+)(?: )?(am|pm)?/i);
+    var hh = parseInt(part[1], 10);
+    var mm = parseInt(part[2], 10);
+    var ap = part[3] ? part[3].toUpperCase() : null;
+    if (ap === "AM") {
+        if (hh == 12) {
+            hh = 0;
+        }
+    }
+    if (ap === "PM") {
+        if (hh != 12) {
+            hh += 12;
+        }
+    }
+    return {
+        hh: hh,
+        mm: mm
+    };
+}
+
+function changeHref() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var hours = today.getHours();
+    var minutes = today.getMinutes();
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var x = interview_date;
+    //alert(x);
+    x = x.split(' ');
+    x[1] = convertMonthNameToNumber(x[1])
+    if (x[1] < 10) {
+        x[1] = '0' + x[1]
+    }
+    if (x[2] < 10) {
+        x[2] = '0' + x[2]
+    }
+    if (x[1] == mm && x[2] == dd && x[3] == yyyy) {
+        var time1 = greatestTime[0] + " " + greatestTime[1];
+
+        time1 = parseTime(time1);
+        var date1 = new Date(2000, 0, 1, time1.hh, time1.mm); // 9:00 AM
+        var date2 = new Date(2000, 0, 1, 18, 36); // 5:00 PM
+        if (date2 > date1) {
+            var diff = date2 - date1;
+            //alert("currenttime greater"+diff);
+            document.getElementById('feedback').href = 'components/feedback/feedback.html';
+        }
+
+    }
+}
 app.readRecords = function (table_name) {
     // alert(table_name);
     if (!this.checkSimulator()) {
@@ -133,6 +199,7 @@ app.readRecords = function (table_name) {
                             }
                             candidateName = log_details[0].name;
                             interview_date = log_details[0].date;
+                            //alert("log"+log_details[0].email)
                             email = log_details[0].email;
                             log_time = log_details[0].log_time;
                             //alert(interview_date);
@@ -164,7 +231,7 @@ app.readRecords = function (table_name) {
                                                 app.insertRecord('schedule');
                                                 app.dropTable('log');
                                                 app.insertRecord('log');
-                                                
+
                                             },
                                             error: function (result) {
                                                 alert("error:" + JSON.stringify(result));
@@ -203,7 +270,10 @@ app.readRecords = function (table_name) {
 
                             }
                             greatestTime = max;
-                            //alert(greatestTime);
+                            //alert("j"+greatestTime);
+                            changeHref();
+
+                            //setTimeout('changeHref()', time);
 
                         } else if (table_name == 'beacon') {
                             //alert(table_name + "		" + res.rows.length);

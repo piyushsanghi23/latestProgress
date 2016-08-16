@@ -160,7 +160,7 @@ function changeHref() {
         mm = '0' + mm
     }
     var x = interview_date;
-    //alert(x);
+    alert(x);
     x = x.split(' ');
     x[1] = convertMonthNameToNumber(x[1])
     if (x[1] < 10) {
@@ -176,13 +176,18 @@ function changeHref() {
         var date1 = new Date(2000, 0, 1, time1.hh, time1.mm); // 9:00 AM
         var date2 = new Date(2000, 0, 1, 18, 36); // 5:00 PM
         if (date2 > date1) {
-            var diff = date2 - date1;
-            setTimeout(function(){
-                document.getElementById('feedback').href = 'components/feedback/feedback.html';
-            },diff);
+            
             //alert("currenttime greater"+diff);
             document.getElementById('feedback').href = 'components/feedback/feedback.html';
         }
+        else
+            {
+                var diff = date1 - date2;
+            setTimeout(function(){
+                //alert("kl");
+                document.getElementById('feedback').href = 'components/feedback/feedback.html';
+            },diff);
+            }
 
     }
 }
@@ -202,7 +207,7 @@ app.readRecords = function (table_name) {
                             }
                             candidateName = log_details[0].name;
                             interview_date = log_details[0].date;
-                            //alert("log"+log_details[0].email)
+                            //alert("log"+log_details[0].date)
                             email = log_details[0].email;
                             log_time = log_details[0].log_time;
                             //alert(interview_date);
@@ -273,7 +278,7 @@ app.readRecords = function (table_name) {
 
                             }
                             greatestTime = max;
-                            //alert("j"+greatestTime);
+                            alert("j"+greatestTime);
                             changeHref();
 
                             //setTimeout('changeHref()', time);

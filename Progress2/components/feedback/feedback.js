@@ -1,5 +1,4 @@
 var rating, comment;
-
 function feedback_smiley_click(id) {
     rating = id.replace(/[^\d]/g, '');
     if (rating == '1') {
@@ -31,8 +30,10 @@ function feedback_smiley_click(id) {
 }
 
 function submitFeedback() {
-    comment = document.getElementById('textArea').value;
-    //alert(rating + "			" + comment);
+    comment = document.getElementById('textArea1').value;
+    document.getElementById('beforeSubmit').style.display='none';
+    document.getElementById('afterSubmit').style.display='block';
+    alert(rating + "			" + comment);
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
@@ -55,10 +56,10 @@ function submitFeedback() {
                 type: 'POST',
                 success: function (result) {
 
-                    // alert('sucess:'+JSON.stringify(result));
+                     alert('sucess:'+JSON.stringify(result));
                 },
                 error: function (result) {
-                    //alert('error:'+JSON.stringify(result));
+                    alert('error:'+JSON.stringify(result));
                 },
             });
         },

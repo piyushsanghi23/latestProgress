@@ -62,7 +62,7 @@
                 document.getElementById('feedback').href = 'components/homeView/view.html';
             }, 10000);*/
             app.openDatabase();
-              //app.dropTable('log');
+             //app.dropTable('log');
             //app.dropTable('schedule');
             //app.dropTable('beacon');
             app.countRecords();

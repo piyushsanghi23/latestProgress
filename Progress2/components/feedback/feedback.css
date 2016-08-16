@@ -21,6 +21,22 @@
         -moz-transform: translateY(0px);
     }
 }
+#thanksSubText
+{
+        font-family: 'Roboto-Light';
+    color: gray;
+}
+#thanksText
+{
+    padding-bottom: 20px;
+    font-family: 'Roboto-Bold';
+    font-size: 20px;
+    font-weight: bold;
+}
+#thumbsImage{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 #feedback_text {
     font-family: myfont;
     font-size: 150%;

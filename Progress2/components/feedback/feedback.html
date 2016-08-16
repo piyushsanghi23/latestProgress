@@ -10,47 +10,57 @@
 
 <body>
     <div data-role="view" data-title="Progress" data-layout="main">
-         <div id="schedule_header" style="background-image: url('images/BannerBGAsset 2@1x.png');background-position: center;background-color: #5F2367;">
-            <div>
-                <a data-role='button' href='components/homeView/view.html' id='backButton'>
-                    <img src='images/BackArrowAsset 4@1x.png'>
-                </a>
+        
+            <div id="schedule_header" style="background-image: url('images/BannerBGAsset 2@1x.png');background-position: center;background-color: #5F2367;">
+                <div>
+                    <a data-role='button' href='components/homeView/view.html' id='backButton'>
+                        <img src='images/BackArrowAsset 4@1x.png'>
+                    </a>
+                </div>
+                <div id='main_title'>
+                    Feedback
+                </div>
+                <div id='sub_title'>
+                    Lorem Ipsum dolor sit
+                </div>
             </div>
-            
-            
-            <div id='main_title'>
-                Feedback
+        <div id='beforeSubmit'>
+            <div id='how_para'>
+                How was your </br>interview experience?
             </div>
-            <div id='sub_title'>
-                Lorem Ipsum dolor sit
+            <div class="imgContainer">
+                <img id="fed_img_1" src='images/GreatNormalAsset 16@1x.png' onclick="feedback_smiley_click(this.id)" />
             </div>
-                
+            <div class='imgContainer'>
+                <img id="fed_img_2" src='images/GoodNormalAsset 17@1x.png' onclick="feedback_smiley_click(this.id)" />
+            </div>
+            <div class='imgContainer'>
+                <img id="fed_img_3" src='images/BadNormalAsset 18@1x.png' onclick="feedback_smiley_click(this.id)" />
+            </div>
+            <div class='imgContainer' style='padding-bottom: 3%;'>
+                <img id="fed_img_4" src='images/WorstNormalAsset 19@1x.png' onclick="feedback_smiley_click(this.id)" />
+            </div>
+            <textarea rows="5" cols="25" name="comment" id='textArea1' style=" font-family: myfont;border: 1px solid gray;border-radius: 5%;height: 131px;margin-left: 8%;width: 81%;background-color: ghostwhite;" placeholder='Type your additional comments..'></textarea></br>
+            <div id="we_value_txtstyle">
+                We value your feedback
+            </div>
+            <div id="submit_div"> <a data-role='button' onclick='submitFeedback()' id="submit_button">Submit</a></div>
+            <div id="note_feedback" style="display:none">
+                Can submit feed-back only after interview
+            </div>
+            <div id="note_wifi_feed" style='display:none'>
+                please connect to internet
+            </div>
         </div>
-        <div id='how_para'>
-            How was your </br>interview experience?
-        </div>
-        <div class="imgContainer">
-            <img id="fed_img_1" src='images/GreatNormalAsset 16@1x.png' onclick="feedback_smiley_click(this.id)" />
-        </div>
-        <div class='imgContainer'>
-            <img id="fed_img_2" src='images/GoodNormalAsset 17@1x.png' onclick="feedback_smiley_click(this.id)" />
-        </div>
-        <div class='imgContainer'>
-            <img id="fed_img_3" src='images/BadNormalAsset 18@1x.png' onclick="feedback_smiley_click(this.id)" />
-        </div>
-        <div class='imgContainer' style='padding-bottom: 3%;'>
-            <img id="fed_img_4" src='images/WorstNormalAsset 19@1x.png' onclick="feedback_smiley_click(this.id)" />
-        </div>
-        <textarea rows="5" cols="25" name="comment" id='textArea1' style=" font-family: myfont;border: 1px solid gray;border-radius: 5%;height: 131px;margin-left: 8%;width: 81%;background-color: ghostwhite;" placeholder='Type your additional comments..'></textarea></br>
-        <div id="we_value_txtstyle">
-            We value your feedback
-        </div>
-        <div id="submit_div"> <a data-role='button' onclick='submitFeedback()' id="submit_button">Submit</a></div>
-        <div id="note_feedback" style="display:none">
-            Can submit feed-back only after interview
-        </div>
-      <div id="note_wifi_feed" style='display:none'>
-        please connect to internet
+  
+    <div id='afterSubmit' style='text-align: center; display:none;'>
+        <div><img id='thumbsImage' src='images/ThumbsUpAsset 2@1x.png'></div>
+        <p id='thanksText'>
+            Thanks for your feedback!
+        </p>
+        <p id='thanksSubText'>
+            Lorem ipsum dolor sit amet,<br> consectetur elit fusce fringilla..
+        </p>
     </div>
     </div>
 </body>

@@ -32,15 +32,17 @@
 }
 #address_div{
      border-bottom-width: 1px;
-    padding-left:40px;
+    padding-left:11px;
     padding-right:40px;
     padding-top:20px;
     padding-bottom:20px;
     border-bottom: solid grey;
 }
 #address_para{
-    padding:20px;
-    font-family:myfont;
+    position: absolute;
+    
+    font-weight: bold;
+    font-family: Roboto-Bold;
     display: inline-block;
 }
 #contact_no_div{
@@ -50,8 +52,9 @@
     padding-bottom:20px;
 }
 #contact_no{
-    display: inline-block;
-    color:orange;
+        display: inline-block;
+    color: red;
+    font-size: 20px;
     
 }
 @font-face {

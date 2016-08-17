@@ -3,7 +3,7 @@
     width: 60%;
     position: absolute;
     margin: auto;
-    top: -202px;
+    top: -34%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -12,15 +12,15 @@
     width: 36%;
     position: absolute;
     margin: auto;
-    top: 500px;
+    top: 86%;
     left: 0;
     right: 0;
-    bottom: 40px;
+  /*  bottom: 40px;*/
 }
 p.bold_txt {
     color:white;
     text-align: center;
-    padding-top: 338px;
+    padding-top: 77%;
     font-size: 20px;
    
 }

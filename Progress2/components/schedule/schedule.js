@@ -452,7 +452,7 @@ function show(id) {
                 arrow.setAttribute('class', 'arrow2');
             }
         } else {
-            //alert(x + "   " + i);
+            //alert(x + "   " + i);s
             document.getElementById('div' + i).style.display = 'none';
             var arrow = document.getElementById('arrow' + i);
             arrow.setAttribute('class', 'arrow');

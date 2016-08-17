@@ -133,11 +133,13 @@ h3.timeItem {
     font-size: 20px;
     padding-top: 5%;
     padding-left: 40px;
+    font-family:Roboto-Medium ;
 }
 #sub_title {
     color: white;
     font-size: 16px;
     padding-left: 40px;
+     font-family:Roboto-Regular;
 }
 #aTag {
     /* padding-right: 5%; */

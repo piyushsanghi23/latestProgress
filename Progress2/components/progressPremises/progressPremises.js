@@ -87,7 +87,6 @@ function back(ID) {
     document.getElementById(ID).style.display = 'none';
     document.getElementById('backButton1').style.display = 'none';
     document.getElementById('backButton').style.display = 'block';
-    document.getElementById('backButton1').style.display = 'none';
     document.getElementById('first_block').style.display = 'block';
     document.getElementById('second_block').style.display = 'block';
     document.getElementById('discover_txt').style.display = 'block';

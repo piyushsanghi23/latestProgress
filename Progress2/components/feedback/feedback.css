@@ -137,6 +137,9 @@
     #we_value_txtstyle {
         margin-left: 39%;
     }
+    #backButton {
+        padding-top: 4%;
+    }
 }
 #note_feedback {
  padding: 5px;

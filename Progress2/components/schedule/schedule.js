@@ -1,3 +1,11 @@
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() {$body.addClass("loading");   },
+     ajaxStop: function() {$body.removeClass("loading"); }    
+});
+
+
 app.openDatabase = function () {
     if (!this.checkSimulator()) {
         db = window.sqlitePlugin.openDatabase(

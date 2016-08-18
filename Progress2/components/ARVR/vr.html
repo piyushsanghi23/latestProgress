@@ -1,0 +1,190 @@
+<html>
+<head>
+<script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
+</head>
+<body>
+<a-scene>
+<a-assets>     
+<img id="first"  crossorigin="" src="http://i.imgur.com/T6OTWF8.jpg">
+<img id="second"  crossorigin="" src="http://i.imgur.com/COEjKHJ.jpg">
+<img id="third"  crossorigin="" src="http://i.imgur.com/opZD948.jpg">
+<img id="fourth"  crossorigin="" src="http://i.imgur.com/1w6C2tk.jpg">
+<img id="fifth"  crossorigin="" src="http://i.imgur.com/ZhFdyj3.jpg">
+<img id="sixth"  crossorigin="" src="http://i.imgur.com/ocCziKr.jpg">
+<img id="atgenter"  crossorigin="" src="http://i.imgur.com/Er4zWvl.png">
+<img id="qaarea"  crossorigin="" src="http://i.imgur.com/bzPASys.png">
+<img id="internarea"  crossorigin="" src="http://i.imgur.com/6EPDKGA.png">
+<img id="uxarea"  crossorigin="" src="http://i.imgur.com/6ruzQPt.png">
+<img id="alcatarea"  crossorigin="" src="http://i.imgur.com/9QNnNzR.png">
+<img id="back"  crossorigin="" src="http://i.imgur.com/469Ocks.png">
+<img id="spots"  crossorigin="" src="http://i.imgur.com/PlEr8Mv.png">
+<img id="message1"  crossorigin="" src="http://i.imgur.com/0y3zgoh.png">
+</a-assets>
+    <a-sky  src="#first" id="background" rotation="0 50 0" ></a-sky>
+  <a-camera position="0 0 0">
+    <a-cursor color="#2E3A87">
+  </a-camera>
+  	<a-image color="#FFF" width="8" height="16"
+         position="-30 40 -100" rotation="0 0 0"
+         src="#atgenter" id="firstenter" visible="true">
+	</a-image>
+	  	<a-image color="#FFF" width="8" height="16"
+         position="-10 30 -100" rotation="0 0 0"
+         src="#qaarea" id="secondenter" visible="false">
+	</a-image>
+	  	<a-image color="#FFF" width="8" height="16"
+         position="0 30 100" rotation="0 180 0"
+         src="#back" id="back2" visible="false">
+	</a-image>
+	
+	  	<a-image color="#FFF" width="12" height="24"
+         position="0 65 -100" rotation="0 0 0"
+         src="#internarea" id="thirdenter" visible="false">
+	</a-image>
+	  	<a-image color="#FFF" width="5" height="10"
+         position="10 20 30" rotation="0 180 0"
+         src="#back" id="back3" visible="false">
+	</a-image>
+	
+	
+	  	<a-image color="#FFF" width="12" height="26"
+         position="-30 50 -100" rotation="0 0 0"
+         src="#uxarea" id="fourthenter" visible="false">
+	</a-image>
+	  	<a-image color="#FFF" width="8" height="16"
+         position="50 30 -5" rotation="0 270 0"
+         src="#alcatarea" id="fifthenter" visible="false">
+	</a-image>]
+	  	<a-image color="#FFF" width="8" height="16"
+         position="50 30 40" rotation="0 270 0"
+         src="#back" id="back4" visible="false">
+	</a-image>
+	
+		  	<a-image color="#FFF" width="16" height="32"
+         position="-65 90 80" rotation="0 150 0"
+         src="#back" id="back5" visible="false">
+	</a-image>
+	
+			  	<a-image color="#FFF" width="16" height="32"
+         position="-65 90 80" rotation="0 150 0"
+         src="#back" id="back6" visible="false">
+	</a-image>
+	  	<a-image color="#FFF" width="30" height="40"
+         position="50 30 -40" rotation="0 0 0"
+         src="#spots" id="msg1" visible="true">
+</a-scene>
+<script>
+
+
+var sky=document.querySelector('#background');
+var fenter = document.querySelector('#firstenter');
+var senter = document.querySelector('#secondenter');
+var tenter = document.querySelector('#thirdenter');
+var foenter = document.querySelector('#fourthenter');
+var fienter = document.querySelector('#fifthenter');
+var b2 = document.querySelector('#back2');
+var b3 = document.querySelector('#back3');
+var b4 = document.querySelector('#back4');
+var b5 = document.querySelector('#back5');
+var b6 = document.querySelector('#back6');
+var m1=document.querySelector('#msg1');
+fenter.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#second");
+	   sky.setAttribute('rotation',"0 -100 0");
+	   fenter.setAttribute('visible','false');
+	   senter.setAttribute('visible','true');
+	   b2.setAttribute('visible','true');
+	   m1.setAttribute('visible','false');
+	});
+	
+b2.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#first");
+	   sky.setAttribute('rotation',"0 50 0");
+	   fenter.setAttribute('visible','true');
+	   senter.setAttribute('visible','false');
+	   b2.setAttribute('visible','false');
+	   m1.setAttribute('visible','true');
+	});
+
+
+senter.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#third");
+	   sky.setAttribute('rotation',"10 -100 10");
+	   senter.setAttribute('visible','false');
+	   tenter.setAttribute('visible','true');
+	   b2.setAttribute('visible','false');
+	   b3.setAttribute('visible','true');
+	});
+	
+b3.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#second");
+	   sky.setAttribute('rotation',"0 -100 0");
+		senter.setAttribute('visible','true');
+	   tenter.setAttribute('visible','false');
+	   b2.setAttribute('visible','true');
+	   b3.setAttribute('visible','false');
+	});
+
+tenter.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#fourth");
+	   sky.setAttribute('rotation',"0 -160 0");
+	   tenter.setAttribute('visible','false');
+	   foenter.setAttribute('visible','true');
+	   fienter.setAttribute('visible','true');
+	   b3.setAttribute('visible','false');
+	   b4.setAttribute('visible','true');
+	});
+	
+b4.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#third");
+	   sky.setAttribute('rotation',"10 -100 10");
+		tenter.setAttribute('visible','true');
+	   foenter.setAttribute('visible','false');
+	   fienter.setAttribute('visible','false');
+	   b3.setAttribute('visible','true');
+	   b4.setAttribute('visible','false');
+	});
+foenter.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#fifth");
+	   sky.setAttribute('rotation',"0 -240 0");
+	   foenter.setAttribute('visible','false');
+	   fienter.setAttribute('visible','false');
+	   b4.setAttribute('visible','false');
+	   b5.setAttribute('visible','true');
+	});
+
+b5.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#fourth");
+	   sky.setAttribute('rotation',"0 -160 0");
+	   	   foenter.setAttribute('visible','true');
+	   fienter.setAttribute('visible','true');
+	   b4.setAttribute('visible','true');
+	   b5.setAttribute('visible','false');
+	   });
+
+fienter.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#sixth");
+	   sky.setAttribute('rotation',"0 30 0");
+	   foenter.setAttribute('visible','false');
+	   fienter.setAttribute('visible','false');
+	   b4.setAttribute('visible','false');
+	   b6.setAttribute('visible','true');
+	});
+
+b6.addEventListener('mouseenter', function () {
+	   sky.setAttribute('src',"#fourth");
+	   sky.setAttribute('rotation',"0 -160 0");
+	   	   foenter.setAttribute('visible','true');
+	   fienter.setAttribute('visible','true');
+	   b4.setAttribute('visible','true');
+	   b6.setAttribute('visible','false');
+	   });	
+m1.addEventListener('mouseenter',function(){
+	m1.setAttribute('src',"#message1");
+});
+m1.addEventListener('mouseleave',function(){
+	m1.setAttribute('src',"#spots");
+});
+</script>
+</body>
+</html>

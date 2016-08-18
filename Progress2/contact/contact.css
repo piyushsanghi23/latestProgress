@@ -74,3 +74,8 @@
    font-family:Roboto-Regular;
    src: url(fonts/Roboto-Regular.ttf);
 }
+@media (orientation: landscape) {
+    #backButton {
+        padding-top: 4%;
+    }
+}

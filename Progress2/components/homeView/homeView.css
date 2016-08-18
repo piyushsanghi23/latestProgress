@@ -1,8 +1,52 @@
-/* HOME-VIEW CSS */
+/* (Css for ajax)Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('images/test.png') 
+                50% 50% 
+                no-repeat;
+}
 
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+/* HOME-VIEW CSS */
+.text_in_smaller_div{
+    font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;
+}
+#bofl_anchor_tag {
+   padding-top:10%; width: 100%; border: none;
+}
+#ppb_anchor_tag{
+    padding-top:10%;width: 100%; border: none;
+}
 #wrapper {
     padding-right: 40px;
     padding-left: 40px;
+}
+#login {
+    background-image: url('images/BG-people-imageAsset 15@1.5x.png');
+    background-position: center;
+    height: 100vh;
+    text-align: center;
 }
 .list {
     list-style-type: none;
@@ -28,30 +72,29 @@
     /*padding-top: 18%;*/
 }
 #best_of_luck_button {
-    padding: 30px;
+    padding-top:10%;
 }
 #progress_premises_button {
-    padding-right: 30px;
-    padding-left: 30px
+    padding-top:10%;
 }
 #display_name {
-    font-family: Roboto-Thin;
+    font-family: Roboto-Regular;
     color: white;
     padding-top: 5%;
     padding-left: 40px;
-    font-size: large;
+    font-size:20px;
     font-weight: bold;
 }
 #email_txt {
-    font-family: myfont;
+    font-family: Roboto-Thin;
     text-align: center;
-    font-size: 50px;
+    font-size: 48px;
     margin-bottom: 0px;
     color: white;
     padding-top: 64%;
 }
 #intro_txt {
-    font-family: myfont;
+    font-family: Roboto-Medium;
     text-align: center;
     font-size: 23px;
     margin-bottom: 0px;
@@ -66,9 +109,8 @@
     margin-top: 50%;
 }
 #green_arrow {
-    height: 54px;
-    margin-top: 2px;
-    margin-left: -21%;
+    height: 58px;
+    margin-left: -17%;
 }
 #email_wrapper {
     display: flex;
@@ -159,9 +201,6 @@
     font-size: 16px;
     box-shadow: 0 0 5px black;
 }
-#login {
-    background-image: url('images/bg.PNG');
-}
 @font-face {
     font-family: Roboto-Bold;
     src: url(fonts/Roboto-Bold.ttf);
@@ -183,22 +222,29 @@
     src: url(fonts/Roboto-Regular.ttf);
 }
 @media (orientation: landscape) {
+    #best_of_luck_button {
+    padding-top:10%;
+}
+#progress_premises_button {
+    padding-top:10%;
+  margin-right: 19%;
+    
+}
+    #login {
+        background-image: url('images/BG-people-imageAsset 15@3x.png');
+        background-position: center;
+        text-align: center;
+    }
+    #email_box {
+        width: 85%;
+        height: 58px;
+        margin-left: -6%;
+    }
     #email_txt {
-        margin-top: 11%;
+        margin-top: -60%;
     }
     #wrapper {
         display: flex;
-    }
-    #best_of_luck_button {
-        /* overflow: hidden; */
-        padding-top: 0%;
-        width: 100%;
-        /* margin-top: 9%; */
-    }
-    #progress_premises_button {
-        padding-top: 10%;
-        /* overflow: hidden; */
-        width: 100%;
     }
     #submit_arrow {
         margin-left: 68%;
@@ -206,6 +252,29 @@
     #scan_txt {
         margin-top: 6%;
     }
+    #img {
+        padding-top: 0px;
+    }
+    #green_arrow {
+        height: 58px;
+        margin-left: 0%;
+    }
+    #ppb_anchor_tag{
+     padding-top: 21%;
+    width: 166%;
+    border: none;
+    height: 129px;
+}
+.text_in_smaller_div{
+    font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:19%;
+}
+#bofl_anchor_tag {
+    padding-top: 10%;
+    width: 89%;
+    border: none;
+    height: 129px;
+}
+    #slideshow {display:none;}
 }
 input {
     padding: 20px;
@@ -214,12 +283,12 @@ input {
 ::-webkit-input-placeholder {
     color: grey;
     padding: 20px 20px;
-    font-family: myfont;
+    font-family: Roboto-Thin;
     font-size: small;
 }
 #slideshow {
     position: relative;
-    height: 100px;
+    height: 12 0px;
     /* padding: 30px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     background-color: grey;

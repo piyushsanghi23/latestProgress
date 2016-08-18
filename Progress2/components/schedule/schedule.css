@@ -1,9 +1,41 @@
+/* (Css for ajax)Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('images/test.png') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
 .listItem {
     padding-right: 3%;
     font-weight: bold;
     font-size: 20px;
     padding-top: 4%;
     color: black;
+    font-family: Roboto-Bold;
 }
 #backButton {
     background-color: Transparent;
@@ -42,9 +74,11 @@
 }
 #contact_name{
         font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
+    font-family:Roboto-Bold;
 }
 #query{
+    font-family:Roboto-Normal;
         font-weight: bold;
     color: lightgray;
     font-size: 16px;
@@ -72,7 +106,7 @@
 }
 .divItem {
     display: none;
-    background-color: lightgrey;
+    background-color:#eaeaeb;
     padding: 10%;
 }
 .up_arrow {
@@ -84,23 +118,10 @@
 .textItem {
     width: 25%;
 }
-#pDetail {
-    font-family: roboto;
-    color: white;
-    font-size: medium;
-}
-#pName {
-    font-family: roboto;
-    color: white;
-}
-#pRole {
-    font-family: roboto;
-    font-size: medium;
-    color: white;
-}
+
 .time {
     font-family: roboto;
-    background-color: white;
+    background-color:#eaeaeb;
     padding: 7%;
     list-style-position: inside;
     border-bottom: 1px solid #c0c5cb;
@@ -122,7 +143,7 @@ h3.timeItem {
 }
 @media (orientation: landscape) {
     #backButton {
-        padding-top: 68%
+        padding-top: 4%;
     }
     #schedule-text {
         text-align: center;

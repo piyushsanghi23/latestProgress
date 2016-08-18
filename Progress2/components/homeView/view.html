@@ -33,7 +33,7 @@
 
 <body>
     <div data-role="view" data-title="Progress" data-layout="main">
-        <div id='profile' style='display:none;background-color:#d7d5ce;height:100vh'>
+        <div id='profile' style='display:none;background-color:#eaeaeb;height:100vh'>
             <div id="schedule_header" style="background-image: url('images/BannerBGAsset 2@1x.png');background-position: center;background-color: #5F2367;">
                 <div id='display_name'>
                 </div>
@@ -43,25 +43,25 @@
             </div>
             <div id='wrapper'>
                 <div id='best_of_luck_button'>
-                    <a data-role='button' href='components/schedule/schedule.html' style=' padding: 30px; width: 100%; border: none;'><img style='width: 28%;float: left;' src='images/ScheduleAsset 6@1x.png' />
-                        <div style='text-align: center;  font-family: myfont;font-size: 16px;color: black;font-weight: bold;'>
+                    <a id="bofl_anchor_tag" data-role='button' href='components/schedule/schedule.html' ><img style='width: 28%;float: left;' src='images/ScheduleAsset 6@1x.png' />
+                        <div style='text-align: center;  font-family:Roboto-Bold;font-size:16px;color:#373A3E;font-weight: bold;'>
                             Interview schedule
                         </div>
-                        <div style='font-size: 14px; text-align: center; padding-top: 14%;'>
+                        <div class="text_in_smaller_div">
                            Know the details of your interview schedule :) 
                         </div>
                     </a>
                 </div>
                 <div id='progress_premises_button'>
-                    <a data-role='button' href='components/progressPremises/progressPremises.html' style='padding: 30px;width: 100%; border: none;'><img style='float: left;width: 38%; padding-right: 5%; padding-top: 9%;' src='images/ExploreAsset 7@1x.png' />
-                        <div style='text-align: center;font-family: myfont;font-size: 17px;font-weight: bold;color: black;'>
+                    <a id="ppb_anchor_tag" data-role='button' href='components/progressPremises/progressPremises.html' ><img style='float: left;width: 38%; padding-right: 5%;' src='images/ExploreAsset 7@1x.png' />
+                        <div style='text-align: center;font-family:Roboto-Bold;font-size: 17px;font-weight: bold;color:#373A3E;'>
                             Explore Progress
                         </div>
-                        <div style='font-size: 14px; text-align: center; padding-top: 18%;'>
+                        <div style='font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;'>
                             Get to know our office 
                         </div>
                     </a>
-                    <!--<div id="slideshow">
+                    <div id="slideshow">
                         <div>
                             <img src="images/arrow-downAsset 2@1.5x.png">
                         </div>
@@ -71,7 +71,8 @@
                         <div>
                             checking it works
                         </div>
-                    </div>-->
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -80,7 +81,7 @@
             <button class="my_button" onclick="scan()">scan</button>
             <button class="my_button" onclick="back_login()">back</button>
         </div>
-        <div id="login" style="background-image: url('images/BG-people-imageAsset 15@1.5x.png');background-position: center; height:100vh; text-align:center;">
+        <div id="login" style='background-image:url("images/BG-people-imageAsset 15@2x.png")'>
             <img src='images/progress-full-logoAsset 3@1x.png' style='padding-top: 65px;'></img>
             <div id="email_txt">Hello!</div>
             <div id="intro_txt">Welcome to Progress</div>
@@ -98,6 +99,9 @@
             <!--a  data-role='button' href='components/homeView/view.html' onclick='authenticate()' >Submit</a-->
         </div>
     </div>
+    </div>
+<div class="modal" style = "color:white">view div
+    <img src="images/Preloader.gif">
     </div>
     <!-- END_CUSTOM_CODE_homeView -->
 </body>

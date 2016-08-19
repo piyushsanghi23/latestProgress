@@ -460,7 +460,7 @@ function show(id) {
                 arrow.setAttribute('class', 'arrow2');
             }
         } else {
-            //alert(x + "   " + i);s
+            //alert(x + "   " + i);
             document.getElementById('div' + i).style.display = 'none';
             var arrow = document.getElementById('arrow' + i);
             arrow.setAttribute('class', 'arrow');

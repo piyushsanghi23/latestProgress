@@ -274,7 +274,7 @@ body.loading .modal {
     border: none;
     height: 129px;
 }
-    #slideshow {display:none;}
+    #my_slideshow {display:none;}
 }
 input {
     padding: 20px;
@@ -286,19 +286,4 @@ input {
     font-family: Roboto-Thin;
     font-size: small;
 }
-#slideshow {
-    position: relative;
-    height: 12 0px;
-    /* padding: 30px; */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    background-color: grey;
-}
-#slideshow > div {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-}
-
 /* END OF HOME-VIEW CSS */

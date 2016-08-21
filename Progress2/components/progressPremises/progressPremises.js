@@ -17,7 +17,9 @@ function done() {
 
 function tick_page(x, video_url, r) {
     alert("in fucntion");
+    alert(video_url);
     if (x == 0 && r == x) {
+         document.getElementById('calendar').src = video_url;
         document.getElementById('idea_room_div').style.display = 'none';
         document.getElementById('idea_room_div_final').style.display = 'block';
         setTimeout(function () {
@@ -28,6 +30,7 @@ function tick_page(x, video_url, r) {
             document.getElementById('video_container').style.display = 'block';
         }, 4500);
     } else if (x == 2 && r == x) {
+         document.getElementById('calendar').src = video_url;
         document.getElementById('gym_room_div').style.display = 'none';
 
         document.getElementById('gym_room_div_final').style.display = 'block'
@@ -39,6 +42,7 @@ function tick_page(x, video_url, r) {
             document.getElementById('video_container').style.display = 'block';
         }, 4500);
     } else if (x == 3 && r == x) {
+         document.getElementById('calendar').src = video_url;
         document.getElementById('pantree_room_div').style.display = 'none';
 
 
@@ -52,6 +56,7 @@ function tick_page(x, video_url, r) {
             document.getElementById('video_container').style.display = 'block';
         }, 4500);
     } else {
+         document.getElementById('calendar').src = video_url;
         document.getElementById('lunch_room_div').style.display = 'none';
 
 
@@ -65,7 +70,6 @@ function tick_page(x, video_url, r) {
             document.getElementById('video_container').style.display = 'block';
         }, 4500);
     }
-
 }
 
 function idea_Room() {

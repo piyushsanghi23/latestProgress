@@ -13,22 +13,6 @@
     <srcript src='components/check/check.js'></srcript>
     <link href="homeView.css" rel="stylesheet" type="text/css">
     <script src="kendo/js/jquery.min.js"></script>
-    <script>
-        $(function () {
-
-            $("#slideshow > div:gt(0)").hide();
-
-            setInterval(function () {
-                $('#slideshow > div:first')
-                    .fadeOut(1000)
-                    .next()
-                    .fadeIn(1000)
-                    .end()
-                    .appendTo('#slideshow');
-            }, 3000);
-
-        });
-    </script>
 </head>
 
 <body>
@@ -43,36 +27,72 @@
             </div>
             <div id='wrapper'>
                 <div id='best_of_luck_button'>
-                    <a id="bofl_anchor_tag" data-role='button' href='components/schedule/schedule.html' ><img style='width: 28%;float: left;' src='images/ScheduleAsset 6@1x.png' />
+                    <a id="bofl_anchor_tag" data-role='button' href='components/schedule/schedule.html'><img style='width: 28%;float: left;' src='images/ScheduleAsset 6@1x.png' />
                         <div style='text-align: center;  font-family:Roboto-Bold;font-size:16px;color:#373A3E;font-weight: bold;'>
                             Interview schedule
                         </div>
                         <div class="text_in_smaller_div">
-                           Know the details of your interview schedule :) 
+                            Know the details of your interview schedule :)
                         </div>
                     </a>
                 </div>
                 <div id='progress_premises_button'>
-                    <a id="ppb_anchor_tag" data-role='button' href='components/progressPremises/progressPremises.html' ><img style='float: left;width: 38%; padding-right: 5%;' src='images/ExploreAsset 7@1x.png' />
+                    <a id="ppb_anchor_tag" data-role='button' href='components/progressPremises/progressPremises.html'><img style='float: left;width: 38%; padding-right: 5%;' src='images/ExploreAsset 7@1x.png' />
                         <div style='text-align: center;font-family:Roboto-Bold;font-size: 17px;font-weight: bold;color:#373A3E;'>
                             Explore Progress
                         </div>
                         <div style='font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;'>
-                            Get to know our office 
+                            Get to know our office
+                        </div>
+                        <div>
+                            <div class="slideshow-container" id="my_slideshow">
+                                <div class="mySlides fade">
+                                    <div class="numbertext">1 / 3</div>
+                                    <img src="images/maps.png" style="width:100%">
+                                    <div class="text">Caption Text</div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="images/ProgressLogoAsset 28@2x.png" style="width:100%">
+                                    <div class="text">Caption Two</div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="images/address_left.PNG" style="width:100%">
+                                    <div class="text">Caption Three</div>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="text-align:center">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <script>
+                                var slideIndex = 0;
+                                showSlides();
+
+                                function showSlides() {
+                                    var i;
+                                    var slides = document.getElementsByClassName("mySlides");
+                                    var dots = document.getElementsByClassName("dot");
+                                    for (i = 0; i < slides.length; i++) {
+                                        slides[i].style.display = "none";
+                                    }
+                                    slideIndex++;
+                                    if (slideIndex > slides.length) {
+                                        slideIndex = 1
+                                    }
+                                    for (i = 0; i < dots.length; i++) {
+                                        dots[i].className = dots[i].className.replace(" active", "");
+                                    }
+                                    slides[slideIndex - 1].style.display = "block";
+                                    dots[slideIndex - 1].className += " active";
+                                    setTimeout(showSlides, 1000); // Change image every 2 seconds
+                                }
+                            </script>
                         </div>
                     </a>
-                    <div id="slideshow">
-                        <div>
-                            <img src="images/arrow-downAsset 2@1.5x.png">
-                        </div>
-                        <div>
-                            <img src="">
-                        </div>
-                        <div>
-                            checking it works
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -100,8 +120,8 @@
         </div>
     </div>
     </div>
-<div class="modal" >
-    <div class='uil-default-css' style='transform:scale(0.76);    margin: auto;
+    <div class="modal">
+        <div class='uil-default-css' style='transform:scale(0.76);    margin: auto;
     margin-top: 55%;'>
             <div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
             <div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
@@ -116,7 +136,6 @@
             <div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
             <div style='top:80px;left:93px;width:14px;height:40px;background:#00b2ff;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
         </div>
-    
     </div>
     <!-- END_CUSTOM_CODE_homeView -->
 </body>

@@ -1,4 +1,5 @@
 app.beaconRegions = []
+app.contactInfo=[]
 var back_header_temp;
 app.employee = []
 var db = null;

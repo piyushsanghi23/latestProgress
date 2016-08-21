@@ -79,9 +79,9 @@ app.insertRecord = function (table_name) {
                     var z = profile_id;
                     var d = new Date();
                     var h = d.getHours();
-                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text primary key,name text,profile_id text,date Date, log_value integer,log_time int)");
+                    tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text primary key,name text,profile_id text,date Date, log_value integer,log_time int,contact_name text,contact_number text)");
                     tx.executeSql(
-                        "INSERT INTO log (email,name,profile_id,date,log_value,log_time) VALUES (?,?,?,?,?,?)", [x, y, z, w, 1, h],
+                        "INSERT INTO log (email,name,profile_id,date,log_value,log_time,contact_name,contact_number) VALUES (?,?,?,?,?,?,?,?)", [x, y, z, w, 1, h,app.contactInfo[0][0],app.contactInfo[0][1]],
                         function (tx, res) {
                             //alert(JSON.stringify(res) + "   " + w);
                         },
@@ -140,6 +140,7 @@ app.insertRecord = function (table_name) {
                             });
                     }
                     //changeHref();
+                    alert("about to start beacons search");
                     app.startScanForBeacons();
                 }
 
@@ -247,10 +248,13 @@ app.readRecords = function (table_name) {
                             profileDisplay2();
                             var d = new Date();
                             var h = d.getHours();
+                            app.contactInfo[0][0]=log_details[0].contact_name;
+                           app.contactInfo[0][1]=log_details[0].contact_number;
                             //alert(log_time);
                             if (Math.abs(log_time - h) >= 3) {
                                 alert(Math.abs(log_time - h));
                                 app.openDatabase();
+                                // add logic for checking wifi and then drop 
                                 app.dropTable('schedule');
                                 $.ajax({
                                     url: url_login,
@@ -434,6 +438,7 @@ function dis() {
         document.getElementById("employee_list").appendChild(div);
         if (i == app.employee.length - 1) {
             clearInterval(my);
+            document.getElementById('contact_name').innerHTML=app.contactInfo[0][0]+"   "+app.contactInfo[0][1];
         }
     }
 

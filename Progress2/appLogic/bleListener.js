@@ -2,7 +2,7 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    //alert('startScanForBeacons')
+    alert('startScanForBeacons');
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
@@ -13,7 +13,7 @@ app.startScanForBeacons = function () {
     }
 
     delegate.didStartMonitoringForRegion = function (pluginResult) {
-        // alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
+         alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
     }
 
     delegate.didRangeBeaconsInRegion = function (pluginResult) {
@@ -26,8 +26,10 @@ app.startScanForBeacons = function () {
 
     // Start monitoring and ranging our beacons.
     for (var r in app.beaconRegions) {
-        var region = app.beaconRegions[r]
-            //alert(JSON.stringify(region));
+        var region = app.beaconRegions[r];
+        alert(region)
+            alert(JSON.stringify(region));
+        alert(region.Tag1);
         var beaconRegion = new locationManager.BeaconRegion(region.DeviceDescription,
             region.Tag1)
 
@@ -72,7 +74,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
         var x1 = currentBeacon == pluginResult.beacons[0].uuid;
         if (!x1) {
             //stopVuforia();
-            // alert("p");
+             alert("p");
             //document.getElementById('link').click();
             //alert("0");
             //document.getElementById('login').style.display='none';
@@ -101,6 +103,8 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     if(my_flag_pp==1){
                         alert("in my flag pp ");
                         alert(id_hint_pno);
+                        alert("about to display url");
+                        alert(region.Content);
                         tick_page(id_hint_pno,region.Content,r);
                     }
 
@@ -111,7 +115,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
             }
 
 
-            //vibrate();
+            vibrate();
             //screen.lockOrientation('landscape');
             // $('#image').hide();
             // $('#player').show();

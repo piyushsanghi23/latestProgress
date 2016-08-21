@@ -61,8 +61,22 @@ function authenticate() {
                                         interview_date = result.Interview_Date;
                                         candidateName = result.CandidateName;
                                         dataBaseFunction();
-                                        app.insertRecord('log');
+                                        var selectquery="SELECT Contact_Person_Name,Contact_Person_Number from Configuration_Object";
+                                       
+                                        $.ajax({
+                                           url: "https://www.rollbase.com/rest/api/selectQuery?sessionId="+sessionId+"&query="+selectquery+"&maxRows=1000"+"&output=json",
+                                           type: 'GET',
+                                           success: function (result) {
+                                               alert(JSON.stringify(result[0][0]));
+                                               app.contactInfo=result;
+                                                app.insertRecord('log');
                                         profileDisplay2();
+                                           },
+                                           error: function (result) {
+                                               alert("error:" + JSON.stringify(result));
+                                           }
+                                       })
+                                      
                                         //myfun();
 
                                         $.ajax({
@@ -90,7 +104,8 @@ function authenticate() {
                                                 //app.openDatabase();
 
                                                 app.beaconRegions = result;
-                                                //alert(JSON.stringify(app.beaconRegions));
+                                                alert("about to display beacons table content");
+                                                alert(JSON.stringify(app.beaconRegions));
                                                 app.insertRecord('beacon');
                                                 
                                             },

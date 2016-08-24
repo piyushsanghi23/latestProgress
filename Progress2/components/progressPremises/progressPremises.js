@@ -11,7 +11,7 @@ function tick() {
                 document.getElementById('discover_txt').style.display = 'none';
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
-                document.getElementById("title_video").innerHTML = "welcome to innovation corner";
+                document.getElementById("title_video").innerHTML = "Welcome to innovation corner";
                 document.getElementById("title_text").innerHTML = "Design. Create. Innovate.";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
@@ -24,7 +24,7 @@ function tick() {
                 document.getElementById('discover_txt').style.display = 'none';
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
-                document.getElementById("title_video").innerHTML = "welcome to Fitness Center";
+                document.getElementById("title_video").innerHTML = "Welcome to Fitness Center";
                 document.getElementById("title_text").innerHTML = "Stay Fit at Progress!";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
@@ -37,7 +37,7 @@ function tick() {
                 document.getElementById('discover_txt').style.display = 'none';
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
-                document.getElementById("title_video").innerHTML = "welcome to Pantry";
+                document.getElementById("title_video").innerHTML = "Welcome to Pantry";
                 document.getElementById("title_text").innerHTML = "Fuel Station!";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
@@ -49,7 +49,7 @@ function tick() {
                 document.getElementById('discover_txt').style.display = 'none';
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
-                document.getElementById("title_video").innerHTML = "welcome to  Cafeteria";
+                document.getElementById("title_video").innerHTML = "Welcome to  Cafeteria";
                 document.getElementById("title_text").innerHTML = "Grub and Greet!";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
@@ -72,7 +72,7 @@ function tick_page(x, video_url, r) {
         setTimeout(function () {
             document.getElementById('idea_room_div_final').style.display = 'none';
         }, 4000);
-        document.getElementById("title_video").innerHTML = "welcome to innovation corner";
+        document.getElementById("title_video").innerHTML = "Welcome to innovation corner";
         document.getElementById("title_text").innerHTML = "Design. Create. Innovate.";
         setTimeout(function () {
             document.getElementById('video_container').style.display = 'block';
@@ -86,7 +86,7 @@ function tick_page(x, video_url, r) {
         setTimeout(function () {
             document.getElementById('gym_room_div_final').style.display = 'none';
         }, 4000);
-        document.getElementById("title_video").innerHTML = "welcome to Fitness Center";
+        document.getElementById("title_video").innerHTML = "Welcome to Fitness Center";
         document.getElementById("title_text").innerHTML = "Stay Fit at Progress!";
         setTimeout(function () {
             document.getElementById('video_container').style.display = 'block';
@@ -102,7 +102,7 @@ function tick_page(x, video_url, r) {
         setTimeout(function () {
             document.getElementById('pantree_room_div_final').style.display = 'none';
         }, 4000);
-        document.getElementById("title_video").innerHTML = "welcome to Pantry";
+        document.getElementById("title_video").innerHTML = "Welcome to Pantry";
         document.getElementById("title_text").innerHTML = "Fuel Station!";
         setTimeout(function () {
             document.getElementById('video_container').style.display = 'block';
@@ -117,7 +117,7 @@ function tick_page(x, video_url, r) {
         setTimeout(function () {
             document.getElementById('lunch_room_div_final').style.display = 'none';;
         }, 4000);
-        document.getElementById("title_video").innerHTML = "welcome to  Cafeteria";
+        document.getElementById("title_video").innerHTML = "Welcome to  Cafeteria";
         document.getElementById("title_text").innerHTML = "Grub and Greet!";
         setTimeout(function () {
             document.getElementById('video_container').style.display = 'block';

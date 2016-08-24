@@ -2,7 +2,7 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    alert('startScanForBeacons')
+    //alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
@@ -91,11 +91,11 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
                 if (currentBeacon == region.Tag1) {
                     //$("#login").append("video");
-                    if (pluginResult.beacons[0].rssi >= -70 && pluginResult.beacons[0].rssi <= -37)
-                        vibrate();
+//if (pluginResult.beacons[0].rssi >= -70 && pluginResult.beacons[0].rssi <= -37)
+                       // vibrate();
                     //link = region.url;
                     //document.getElementById(region.img_id).style.display='none'; 
-                    alert(r);
+                    //alert(r);
                    /* var beacon_div = document.createElement('div');
                     beacon_div.setAttribute("class", "beacon");
                     var text1 = 'hey';
@@ -104,6 +104,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     document.getElementById('login').appendChild(beacon_div);
                     */
                     if(flag_img[r]==0){
+                        vibrate();
                     flag_img[r] = 1;
                     alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);

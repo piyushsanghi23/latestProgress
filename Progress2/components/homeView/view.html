@@ -27,39 +27,39 @@
             </div>
             <div id='wrapper'>
                 <div id='best_of_luck_button'>
-                    <a id="bofl_anchor_tag" data-role='button' href='components/schedule/schedule.html'><img style='width: 28%;float: left;' src='images/ScheduleAsset 6@1x.png' />
-                        <div style='text-align: center;  font-family:Roboto-Bold;font-size:16px;color:#373A3E;font-weight: bold;'>
+                    <a id="bofl_anchor_tag" data-role='button' href='components/schedule/schedule.html'><img style='width: 28%;float: left;padding-top: 10%;' src='images/ScheduleAsset 6@1x.png' />
+                        <div id="bol_div" >
                             Interview schedule
                         </div>
                         <div class="text_in_smaller_div">
-                            Check out what's in store for you today!
+                              Check out what's in<br> store for you today!
                         </div>
                     </a>
                 </div>
                 <div id='progress_premises_button'>
                     <a id="ppb_anchor_tag" data-role='button' href='components/progressPremises/progressPremises.html'><img style='float: left;width: 38%; padding-right: 5%;' src='images/ExploreAsset 7@1x.png' />
-                        <div style='text-align: center;font-family:Roboto-Bold;font-size: 17px;font-weight: bold;color:#373A3E;'>
+                        <div id="ppb_div">
                             Explore Progress
                         </div>
-                        <div style='font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;'>
-                            Step in to the awesomeness!
+                        <div id="text_in_small" >
+                             Step in to the awesomeness!
                         </div>
                         <div>
                             <div class="slideshow-container" id="my_slideshow">
                                 <div class="mySlides fade">
-                                    <div class="numbertext">1 / 3</div>
+                                   
                                     <img src="images/maps.png" style="width:100%">
-                                    <div class="text">Caption Text</div>
+                                    
                                 </div>
                                 <div class="mySlides fade">
-                                    <div class="numbertext">2 / 3</div>
+                                    
                                     <img src="images/ProgressLogoAsset 28@2x.png" style="width:100%">
-                                    <div class="text">Caption Two</div>
+                                    
                                 </div>
                                 <div class="mySlides fade">
-                                    <div class="numbertext">3 / 3</div>
+                                    
                                     <img src="images/address_left.PNG" style="width:100%">
-                                    <div class="text">Caption Three</div>
+                                   
                                 </div>
                             </div>
                             <br>
@@ -109,6 +109,9 @@
                 <input type="email" id="email_box" placeholder='Enter your email'>
                 <img id="green_arrow" src="images/arrow-orangeAsset 4@1.5x.png" onclick="authenticate()" />
             </div>
+        <button id="done_button" onclick="tp1()">
+                DONE
+            </button>
             <!--a id='show' data-role='button' onclick='authenticate()' href='components/profile_page.html'>profile</a-->
             <div id='login_error' style='display:none'>
                 you are not a valid person
@@ -120,6 +123,7 @@
         </div>
     </div>
     </div>
+      
     <div class="modal">
         <div class='uil-default-css' style='transform:scale(0.76);    margin: auto;
     margin-top: 55%;'>

@@ -30,10 +30,13 @@ body.loading .modal {
 }
 /* HOME-VIEW CSS */
 .text_in_smaller_div{
-    font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;
+   font-family: Roboto-Regular;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 3%;
 }
 #bofl_anchor_tag {
-   padding-top:10%; width: 100%; border: none;
+    width: 100%; border: none;
 }
 #ppb_anchor_tag{
     padding-top:10%;width: 100%; border: none;
@@ -41,6 +44,24 @@ body.loading .modal {
 #wrapper {
     padding-right: 40px;
     padding-left: 40px;
+}
+#text_in_small{
+    font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:3%;
+}
+#bol_div{
+    text-align: center;
+    font-family: Roboto-Bold;
+    font-size: 16px;
+    color: #373A3E;
+    padding-top: 10%;
+    font-weight: bold;
+}
+#ppb_div{
+    text-align: center;
+    font-family: Roboto-Bold;
+    font-size: 17px;
+    font-weight: bold;
+    color: #373A3E;
 }
 #login {
     background-image: url('images/BG-people-imageAsset 15@1.5x.png');
@@ -225,6 +246,28 @@ body.loading .modal {
     #best_of_luck_button {
     padding-top:10%;
 }
+    #ppb_div{
+        text-align: center;
+    font-family: Roboto-Bold;
+    font-size: 17px;
+    font-weight: bold;
+    color: #373A3E;
+    }
+    #text_in_small{
+        font-family: Roboto-Regular;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 3%;
+        
+    }
+    #bol_div{
+            text-align: center;
+    font-family: Roboto-Bold;
+    font-size: 16px;
+    color: #373A3E;
+    padding-top: 10%;
+    font-weight: bold;
+    }
 #progress_premises_button {
     padding-top:10%;
   margin-right: 19%;
@@ -261,16 +304,20 @@ body.loading .modal {
     }
     #ppb_anchor_tag{
      padding-top: 21%;
-    width: 166%;
+
     border: none;
     height: 129px;
+        width: 131%;
+    margin-left: 54%;
 }
 .text_in_smaller_div{
-    font-family:Roboto-Regular;font-size: 14px; text-align: center; padding-top:19%;
+   font-family: Roboto-Regular;
+    font-size: 14px;
+    text-align: center;
 }
 #bofl_anchor_tag {
-    padding-top: 10%;
-    width: 89%;
+   
+    width: 149%;
     border: none;
     height: 129px;
 }

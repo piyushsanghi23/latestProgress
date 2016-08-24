@@ -57,7 +57,7 @@ height: 100%;
 }
 #address_para{
     position: absolute;
-    
+        font-size: initial;
     font-weight: bold;
     font-family: Roboto-Bold;
     display: inline-block;

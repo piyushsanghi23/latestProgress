@@ -2,18 +2,19 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    alert('startScanForBeacons');
+    alert('startScanForBeacons')
     //startVuforia();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function (pluginResult) {
-
-        alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
+        //alert("in 1 ")
+        //alert('didDetermineStateForRegion: ' + JSON.stringify(pluginResult))
 
     }
 
     delegate.didStartMonitoringForRegion = function (pluginResult) {
-         alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
+        //alert( "in 2 ")
+         //alert('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
     }
 
     delegate.didRangeBeaconsInRegion = function (pluginResult) {
@@ -27,9 +28,10 @@ app.startScanForBeacons = function () {
     // Start monitoring and ranging our beacons.
     for (var r in app.beaconRegions) {
         var region = app.beaconRegions[r];
-        alert(region)
-            alert(JSON.stringify(region));
-        alert(region.Tag1);
+       // alert(r);
+       // alert(region)
+        //alert(JSON.stringify(region))
+      //  alert(region.Tag1)
         var beaconRegion = new locationManager.BeaconRegion(region.DeviceDescription,
             region.Tag1)
 
@@ -49,7 +51,9 @@ var time = '';
 // Display pages depending of which beacon is close.
 app.didRangeBeaconsInRegion = function (pluginResult) {
     // There must be a beacon within range.
+    //alert("came in in region func");
     if (0 == pluginResult.beacons.length) {
+       // alert("unable to see any beacon in range tried scanning");
         close();
         return
     }
@@ -74,13 +78,14 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
         var x1 = currentBeacon == pluginResult.beacons[0].uuid;
         if (!x1) {
             //stopVuforia();
-             alert("p");
+            // alert("p");
             //document.getElementById('link').click();
             //alert("0");
             //document.getElementById('login').style.display='none';
             //alert(pluginResult.beacons[0].rssi);
             counter = 0;
             currentBeacon = pluginResult.beacons[0].uuid;
+           // alert(currentBeacon);
             for (var r in app.beaconRegions) {
                 var region = app.beaconRegions[r]
                     // $("#login").append("R"+region.uuid+"         "+"p"+pluginResult.beacons[0].uuid);
@@ -90,21 +95,24 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                         vibrate();
                     //link = region.url;
                     //document.getElementById(region.img_id).style.display='none'; 
-                    // alert(r);
-                    var beacon_div = document.createElement('div');
+                    alert(r);
+                   /* var beacon_div = document.createElement('div');
                     beacon_div.setAttribute("class", "beacon");
                     var text1 = 'hey';
                     var textnode1 = document.createTextNode(text1);
                     beacon_div.appendChild(textnode1);
                     document.getElementById('login').appendChild(beacon_div);
+                    */
+                    if(flag_img[r]==0){
                     flag_img[r] = 1;
-                    
+                    alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);
+                    }
                     if(my_flag_pp==1){
-                        alert("in my flag pp ");
-                        alert(id_hint_pno);
-                        alert("about to display url");
-                        alert(region.Content);
+                       // alert("in my flag pp ");
+                       // alert(id_hint_pno);
+                        //alert("about to display url");
+                       // alert(region.Content);
                         tick_page(id_hint_pno,region.Content,r);
                     }
 

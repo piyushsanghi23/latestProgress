@@ -31,8 +31,8 @@
     position: absolute;
     background-color: white;
     background-color: transparent;
-    height: 159px;
-   
+    /*height: 159px;*/
+   height: 134px;
 }
 
 #img2 {
@@ -46,7 +46,7 @@
     position: absolute;
     background-color: white;
     background-color: transparent;
-    height: 158px;
+    height: 134px;
     
 }
         #second_block {

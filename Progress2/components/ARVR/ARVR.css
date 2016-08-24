@@ -1,2 +1,17 @@
-body {
+#vr_button {
+    padding-top: 10%;
+}
+#ar_button {
+    padding-top: 10%;
+}
+#vr_tag {
+    padding-top: 10%;
+    width: 100%;
+    border: none;
+  
+}
+#ar_tag {
+ padding-top: 10%;
+    width: 100%;
+    border: none;
 }

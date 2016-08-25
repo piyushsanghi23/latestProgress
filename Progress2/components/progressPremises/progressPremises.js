@@ -3,12 +3,12 @@ function tick() {
     // document.getElementById('calendar').src=temp;
     for (z in flag_img)
         if (flag_img[z] == 1) {
-            alert("index call");
+            //alert("index call");
             //window.open("p.html");
-            alert("pp call")
+           // alert("pp call")
                 //window.open("components/progressPremises/progressPremises.html");
             document.getElementById('img' + z).src = 'images/' + z + '.png';
-
+          //   alert(url_video + "this is a demo alert");
             document.getElementById('calendar').src = url_video;
             //  document.getElementById('calendar').src=temp;
             if (z == '0') {
@@ -36,9 +36,9 @@ function tick() {
                 document.getElementById("title_text").innerHTML = "Stay Fit at Progress!";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
-                alert("before func call");
+              //  alert("before func call");
                 // tp1();
-                alert("after");
+               // alert("after");
                 //window.open("components/progressPremises.html");
 
             } else if (z == '2') {

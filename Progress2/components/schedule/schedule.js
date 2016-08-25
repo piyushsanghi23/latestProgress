@@ -140,7 +140,7 @@ app.insertRecord = function (table_name) {
                             });
                     }
                     //changeHref();
-                    alert("about to start beacons search");
+                   // alert("about to start beacons search");
                     app.startScanForBeacons();
                 }
 

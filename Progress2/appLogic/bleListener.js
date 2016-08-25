@@ -104,13 +104,12 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     document.getElementById('login').appendChild(beacon_div);
                     */
                     url_video=region.Content;
-                    alert(url_video);
                     if(flag_img[r]==0){
                         vibrate();
                     flag_img[r] = 1;
-                    alert("please go to progress premises ");
+                   // alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);
-                        alert("dcjhbf");
+                     //   alert("dcjhbf");
                     }
                     if(my_flag_pp==1){
                        // alert("in my flag pp ");

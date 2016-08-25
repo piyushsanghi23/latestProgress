@@ -304,9 +304,3 @@ function profileDisplay() {
 
 
 }
-function tp1()
-{
-    alert("in func");
-    window.location.replace("components/progressPremises/progressPremises.html");
-    alert("fsdmnxv");
-}

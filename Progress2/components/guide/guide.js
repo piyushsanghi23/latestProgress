@@ -24,11 +24,12 @@ function slide_4B(){
     document.getElementById('guide_3').style.display = 'block';
 }
 function restart(){
-    alert("sjakcb jkd bc");
     document.getElementById('guide_1').style.display = 'block';
     document.getElementById('guide_2').style.display = 'none';
     document.getElementById('guide_3').style.display = 'none';
     document.getElementById('guide_4').style.display = 'none';
+    window.open("components/homeView/view.html");
+    
 }
 
         

@@ -33,3 +33,4 @@ var appState = [{
     files: ''
 }]
 var flag_img = [0, 0, 0, 0];
+var url_video = "https://www.youtube.com/embed/4TudGSi5mOA" ;

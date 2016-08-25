@@ -24,7 +24,7 @@ $(document).on({
     };
 
     if (window.cordova) {
-
+     
         document.addEventListener('deviceready', function () {
 
             document.addEventListener("offline", onOffline, false);

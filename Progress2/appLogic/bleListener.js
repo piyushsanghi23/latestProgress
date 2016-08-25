@@ -103,18 +103,21 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     beacon_div.appendChild(textnode1);
                     document.getElementById('login').appendChild(beacon_div);
                     */
+                    url_video=region.Content;
+                    alert(url_video);
                     if(flag_img[r]==0){
                         vibrate();
                     flag_img[r] = 1;
                     alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);
+                        alert("dcjhbf");
                     }
                     if(my_flag_pp==1){
                        // alert("in my flag pp ");
                        // alert(id_hint_pno);
                         //alert("about to display url");
                        // alert(region.Content);
-                        tick_page(id_hint_pno,region.Content,r);
+                        tick_page(id_hint_pno,r);
                     }
 
                     // $("#login").append("video");

@@ -34,6 +34,7 @@ $(document).on({
                     .then(function (isEnabled) {
                         console.log("isEnabled: " + isEnabled);
                         if (isEnabled) {
+                           
                             //cordova.plugins.locationManager.disableBluetooth();
                         } else {
                             cordova.plugins.locationManager.enableBluetooth();

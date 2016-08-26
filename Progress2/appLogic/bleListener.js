@@ -4,6 +4,7 @@ var link;
 app.startScanForBeacons = function () {
     //alert('startScanForBeacons')
     //startVuforia();
+   // myfun();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function (pluginResult) {

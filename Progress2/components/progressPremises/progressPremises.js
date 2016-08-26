@@ -65,7 +65,7 @@ function tick() {
                 document.getElementById("title_text").innerHTML = "Grub and Greet!";
                 document.getElementById('video_container').style.display = 'block';
                 clearInterval(img_counter);
-                window.open("components/progressPremises/progressPremises.html");
+              //  window.open("components/progressPremises/progressPremises.html");
 
             }
 

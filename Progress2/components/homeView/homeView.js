@@ -165,6 +165,7 @@ AppUtils.getUUID = function (profileId) {
 }
 
 function myfun() {
+    alert("sush called ");
     var delegate, region, beaconRegion;
     // var x = '00000000-0000-0000-0000-000' + profile_id;
     window.locationManager = cordova.plugins.locationManager;

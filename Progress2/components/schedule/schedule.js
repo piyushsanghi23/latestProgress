@@ -1,8 +1,12 @@
 $body = $("body");
 
 $(document).on({
-    ajaxStart: function() {$body.addClass("loading");   },
-     ajaxStop: function() {$body.removeClass("loading"); }    
+    ajaxStart: function () {
+        $body.addClass("loading");
+    },
+    ajaxStop: function () {
+        $body.removeClass("loading");
+    }
 });
 
 
@@ -81,7 +85,7 @@ app.insertRecord = function (table_name) {
                     var h = d.getHours();
                     tx.executeSql("CREATE TABLE IF NOT EXISTS log (email text primary key,name text,profile_id text,date Date, log_value integer,log_time int,contact_name text,contact_number text)");
                     tx.executeSql(
-                        "INSERT INTO log (email,name,profile_id,date,log_value,log_time,contact_name,contact_number) VALUES (?,?,?,?,?,?,?,?)", [x, y, z, w, 1, h,app.contactInfo[0][0],app.contactInfo[0][1]],
+                        "INSERT INTO log (email,name,profile_id,date,log_value,log_time,contact_name,contact_number) VALUES (?,?,?,?,?,?,?,?)", [x, y, z, w, 1, h, app.contactInfo[0][0], app.contactInfo[0][1]],
                         function (tx, res) {
                             //alert(JSON.stringify(res) + "   " + w);
                         },
@@ -105,25 +109,48 @@ app.insertRecord = function (table_name) {
                             });
                     }
                     var max = app.employee[0].End_Time;
-
                     max = max.split(" ");
+
                     for (var i = 1; i < app.employee.length; i++) {
                         var time = app.employee[i].End_Time;
-
                         time = time.split(" ");
-                        if (time[1] >= max[1]) {
+                        if (!(max[1] == 'PM' && time[1] == 'AM')) {
+                            if (max[1] == 'AM' && time[1] == 'PM') {
+                                max = time;
 
-                            max[1] = time[1];
-                            if (time[0] > max[0])
-                                max[0] = time[0];
+                            } else {
+                                max[1] = time[1];
+                                var y = max[0];
+                                y = y.split(":");
+
+                                var x = time[0];
+                                x = x.split(":");
+
+                                x[1] = parseInt(x[1], 10);
+                                x[0] = parseInt(x[0], 10);
+                                y[1] = parseInt(y[1], 10);
+                                y[0] = parseInt(y[0], 10);
+                                if (x[0] > y[0]) {
+
+                                    max = time;
+
+                                } else if (x[0] == y[0]) {
+                                    if (x[1] >= y[1]) {
+                                        max = time;
+                                    }
+
+
+                                } else {
+
+                                }
+                            }
 
                         }
-
-
-
                     }
+
+
                     greatestTime = max;
-                    //alert("insertRecord" + greatestTime);
+
                     changeHref();
 
                 } else if (table_name == 'beacon') {
@@ -140,7 +167,7 @@ app.insertRecord = function (table_name) {
                             });
                     }
                     //changeHref();
-                   // alert("about to start beacons search");
+                    // alert("about to start beacons search");
                     app.startScanForBeacons();
                 }
 
@@ -190,10 +217,13 @@ function changeHref() {
     if (mm < 10) {
         mm = '0' + mm
     }
+   // alert(mm + dd + yyyy + hours + minutes);
     var x = interview_date;
     //alert('changeHref' + x);
     x = x.split(' ');
     x[1] = convertMonthNameToNumber(x[1])
+    //alert(x[0]);
+    //alert(x[1] + x[2] + x[3]);
     if (x[1] < 10) {
         x[1] = '0' + x[1]
     }
@@ -201,15 +231,17 @@ function changeHref() {
         x[2] = '0' + x[2]
     }
     if (x[1] == mm && x[2] == dd && x[3] == yyyy) {
-        //alert("greatest time in"+greatestTime[0])
+       // alert("greatest time in" + greatestTime[0] + greatestTime[1])
         var time1 = greatestTime[0] + " " + greatestTime[1];
-        
+
         time1 = parseTime(time1);
+       // alert(time1.hh);
+       // alert(time1.mm);
         var date1 = new Date(2000, 0, 1, time1.hh, time1.mm); // 9:00 AM
-        var date2 = new Date(2000, 0, 1, 18, 34); // 5:00 PM
+        var date2 = new Date(2000, 0, 1, hours, minutes); // 5:00 PM
         if (date2 > date1) {
-             
-            //alert("currenttime greater" + diff);
+
+           // alert("currenttime greater" + diff);
             document.getElementById('feedback').href = 'components/feedback/feedback.html';
         } else {
             var diff = date1 - date2;
@@ -248,8 +280,8 @@ app.readRecords = function (table_name) {
                             profileDisplay2();
                             var d = new Date();
                             var h = d.getHours();
-                            app.contactInfo[0][0]=log_details[0].contact_name;
-                           app.contactInfo[0][1]=log_details[0].contact_number;
+                            app.contactInfo[0][0] = log_details[0].contact_name;
+                            app.contactInfo[0][1] = log_details[0].contact_number;
                             //alert(log_time);
                             if (Math.abs(log_time - h) >= 3) {
                                 alert(Math.abs(log_time - h));
@@ -438,7 +470,7 @@ function dis() {
         document.getElementById("employee_list").appendChild(div);
         if (i == app.employee.length - 1) {
             clearInterval(my);
-            document.getElementById('contact_name').innerHTML=app.contactInfo[0][0]+"   "+app.contactInfo[0][1];
+            document.getElementById('contact_name').innerHTML = app.contactInfo[0][0] + "   " + app.contactInfo[0][1];
         }
     }
 

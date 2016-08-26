@@ -70,11 +70,12 @@
     background-color: powderblue;
 }
 #how_para {
-    margin-top: 10%;
+    margin-top: 4%;
     text-align: center;
     font-size: x-large;
     padding: 6%;
-    font-family: myfont;
+    font-family: Roboto-Bold;
+    font-weight: bold;
 }
 .imgContainer {
     float: left;
@@ -85,11 +86,12 @@
     color: red;
 }
 #we_value_txtstyle {
-    display: -webkit-inline-box;
+       display: -webkit-inline-box;
     text-align: center;
     padding-top: 6%;
+    font-family: Roboto-Bold;
     margin-left: 31%;
-    font-family: myfont;
+    font-weight: bold;
 }
 #tp1 {
     display: inline-block;
@@ -125,6 +127,11 @@
    src: url(fonts/Roboto-Regular.ttf);
 }
 @media (orientation: landscape) {
+    .imgContainer {
+    float: left;
+    margin: 4%;
+    width: 10%;
+}
     #p1 {
         margin-left: 7%;
     }
@@ -154,7 +161,8 @@
     #how_para{
         display:none;
     }
-    #thumbsImage {
+}
+#thumbsImage {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-left: -11%;

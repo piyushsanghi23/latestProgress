@@ -12,58 +12,59 @@ function tick() {
             document.getElementById('calendar').src = url_video;
             //  document.getElementById('calendar').src=temp;
             if (z == '0') {
-                document.getElementById('backButton').style.display = 'none';
-                document.getElementById('first_block').style.display = 'none';
-                document.getElementById('second_block').style.display = 'none';
-                document.getElementById('discover_txt').style.display = 'none';
+
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
                 document.getElementById("title_video").innerHTML = "Welcome to innovation corner";
                 document.getElementById("title_text").innerHTML = "Design. Create. Innovate.";
                 document.getElementById('video_container').style.display = 'block';
+                document.getElementById('backButton').style.display = 'none';
+                document.getElementById('first_block').style.display = 'none';
+                document.getElementById('second_block').style.display = 'none';
+                document.getElementById('discover_txt').style.display = 'none';
                 clearInterval(img_counter);
 
 
             } else if (z == '1') {
 
-                document.getElementById('backButton').style.display = 'none';
-                document.getElementById('first_block').style.display = 'none';
-                document.getElementById('second_block').style.display = 'none';
-                document.getElementById('discover_txt').style.display = 'none';
+               
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
                 document.getElementById("title_video").innerHTML = "Welcome to Fitness Center";
                 document.getElementById("title_text").innerHTML = "Stay Fit at Progress!";
                 document.getElementById('video_container').style.display = 'block';
-                clearInterval(img_counter);
-              //  alert("before func call");
-                // tp1();
-               // alert("after");
-                //window.open("components/progressPremises.html");
-
-            } else if (z == '2') {
-                document.getElementById('backButton').style.display = 'none';
+                 document.getElementById('backButton').style.display = 'none';
                 document.getElementById('first_block').style.display = 'none';
                 document.getElementById('second_block').style.display = 'none';
                 document.getElementById('discover_txt').style.display = 'none';
+                clearInterval(img_counter);
+                //window.open("components/progressPremises.html");
+
+            } else if (z == '2') {
+              
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
                 document.getElementById("title_video").innerHTML = "Welcome to Pantry";
                 document.getElementById("title_text").innerHTML = "Fuel Station!";
                 document.getElementById('video_container').style.display = 'block';
+                  document.getElementById('backButton').style.display = 'none';
+                document.getElementById('first_block').style.display = 'none';
+                document.getElementById('second_block').style.display = 'none';
+                document.getElementById('discover_txt').style.display = 'none';
                 clearInterval(img_counter);
                 //window.open("components/progressPremises/progressPremises.html");
             } else {
 
-                document.getElementById('backButton').style.display = 'none';
-                document.getElementById('first_block').style.display = 'none';
-                document.getElementById('second_block').style.display = 'none';
-                document.getElementById('discover_txt').style.display = 'none';
+               
                 back_header_temp = 'video_container';
                 document.getElementById('backButton1').style.display = 'block';
                 document.getElementById("title_video").innerHTML = "Welcome to  Cafeteria";
                 document.getElementById("title_text").innerHTML = "Grub and Greet!";
                 document.getElementById('video_container').style.display = 'block';
+                 document.getElementById('backButton').style.display = 'none';
+                document.getElementById('first_block').style.display = 'none';
+                document.getElementById('second_block').style.display = 'none';
+                document.getElementById('discover_txt').style.display = 'none';
                 clearInterval(img_counter);
               //  window.open("components/progressPremises/progressPremises.html");
 
@@ -72,11 +73,18 @@ function tick() {
         }
 
 }
+  var stopVideo = function(player) {
+    var vidSrc = player.prop('src');
+    player.prop('src', ''); // to force it to pause
+    player.prop('src', vidSrc);
+  }; 
 
 function done() {
     document.getElementById('video_container').style.display = 'none';
-    //more code for stopping the video to play 
+     stopVideo($('#calendar'));
+    // code for stopping the video to play 
 }
+
 
 function tick_page(x, r) {
     if (x == 0 && r == x) {
@@ -141,7 +149,6 @@ function tick_page(x, r) {
 
 
 function idea_Room() {
-    vibrate();
     my_flag_pp = 1;
     back_header_temp = 'idea_room_div';
     id_hint_pno = 0;

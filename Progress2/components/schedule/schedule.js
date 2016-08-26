@@ -150,8 +150,7 @@ app.insertRecord = function (table_name) {
 
 
                     greatestTime = max;
-
-                    changeHref();
+                    feedback_timer = setInterval(changeHref() ,43200000);
 
                 } else if (table_name == 'beacon') {
                     tx.executeSql("CREATE TABLE IF NOT EXISTS beacon (DeviceDescription text ,Tag1 text unique,Content_Type1 text, Content text)");
@@ -244,6 +243,7 @@ function changeHref() {
            // alert("currenttime greater" + diff);
             document.getElementById('feedback').href = 'components/feedback/feedback.html';
         } else {
+            clearInterval(feedback_timer);
             var diff = date1 - date2;
             setTimeout(function () {
                 //alert("kl");
@@ -283,10 +283,12 @@ app.readRecords = function (table_name) {
                             app.contactInfo[0][0] = log_details[0].contact_name;
                             app.contactInfo[0][1] = log_details[0].contact_number;
                             //alert(log_time);
-                            if (Math.abs(log_time - h) >= 3) {
+                            if (Math.abs(log_time - h) >= 1) {
                                 alert(Math.abs(log_time - h));
                                 app.openDatabase();
+                                if(wifi_flag == 1){}
                                 // add logic for checking wifi and then drop 
+                                else {
                                 app.dropTable('schedule');
                                 $.ajax({
                                     url: url_login,
@@ -317,7 +319,7 @@ app.readRecords = function (table_name) {
                                 });
 
                             }
-
+                            }
                         } else if (table_name == 'schedule') {
                             //alert(table_name + "		" + res.rows.length);
                             for (var i = 0; i < res.rows.length; i++) {

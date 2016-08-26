@@ -29,7 +29,7 @@ $(document).on({
 
             document.addEventListener("offline", onOffline, false);
             if (window.navigator.simulator != true) {
-               // alert(cordova.plugins.locationManager.isBluetoothEnabled())
+                //alert("my"+cordova.plugins.locationManager.isBluetoothEnabled());
                 cordova.plugins.locationManager.isBluetoothEnabled()
                     .then(function (isEnabled) {
                         console.log("isEnabled: " + isEnabled);
@@ -45,9 +45,15 @@ $(document).on({
                     })
                     .done();
             }
-
+             document.addEventListener("online", onOnline, false);
+            function onOnline(){
+               
+                wifi_flag=0;
+            }
             function onOffline() {
                 // Handle the offline event
+               
+                wifi_flag = 1;
                 document.getElementById('note_wifi').style.display = 'block';
                 setTimeout(function () {
                     document.getElementById('note_wifi').style.display = 'none';
@@ -135,6 +141,7 @@ $(document).on({
         }
 
     };
+    
     //deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     // document.addEventListener("backbutton", onBackKeyDown, false);
 

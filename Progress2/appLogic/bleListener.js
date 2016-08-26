@@ -58,7 +58,9 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
         close();
         return
     }
-
+    if(pluginResult.beacons[0].proximity == 'ProximityImmediate'){
+        alert("fnsdjkfnf");
+    }
 
     // $("#appendSection").append(pluginResult.beacons[0].proximity + '<br>');
     // currentBeacon=pluginResult.beacons[0].uuid;

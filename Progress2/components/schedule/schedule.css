@@ -47,6 +47,9 @@ body.loading .modal {
     float: left;
     padding-top: 5%;
 }
+ #queries_div{
+        padding:20px;
+    }
 .imgArrow{
     padding-top: 30px;
     float: left;
@@ -148,6 +151,20 @@ h3.timeItem {
     #schedule-text {
         text-align: center;
     }
+    .time {
+    font-family: roboto;
+    background-color:#eaeaeb;
+    padding: 3%;
+    list-style-position: inside;
+    border-bottom: 1px solid #c0c5cb;
+    border-top: 1px solid #c0c5cb;
+    color: #7C878E;
+    font-size: 20px;
+}
+    #queries_div{
+        padding:3%;
+    }
+    
 }
 #main_title {
     color: white;

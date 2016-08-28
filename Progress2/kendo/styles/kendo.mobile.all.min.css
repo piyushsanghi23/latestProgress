@@ -15701,8 +15701,8 @@ html .km-material .k-overflow-container.km-actionsheet>li {
     margin-right: 1rem
 }
 .km-nova p {
-    margin-top: .4em;
-    margin-bottom: .4em
+    /*margin-top: .4em;
+    margin-bottom: .4em*/
 }
 .km-nova a:not([class]),
 .km-nova .km-external-link {

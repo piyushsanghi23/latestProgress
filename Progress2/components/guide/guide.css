@@ -55,19 +55,21 @@ p.thin_txt {
 }
 .div_next_pre{
     margin-left: 36%;
-    margin-top: 7%;
+    margin-top: 2%;
 }
 .img_guide_footer {
     width: 28%;
     position: absolute;
     margin: auto;
-    top: 81%;
+    top: 88%;
     left: 0;
     right: 0;
   /*  bottom: 40px;*/
 }
 p.bold_txt {
-    color:white;
+   
+        padding-top: 24%;
+    color: white;
     font-size: 20px;
    
 }

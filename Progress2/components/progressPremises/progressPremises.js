@@ -158,16 +158,15 @@ function idea_Room() {
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
-
 }
 
 function back(ID) {
     my_flag_pp = 0;
     document.getElementById(ID).style.display = 'none';
     document.getElementById('backButton').style.display = 'block';
-    document.getElementById('first_block').style.display = 'block';
+    document.getElementById('first_block').style.display = 'inline';
     document.getElementById('discover_txt').style.display = 'block';
-    document.getElementById('second_block').style.display = 'block';
+    document.getElementById('second_block').style.display = 'inline';
     document.getElementById('backButton1').style.display = 'none';
     done();
 
@@ -183,6 +182,7 @@ function lunch_Room() {
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
+   
 
 }
 
@@ -196,6 +196,7 @@ function gym_Room() {
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
+   
 
 }
 
@@ -209,6 +210,7 @@ function pantree() {
     document.getElementById('first_block').style.display = 'none';
     document.getElementById('second_block').style.display = 'none';
     document.getElementById('discover_txt').style.display = 'none';
+   
 
 }
 

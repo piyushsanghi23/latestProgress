@@ -4,55 +4,44 @@
             text-align: center;
             padding-top: 15px;
         }
+        #img2_1 {
+            display: none;
+        }
+        #img3_1 {
+            display: none;
+        }
         #progressPremises_div_header {
             color: white;
             height: 60px;
             width: 100%;
             background-color: powderblue;
         }
-        .span_class {
-            padding-right: 20px;
-        }
-       
         #first_block {
-            padding-left: 20px;
-            padding-top: 20px;
-            padding-right: 20px;
+            display:inline;
+            padding-left: 30px;
+            padding-top: 0px;
+            padding-right: 0px;
         }
         #img0 {
-    margin: auto;
-    width: 47%;
-    background-color: white;
-    background-color: transparent;
-    height: inherit;
-}
-#img1 {
-    margin: auto;
-    position: absolute;
-    background-color: white;
-    background-color: transparent;
-    /*height: 159px;*/
-   height: 134px;
-}
+            width: 40%;
+        }
+        #img1 {
+               width: 40%;
+    margin-left: 4%;
+        }
+        #img2 {
+            width: 40%;
+        }
+        #img3 {
 
-#img2 {
-    margin: auto;
-    width: 47%;
-    background-color: white;
-    background-color: transparent;
-}
-#img3 {
-    margin: auto;
-    position: absolute;
-    background-color: white;
-    background-color: transparent;
-    height: 134px;
-    
-}
+            width: 40%;
+            margin-left: 4%;
+        }
         #second_block {
-            padding-left: 20px;
-            padding-top: 20px;
-            padding-right: 20px;
+            display:inline;
+            padding-left: 30px;
+            padding-top: 0px;
+            padding-right:0px;
         }
         #discover_txt {
             color: black;
@@ -121,6 +110,9 @@
             padding: 20px;
             background-color: grey;
         }
+#calendar{
+    width: 100%;
+}
         .iframe-rwd {
             position: relative;
             padding-bottom: 65.25%;
@@ -140,6 +132,15 @@
             height: 100%;
         }
         @media (orientation: landscape) {
+            #done_button{
+               display:none;
+            }
+            #title_video{
+                display:none;
+            }
+            #title_text{
+                display:none;
+            }
             #discover_txt_landscape {
                 display: block;
                 color: black;
@@ -150,65 +151,58 @@
                 font-size: 20px;
                 padding-top: 5%;
             }
-            #discover_txt {
-                display: none;
-            }
+           
             #img0 {
-                margin: auto;
-                /* width: 47%; */
-                /* padding: 20px; */
-                background-color: white;
-                background-color: transparent;
-                /* border-radius: 30px; */
-                height: inherit;
-                /* width: auto; */
-                /* border: bisque; */
-                /* border-style: inset; */
-            }
-            #first_block {
-                padding-left: 58px;
-                ;
-                padding-top: 20px;
-                padding-right: 20px;
-                display: inline-block;
-            }
-            #second_block {
-                display: inline-block;
-                /* margin-left: 2%; */
+                width: 20%;
             }
             #img1 {
-                margin: auto;
-                /* width: 20%; */
-                position: absolute;
-                /* padding: 20px; */
-                background-color: transparent;
-                /* border-radius: 30px; */
-                height: 117px;
-                /* width: auto; */
-                /* border: bisque; */
-                /* border-style: inset; */
+                float: none;
+                margin-left: 0%;
+                width: 20%;
             }
-            #img2 {
-                /* padding: 20px; */
-                margin: auto;
-                /* width: 47%; */
-                /* background-color: white; */
-                background-color: transparent;
-                /* border-radius: 30px; */
-                height: inherit;
-                /* width: auto; */
-                /* border: bisque; */
-                /* border-style: inset; */
+             #img2 {
+                width: 20%;
+                 display: inline;
             }
             #img3 {
-                margin: auto;
-                position: absolute;
-                background-color: white;
-                background-color: transparent;
-                height: 116px;
+                float: none;
+                margin-left: 0%;
+                width: 20%;
+                display: inline;
             }
-            .span_class {
-                padding-right: 9%;
+            #img2_1 {
+                display: inline;
+                display:none;
+                width: 23%;
+            }
+            #img3_1 {
+                display: inline;
+                 display:none;
+                width: 23%;
+            }
+            #first_block {
+                /* margin-top: 7%;*/
+                margin-left:40px;
+                display:inline;
+                padding:0px;
+            }
+            #second_block {
+                display: inline;
+                padding:0px;
+            }
+             .hint_img {
+                width: 12%;
+            }
+            .beacon_hint_img {
+                padding-top: 10px;
+                padding-bottom: 25px;
+                padding-left: 50px;
+                padding-right: 50px;
+                /* padding: 50px; */
+                margin: inherit;
+                margin-left: 16%;
+                width: 40%;
+                height: 147%;
             }
         }
         @font-face {
@@ -231,6 +225,10 @@
             font-family: Roboto-Regular;
             src: url(fonts/Roboto-Regular.ttf);
         }
-
-
-
+        .fblogo {
+            display: inline-block;
+            float: left;
+            margin-left: auto;
+            margin-right: auto;
+            height: 30px;
+        }

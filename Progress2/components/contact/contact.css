@@ -52,8 +52,13 @@ height: 100%;
     padding-left:11px;
     padding-right:40px;
     padding-top:20px;
-    padding-bottom:20px;
+    padding-bottom:10px;
     border-bottom: solid grey;
+}
+#ilabs_img{
+        width: 47%;
+    height: 91px;
+    border-radius:2px;
 }
 #address_para{
     position: absolute;

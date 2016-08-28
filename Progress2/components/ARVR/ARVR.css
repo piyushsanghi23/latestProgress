@@ -53,7 +53,7 @@
     #wrapper1 {
     display: flex;
     padding-right: 10%;
-    padding-left: 10%;
+    padding-left:50px;
 }
     #vr_div {
         text-align: center;

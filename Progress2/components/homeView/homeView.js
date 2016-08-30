@@ -29,7 +29,7 @@ function toast(){
     x.className = "show";
     alert("class mil");
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 9000);
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2400);
     alert("came out");
 }
 function authenticate() {

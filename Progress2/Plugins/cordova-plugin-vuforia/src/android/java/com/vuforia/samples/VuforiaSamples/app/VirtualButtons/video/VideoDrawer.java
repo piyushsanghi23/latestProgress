@@ -642,7 +642,7 @@ public class VideoDrawer {
                 GLES20.glVertexAttribPointer(videoPlaybackNormalHandle, 3,
                         GLES20.GL_FLOAT, false, 0, quadNormals);
 
-                if (imageTarget.getName().compareTo("halfPattern") == 0)
+                if (imageTarget.getName().compareTo("progress_white") == 0 || imageTarget.getName().compareTo("progress_black") == 0)
                     GLES20.glVertexAttribPointer(videoPlaybackTexCoordHandle,
                             2, GLES20.GL_FLOAT, false, 0,
                             fillBuffer(videoQuadTextureCoordsTransformedStones));

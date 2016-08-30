@@ -200,7 +200,7 @@ public class VirtualButtons extends Activity implements
         mTextures.add(Texture.loadTextureFromApk(targetPath + "prgs/socialconnect.png", getAssets()));
 
         mTextures.add(Texture.loadTextureFromApk(targetPath + "prgs/agenda.png", getAssets()));
-        mTextures.add(Texture.loadTextureFromApk(targetPath + "prgs/srt1.jpg", getAssets()));
+        mTextures.add(Texture.loadTextureFromApk(targetPath + "prgs/srt1.png", getAssets()));
         
         mTextures.add(Texture.loadTextureFromApk(targetPath + "VideoPlayback/Sizzle1.png", getAssets()));
         mTextures.add(Texture.loadTextureFromApk(targetPath + "VideoPlayback/Sizzle2.png", getAssets()));

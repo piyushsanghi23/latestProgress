@@ -8,23 +8,6 @@
     padding-right: 13%;
     padding-top: 4%;
 }
-
-.iframe-rwd  {
-position: relative;
-padding-bottom: 65.25%;
-padding-top: 30px;
-    padding-left: 4%;
-height: 0;
-overflow: hidden;
-}
-.iframe-rwd iframe {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
-
 #contact_div_header {
     color: white;
     height: 60px;
@@ -52,17 +35,13 @@ height: 100%;
     padding-left:11px;
     padding-right:40px;
     padding-top:20px;
-    padding-bottom:10px;
+    padding-bottom:20px;
     border-bottom: solid grey;
 }
-#ilabs_img{
-        width: 47%;
-    height: 91px;
-    border-radius:2px;
-}
 #address_para{
+    color:black;
     position: absolute;
-        font-size: initial;
+    font-size: large;
     font-weight: bold;
     font-family: Roboto-Bold;
     display: inline-block;
@@ -95,4 +74,9 @@ height: 100%;
 @font-face {
    font-family:Roboto-Regular;
    src: url(fonts/Roboto-Regular.ttf);
+}
+@media (orientation: landscape) {
+    #backButton {
+        padding-top: 4%;
+    }
 }

@@ -1,18 +1,23 @@
 $body = $("body");
 
 $(document).on({
-    ajaxStart: function() {$body.addClass("loading");   },
-     ajaxStop: function() {$body.removeClass("loading"); }    
+    ajaxStart: function () {
+        $body.addClass("loading");
+         setTimeout(function(){ $body.removeClass("loading"); }   
+,8000);
+    },
+    ajaxStop: function () {
+        $body.removeClass("loading");
+    } 
+     
 });
-
-
-
-'use strict';
-(function () {
-    var app = {
+var app = {
         data: {}
     };
 
+'use strict';
+(function () {
+    
 
     var bootstrap = function () {
         $(function () {
@@ -26,7 +31,7 @@ $(document).on({
     if (window.cordova) {
      
         document.addEventListener('deviceready', function () {
-
+            
             document.addEventListener("offline", onOffline, false);
             if (window.navigator.simulator != true) {
                 //alert("my"+cordova.plugins.locationManager.isBluetoothEnabled());

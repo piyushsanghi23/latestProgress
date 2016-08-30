@@ -24,7 +24,9 @@ function slide_4B(){
     document.getElementById('guide_3').style.display = 'block';
 }
 function restart(){
-    
+    if(app && app.mobileApp){
+         app.mobileApp.navigate("components/homeView/view.html");
+    }
     document.getElementById('guide_1').style.display = 'block';
     document.getElementById('guide_2').style.display = 'none';
     document.getElementById('guide_3').style.display = 'none';

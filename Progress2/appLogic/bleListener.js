@@ -2,9 +2,9 @@
 var counter = 0;
 var link;
 app.startScanForBeacons = function () {
-    //alert('startScanForBeacons')
+    alert('startScanForBeacons');
     //startVuforia();
-   // myfun();
+    myfun();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
     delegate.didDetermineStateForRegion = function (pluginResult) {
@@ -53,13 +53,11 @@ var time = '';
 app.didRangeBeaconsInRegion = function (pluginResult) {
     // There must be a beacon within range.
     //alert("came in in region func");
+  //  myfun();
     if (0 == pluginResult.beacons.length) {
        // alert("unable to see any beacon in range tried scanning");
         close();
         return
-    }
-    if(pluginResult.beacons[0].proximity == 'ProximityImmediate'){
-        alert("fnsdjkfnf");
     }
 
     // $("#appendSection").append(pluginResult.beacons[0].proximity + '<br>');
@@ -110,7 +108,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     if(flag_img[r]==0){
                         vibrate();
                     flag_img[r] = 1;
-                   // alert("please go to progress premises ");
+                    alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);
                      //   alert("dcjhbf");
                     }

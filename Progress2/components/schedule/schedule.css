@@ -1,3 +1,6 @@
+
+
+
 /* (Css for ajax)Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
    with position:fixed. Width, height, top and left speak
@@ -16,7 +19,11 @@
                 50% 50% 
                 no-repeat;
 }
-
+p.by_para{
+    font-size: 20px;
+    color: #5F2367;
+    margin-left:0rem;
+}
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
 body.loading {
@@ -80,6 +87,11 @@ body.loading .modal {
     font-size: 20px;
     font-family:Roboto-Bold;
 }
+#contact_href{
+        font-weight: bold;
+    font-size: 20px;
+    font-family:Roboto-Bold;
+}
 #query{
     font-family:Roboto-Normal;
         font-weight: bold;
@@ -87,11 +99,12 @@ body.loading .modal {
     font-size: 16px;
 }
 #name {
-    /*margin-left: 35%;*/
-    color:#5F2367;
+    /*margin-left: 35%;
+    color:#5F2367;*/
     font-weight:bold;
     font-size:20px;
-    
+    color: #5F2367;
+   
 }
 #imgItem {
     //position: fixed;
@@ -109,7 +122,7 @@ body.loading .modal {
 }
 .divItem {
     display: none;
-    background-color:#eaeaeb;
+     background-color:white;
     padding: 10%;
 }
 .up_arrow {
@@ -128,7 +141,6 @@ body.loading .modal {
     padding: 7%;
     list-style-position: inside;
     border-bottom: 1px solid #c0c5cb;
-    border-top: 1px solid #c0c5cb;
     color: #7C878E;
     font-size: 20px;
 }

@@ -1,15 +1,4 @@
 $body = $("body");
-
-$(document).on({
-    ajaxStart: function () {
-        $body.addClass("loading");
-    },
-    ajaxStop: function () {
-        $body.removeClass("loading");
-    }
-});
-
-
 app.openDatabase = function () {
     if (!this.checkSimulator()) {
         db = window.sqlitePlugin.openDatabase(
@@ -93,26 +82,33 @@ app.insertRecord = function (table_name) {
                             alert('error: ' + res.message);
                         });
 
-                } else if (table_name == 'schedule') {
-                    tx.executeSql("CREATE TABLE IF NOT EXISTS schedule (Round_Name text ,Interviewer text,Start_Time text, End_Time text)");
+                } 
+                 else if (table_name == 'schedule') {
+                   tx.executeSql("CREATE TABLE IF NOT EXISTS schedule (Round_Name text ,Interviewer text,Start_Time text, End_Time text,dgn1 text,dgn2 text)");
 
                     for (var i in app.employee) {
-
+                         var round=app.employee[i].name;
+                  round=round.split(',');
                         tx.executeSql(
-                            "INSERT INTO schedule (Round_Name,Interviewer,Start_Time,End_Time) VALUES (?,?,?,?)", [app.employee[i].Round_Name, app.employee[i].Interviewer, app.employee[i].Start_Time, app.employee[i].End_Time],
+          
+                            "INSERT INTO schedule (Round_Name,Interviewer,Start_Time,End_Time,dgn1,dgn2) VALUES (?,?,?,?,?,?)", [round[0], round[3],round[1], round[2],round[4],round[5]],
                             function (tx, res) {
 
-                                //alert(JSON.stringify(res));
+                               // alert(JSON.stringify(res));
                             },
                             function (tx, res) {
                                 alert('error: ' + res.message);
                             });
                     }
-                    var max = app.employee[0].End_Time;
+                    var round=app.employee[0].name;
+                   // alert(round);
+                  round=round.split(',');
+                   var max=round[2];
                     max = max.split(" ");
-
                     for (var i = 1; i < app.employee.length; i++) {
-                        var time = app.employee[i].End_Time;
+                         var round=app.employee[i].name;
+                  round=round.split(',');
+                        var time = round[2];
                         time = time.split(" ");
                         if (!(max[1] == 'PM' && time[1] == 'AM')) {
                             if (max[1] == 'AM' && time[1] == 'PM') {
@@ -150,6 +146,7 @@ app.insertRecord = function (table_name) {
 
 
                     greatestTime = max;
+                   // alert(max);
                     feedback_timer = setInterval(changeHref() ,43200000);
 
                 } else if (table_name == 'beacon') {
@@ -161,7 +158,7 @@ app.insertRecord = function (table_name) {
                                 //alert(JSON.stringify(app.beaconRegions[i]));
 
                             },
-                            function (tx, res) {
+                            function (tx, res) { 
                                 alert('error: ' + res.message);
                             });
                     }
@@ -216,8 +213,9 @@ function changeHref() {
     if (mm < 10) {
         mm = '0' + mm
     }
-   // alert(mm + dd + yyyy + hours + minutes);
+    //alert(mm + dd + yyyy + hours + minutes);
     var x = interview_date;
+    //alert(x);
     //alert('changeHref' + x);
     x = x.split(' ');
     x[1] = convertMonthNameToNumber(x[1])
@@ -252,6 +250,10 @@ function changeHref() {
         }
 
     }
+    if((x[2]<dd && x[1]==mm && x[3]==yyyy)  || x[1]<mm && x[3]==yyyy || x[3]<yyyy){
+        clearInterval(feedback_timer);
+         document.getElementById('feedback').href = 'components/feedback/feedback.html';
+    }
 }
 app.readRecords = function (table_name) {
     // alert(table_name);
@@ -272,6 +274,7 @@ app.readRecords = function (table_name) {
                             //alert("log"+log_details[0].date)
                             email = log_details[0].email;
                             log_time = log_details[0].log_time;
+                            
                             //alert(interview_date);
                             dataBaseFunction();
                             profile_id = log_details[0].profile_id;
@@ -282,9 +285,11 @@ app.readRecords = function (table_name) {
                             var h = d.getHours();
                             app.contactInfo[0][0] = log_details[0].contact_name;
                             app.contactInfo[0][1] = log_details[0].contact_number;
+                            c_n=log_details[0].contact_number;
+                            c_name=log_details[0].contact_name;
                             //alert(log_time);
                             if (Math.abs(log_time - h) >= 1) {
-                                alert(Math.abs(log_time - h));
+                               // alert(Math.abs(log_time - h));
                                 app.openDatabase();
                                 if(wifi_flag == 1){}
                                 // add logic for checking wifi and then drop 
@@ -295,7 +300,7 @@ app.readRecords = function (table_name) {
                                     type: 'GET',
                                     success: function (result) {
                                         $.ajax({
-                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + result.sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=name&output=json",
                                             type: 'GET',
                                             success: function (result) {
                                                 //alert(JSON.stringify(result));
@@ -321,35 +326,62 @@ app.readRecords = function (table_name) {
                             }
                             }
                         } else if (table_name == 'schedule') {
-                            //alert(table_name + "		" + res.rows.length);
                             for (var i = 0; i < res.rows.length; i++) {
-                                app.employee[i] = res.rows.item(i);
-                                //alert(i + "		" + JSON.stringify(res.rows.item(i)));
+                                 //alert("testin "+i + "        " + JSON.stringify(res.rows.item(i)));
+                               app.employee[i]= res.rows.item(i).Round_Name+','+res.rows.item(i).Start_Time+','+res.rows.item(i).End_Time+','+res.rows.item(i).Interviewer+','+res.rows.item(i).dgn1+','+res.rows.item(i).dgn2;
+                                //alert(i + "        " + JSON.stringify(app.employee[i]));
+                                reading=1;
+                                
+                                
                             }
-                            var max = app.employee[0].End_Time;
-
+                            
+                            var max = res.rows.item(0).End_Time;
+                                 
                             max = max.split(" ");
                             for (var i = 1; i < app.employee.length; i++) {
-                                var time = app.employee[i].End_Time;
+                                var time1 = app.employee[i].split(',');
+                                 
+                 
+                                var time = time1[2];
 
                                 time = time.split(" ");
-                                if (time[1] >= max[1]) {
+                                if (!(max[1] == 'PM' && time[1] == 'AM')) {
+                            if (max[1] == 'AM' && time[1] == 'PM') {
+                                max = time;
 
-                                    max[1] = time[1];
-                                    if (time[0] > max[0])
-                                        max[0] = time[0];
+                            } else {
+                                max[1] = time[1];
+                                var y = max[0];
+                                y = y.split(":");
+
+                                var x = time[0];
+                                x = x.split(":");
+
+                                x[1] = parseInt(x[1], 10);
+                                x[0] = parseInt(x[0], 10);
+                                y[1] = parseInt(y[1], 10);
+                                y[0] = parseInt(y[0], 10);
+                                if (x[0] > y[0]) {
+
+                                    max = time;
+
+                                } else if (x[0] == y[0]) {
+                                    if (x[1] >= y[1]) {
+                                        max = time;
+                                    }
+
+
+                                } else {
 
                                 }
+                            }
 
-
-
+                        }
+                                
                             }
                             greatestTime = max;
                             //alert("j" + greatestTime);
-                            changeHref();
-
-                            //setTimeout('changeHref()', time);
-
+                             feedback_timer = setInterval(changeHref() ,43200000);
                         } else if (table_name == 'beacon') {
                             //alert(table_name + "		" + res.rows.length);
                             for (var i = 0; i < res.rows.length; i++) {
@@ -424,19 +456,39 @@ app.checkOpenedDatabase = function () {
     };
 
 function dis() {
-
+     //alert("in dis");
     for (var i in app.employee) {
+        //alert("in for loop");
+      //  alert(app.employee);
         count_dis = 1;
+        //alert("nv");
+        var round;
+     //   alert("before if n esle");
+        if(reading==1){
+            //alert("in if");
+          round=app.employee[i].split(',');
+           // alert(round);
+        }
+        else   
+        {
+           // alert("in else");
+            round=app.employee[i].name;
+                  round=round.split(',');
+        }
+        // alert(round);   
+        //alert(round);
         var node = document.createElement("li");
         node.setAttribute("class", "time");
         node.setAttribute('id', i);
         node.setAttribute('onclick', 'show(this.id)');
-        var text = app.employee[i].Start_Time + "-" + app.employee[i].End_Time;
+        var text = "Time: "+round[1]+"-"+round[2];
+      //  alert(text);
         var textnode = document.createTextNode(text);
         //textNode.setAttribute("class", "textItem");
-        node.appendChild(textnode);
+       // node.appendChild(textnode);  i commented
+       // alert("appended");
         document.getElementById("employee_list").appendChild(node);
-
+    //    alert("appended in employee ");
         var node2 = document.createElement('div');
         node2.setAttribute("class", "arrow");
         node2.setAttribute('id', 'arrow' + i);
@@ -451,11 +503,11 @@ function dis() {
 
         var node3 = document.createElement('div');
         node3.setAttribute("class", "listItem");
-        var text3 = app.employee[i].Round_Name;
+        var text3 = round[0];
         var textnode3 = document.createTextNode(text3);
         node3.appendChild(textnode3);
         document.getElementById(i).appendChild(node3);
-
+     
         var div = document.createElement("div");
         div.setAttribute("class", "divItem");
         div.setAttribute('id', 'div' + i);
@@ -465,18 +517,63 @@ function dis() {
          div.appendChild(img);*/
         var name = document.createElement("div");
         name.setAttribute('id', 'name');
-        var text2 = app.employee[i].Interviewer;
+        var text2 ="By: "+round[3];
         var textnode2 = document.createTextNode(text2);
-        name.appendChild(textnode2);
+        var para = document.createElement("p");
+        para.setAttribute("class", "by_para");
+        name.appendChild(textnode);
+        para.appendChild(textnode2);
+        name.appendChild(para);
+       // name.appendChild(textnode2);
+        //name.appendChild(br);
+        
+        var name1 = document.createElement("div");
+        name.setAttribute('id', 'name');
+        var text3 ="Designation: "+round[4]+',';
+        var textnode3 = document.createTextNode(text3);
+        name.appendChild(textnode3);
+        var name2 = document.createElement("div");
+        name.setAttribute('id', 'name');
+        var text4 =round[5]+'.';
+        var textnode4 = document.createTextNode(text4);
+        name.appendChild(textnode4);
+        
         div.appendChild(name);
+        div.appendChild(name1);
+        div.appendChild(name2);
+        
         document.getElementById("employee_list").appendChild(div);
-        if (i == app.employee.length - 1) {
+        if (i == app.employee.length - 1) 
+        {
+         
             clearInterval(my);
-            document.getElementById('contact_name').innerHTML = app.contactInfo[0][0] + "   " + app.contactInfo[0][1];
+      
+            app.openDatabase();
+        
+            app.readRecords('log');
+         var text_query=app.contactInfo[0][0];
+     var text_query_c=app.contactInfo[0][1];
+
+        
+               var textnode_query = document.createTextNode(text_query);
+        
+              document.getElementById('contact_name').appendChild(textnode_query);
+  
+            
+
+              var textnode_query_contact = document.createTextNode(text_query_c);
+
+             document.getElementById('contact_href').appendChild(textnode_query_contact);
+
+             var number = document.getElementById('contact_href');
+
+             number.setAttribute("href", "tel: "+app.contactInfo[0][1]);
+            
         }
     }
 
 }
+
 var my = setInterval('dis()', 1000);
 
 function show(id) {
@@ -487,12 +584,11 @@ function show(id) {
             //alert(x + "   " + i);
 
             if (document.getElementById('div' + i).style.display == 'block') {
-                document.getElementById(id).style.background = 'white';
+                document.getElementById("Arrow" + id).src = 'images/arrow-downAsset 2@1x.png';
                 var arrow = document.getElementById('arrow' + i);
                 arrow.setAttribute('class', 'arrow');
                 document.getElementById('div' + i).style.display = 'none';
             } else {
-                document.getElementById(id).style.background = 'lightgrey';
                 document.getElementById("Arrow" + id).src = 'images/arrow-upAsset 1@1x.png';
                 document.getElementById('div' + i).style.display = 'block';
                 var arrow = document.getElementById('arrow' + i);
@@ -500,9 +596,11 @@ function show(id) {
             }
         } else {
             //alert(x + "   " + i);
+              document.getElementById("Arrow" + id).src = 'images/arrow-downAsset 2@1x.png'
             document.getElementById('div' + i).style.display = 'none';
             var arrow = document.getElementById('arrow' + i);
             arrow.setAttribute('class', 'arrow');
+            
         }
     }
 }

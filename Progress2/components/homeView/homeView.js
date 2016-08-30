@@ -1,11 +1,5 @@
 $body = $("body");
 
-$(document).on({
-    ajaxStart: function() {$body.addClass("loading");   },
-     ajaxStop: function() {$body.removeClass("loading"); }    
-});
-
-
 function validate(email_validate) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email_validate);
@@ -22,7 +16,22 @@ function dataBaseFunction() {
     app.insertRecord('test');
     app.readRecords('test');
 }
-
+function toast(){
+    
+    
+    if(app && app.mobileApp){
+         app.mobileApp.navigate("components/schedule/schedule.html");
+    }
+    alert("toast here");
+    var x = document.getElementById("snackbar")
+    alert("milgaya");
+    // Add the "show" class to DIV
+    x.className = "show";
+    alert("class mil");
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 9000);
+    alert("came out");
+}
 function authenticate() {
     var flag = validate(document.getElementById('email_box').value);
     if (flag) {
@@ -67,7 +76,7 @@ function authenticate() {
                                            url: "https://www.rollbase.com/rest/api/selectQuery?sessionId="+sessionId+"&query="+selectquery+"&maxRows=1000"+"&output=json",
                                            type: 'GET',
                                            success: function (result) {
-                                               alert(JSON.stringify(result[0][0]));
+                                               //alert(JSON.stringify(result[0][0]));
                                                app.contactInfo=result;
                                                 app.insertRecord('log');
                                         profileDisplay2();
@@ -80,7 +89,7 @@ function authenticate() {
                                         //myfun();
 
                                         $.ajax({
-                                            url: "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=Round_Name,Interviewer,Start_Time,End_Time" + "&output=json",
+                                            url:  "https://www.rollbase.com/rest/api/getRelationships?sessionId=" + sessionId + "&objName=Profile2&id=" + profile_id + "&relName=R257829363&fieldList=name&output=json",
                                             type: 'GET',
                                             success: function (result) {
                                                 //alert(JSON.stringify(result));
@@ -104,8 +113,8 @@ function authenticate() {
                                                 //app.openDatabase();
 
                                                 app.beaconRegions = result;
-                                                alert("about to display beacons table content");
-                                                alert(JSON.stringify(app.beaconRegions));
+                                            //   alert("about to display beacons table content");
+                                             //   alert(JSON.stringify(app.beaconRegions));
                                                 app.insertRecord('beacon');
                                                 
                                             },
@@ -165,7 +174,7 @@ AppUtils.getUUID = function (profileId) {
 }
 
 function myfun() {
-   alert("sush called ");
+  //alert("sush called ");
     var delegate, region, beaconRegion;
     // var x = '00000000-0000-0000-0000-000' + profile_id;
     window.locationManager = cordova.plugins.locationManager;

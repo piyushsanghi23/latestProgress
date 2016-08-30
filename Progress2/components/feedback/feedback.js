@@ -34,12 +34,16 @@ function feedback_smiley_click(id) {
     }
 
 }
+function submitted(){
+    document.getElementById('afterSubmit').style.display = 'block';
+    document.getElementById('beforeSubmit').style.display = 'none';
+}
 
 function submitFeedback() {
     comment = document.getElementById('textArea1').value;
-    document.getElementById('beforeSubmit').style.display = 'none';
     document.getElementById('afterSubmit').style.display = 'block';
-    alert(rating + "			" + comment);
+    document.getElementById('beforeSubmit').style.display = 'none';
+    //alert(rating + "			" + comment);
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
@@ -62,7 +66,7 @@ function submitFeedback() {
                 type: 'POST',
                 success: function (result) {
 
-                    alert('sucess:' + JSON.stringify(result));
+                   // alert('sucess:' + JSON.stringify(result));
                 },
                 error: function (result) {
                     alert('error:' + JSON.stringify(result));

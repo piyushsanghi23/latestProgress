@@ -10,32 +10,32 @@ ul {
 
 ul li.a:before
 {
-    content: "\f133";
+    content: "\2022";
        /* any design */
 }
 ul li.b:before
 {
-    content: "\f015";
+    content: "\2022";
        /* any design */
 }
 ul li.c:before
 {
-    content: "\f015";
+    content: "\2022";
        /* any design */
 }
 ul li.d:before
 {
-    content: "\f015";
+    content: "\2022";
        /* any design */
 }
 ul li.e:before
 {
-    content: "\f015";
+    content: "\2022";
        /* any design */
 }
 ul li.f:before
 {
-    content: "\f015";
+    content: "\2022";
        /* any design */
 }
 

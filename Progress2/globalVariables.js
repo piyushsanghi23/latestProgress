@@ -36,3 +36,6 @@ var appState = [{
 }]
 var flag_img = [0, 0, 0, 0];
 var url_video = "xxx" ;
+var reading=0;
+var feedback_changed=0;
+var c_n,c_name;

@@ -30,7 +30,7 @@
 p.bold_txt {
     color:white;
     text-align: center;
-    padding-top: 63%;
+    padding-top: 67%;
     font-size: 20px;
    
 }
@@ -44,7 +44,7 @@ p.thin_txt {
 @media (orientation: landscape) {
     .img_guide {
     /* margin-top: 88px; */
-    width: 34%;
+        display:none;
     
 }
     .img_guide_pre{
@@ -61,14 +61,14 @@ p.thin_txt {
     width: 28%;
     position: absolute;
     margin: auto;
-    top: 88%;
+    top: 60%;
     left: 0;
     right: 0;
-  /*  bottom: 40px;*/
+    /* bottom: 40px; */
 }
 p.bold_txt {
    
-        padding-top: 24%;
+        padding-top: 3%;
     color: white;
     font-size: 20px;
    

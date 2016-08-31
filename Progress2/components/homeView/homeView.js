@@ -22,15 +22,13 @@ function toast(){
     if(app && app.mobileApp){
          app.mobileApp.navigate("components/schedule/schedule.html");
     }
-    alert("toast here");
+  
     var x = document.getElementById("snackbar")
-    alert("milgaya");
     // Add the "show" class to DIV
     x.className = "show";
-    alert("class mil");
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2400);
-    alert("came out");
+ 
 }
 function authenticate() {
     var flag = validate(document.getElementById('email_box').value);

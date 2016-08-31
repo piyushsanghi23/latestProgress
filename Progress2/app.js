@@ -22,7 +22,7 @@ var app = {
     var bootstrap = function () {
         $(function () {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                skin: 'nova', //flat
+                skin: 'nova',
                 initial: 'components/homeView/view.html'
             });
         });
@@ -34,7 +34,7 @@ var app = {
             
             document.addEventListener("offline", onOffline, false);
             if (window.navigator.simulator != true) {
-                //alert("my"+cordova.plugins.locationManager.isBluetoothEnabled());
+                
                 cordova.plugins.locationManager.isBluetoothEnabled()
                     .then(function (isEnabled) {
                         console.log("isEnabled: " + isEnabled);
@@ -68,24 +68,16 @@ var app = {
                     document.getElementById('note_wifi_feed').style.display = 'none';
                 }, 3000);
                 if (count == 1 && count_dis == 0) {
-                    //alert("offline");
                     app.openDatabase();
                     app.readRecords('test');
                     app.readRecords('schedule');
                     app.readRecords('beacon');
                     app.startScanForBeacons();
-                    //app.dropTable();
                     count++;
                 }
             }
-           /* setTimeout(function () {
-                //alert("P");
-                document.getElementById('feedback').href = 'components/homeView/view.html';
-            }, 10000);*/
+         
             app.openDatabase();
-             //app.dropTable('log');
-            //app.dropTable('schedule');
-            //app.dropTable('beacon');
             app.countRecords();
             if (navigator && navigator.splashscreen) {
                 //alert("deviceReady");
@@ -105,11 +97,6 @@ var app = {
             }
 
             bootstrap();
-            //app.readRecords('beacon');
-            //startVuforia();
-            //setTimeout(authenticate(),5000);
-
-            //advertise();
 
         }, false);
 
@@ -147,8 +134,7 @@ var app = {
 
     };
     
-    //deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
-    // document.addEventListener("backbutton", onBackKeyDown, false);
+   
 
 }());
 

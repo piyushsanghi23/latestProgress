@@ -291,7 +291,6 @@ app.readRecords = function (table_name) {
                                 // alert(Math.abs(log_time - h));
                                 app.openDatabase();
                                 if (wifi_flag == 1) {}
-                                // add logic for checking wifi and then drop 
                                 else {
                                     app.dropTable('schedule');
                                     $.ajax({
@@ -455,37 +454,33 @@ app.checkOpenedDatabase = function () {
     };
 
 function dis() {
-    //alert("in dis");
+   
     for (var i in app.employee) {
-        //alert("in for loop");
-        //  alert(app.employee);
+       
         count_dis = 1;
-        //alert("nv");
+      
         var round;
-        //   alert("before if n esle");
+        
         if (reading == 1) {
-            //alert("in if");
+          
             round = app.employee[i].split(',');
-            // alert(round);
+           
         } else {
-            // alert("in else");
+         
             round = app.employee[i].name;
             round = round.split(',');
         }
-        // alert(round);   
-        //alert(round);
+       
         var node = document.createElement("li");
         node.setAttribute("class", "time");
         node.setAttribute('id', i);
         node.setAttribute('onclick', 'show(this.id)');
         var text = "Time: " + round[1] + "-" + round[2];
-        //  alert(text);
+       
         var textnode = document.createTextNode(text);
-        //textNode.setAttribute("class", "textItem");
-        // node.appendChild(textnode);  i commented
-        // alert("appended");
+      
         document.getElementById("employee_list").appendChild(node);
-        //    alert("appended in employee ");
+   
         var node2 = document.createElement('div');
         node2.setAttribute("class", "arrow");
         node2.setAttribute('id', 'arrow' + i);
@@ -494,8 +489,6 @@ function dis() {
         img.setAttribute("id", "Arrow" + i);
         img.setAttribute('src', 'images/arrow-downAsset 2@1x.png');
         node2.appendChild(img);
-        //var textnode1 = document.createTextNode(text1);
-        //node2.appendChild(img);
         document.getElementById(i).appendChild(node2);
 
         var node3 = document.createElement('div');
@@ -508,10 +501,6 @@ function dis() {
         var div = document.createElement("div");
         div.setAttribute("class", "divItem");
         div.setAttribute('id', 'div' + i);
-        /* var img = document.createElement('img');
-         img.setAttribute("class", "imgItem");
-         img.setAttribute('src', emp[i].image);
-         div.appendChild(img);*/
         var name = document.createElement("div");
         name.setAttribute('id', 'name');
         var text2 = "By: " + round[3];
@@ -521,9 +510,6 @@ function dis() {
         name.appendChild(textnode);
         para.appendChild(textnode2);
         name.appendChild(para);
-        // name.appendChild(textnode2);
-        //name.appendChild(br);
-
         var name1 = document.createElement("div");
         name.setAttribute('id', 'name');
         var text3 = "Designation: " + round[4] + ',';
@@ -579,7 +565,7 @@ function show(id) {
 
 
             if (document.getElementById('div' + i).style.display == 'block') {
-                alert("came in if")
+               
                 document.getElementById("Arrow" + id).src = 'images/arrow-downAsset 2@1x.png';
 
 
